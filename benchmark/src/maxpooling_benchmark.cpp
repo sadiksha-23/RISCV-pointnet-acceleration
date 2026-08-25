@@ -32,9 +32,9 @@ void maxpool_cpu(int b, int n, int k, int c, const float *input_features, float 
 }
 
 int main() {
-    int b = 32;   // batch size
-    int n = 1024; // number of points
-    int k = 32;   // neighbors per point (nsample)
+    int b = 1;   // batch size
+    int n = 32; // number of points
+    int k = 8;   // neighbors per point (nsample)
     int c = 64;   // feature channels
 
     int total_input_elements = b * n * k * c;

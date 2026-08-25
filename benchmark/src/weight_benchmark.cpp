@@ -22,8 +22,8 @@ void get_weights_cpu(int b, int n, const float *dist, float *weight) {
 }
 
 int main() {
-    int b = 32;   // batch size
-    int n = 1024; // target points per batch
+    int b = 1;   // batch size
+    int n = 32; // target points per batch
 
     int total_elements = b * n * 3;
 

@@ -37,11 +37,12 @@ void conv2d_mlp_bn_relu_cpu(int b, int n, int k, int c_in, int c_out,
 }
 
 int main() {
-    int b     = 32;       // batch size
-    int n     = 1024;     // target points
-    int k     = 32;       // neighbors per point (nsample)
-    int c_in  = 64;       // input feature channels
-    int c_out = 128;      // output feature channels
+    // 5, 1024, 32, 64, 128
+    int b     = 1;        // Batch size set to 5
+    int n     = 32;     // Target points
+    int k     = 8;       // Neighbors per point (nsample)
+    int c_in  = 64;       // Input feature channels
+    int c_out = 128;      // Output feature channels
 
     int total_points = b * n * k;
 
@@ -60,7 +61,7 @@ int main() {
 
     // Fast deterministic setup (Zero rand() overhead)
     for (int i = 0; i < total_points * c_in; i++) X[i] = (float)(i % 100) * 0.01f;
-    for (int i = 0; i < c_in * c_out; i++)        W[i] = (float)(i % 50) * 0.02f;
+    for (int i = 0; i < c_in * c_out; i++)         W[i] = (float)(i % 50) * 0.02f;
     for (int i = 0; i < c_out; i++) {
         bias[i]  = 0.01f;
         mean[i]  = 0.05f;

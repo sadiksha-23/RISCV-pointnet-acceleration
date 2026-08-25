@@ -32,9 +32,9 @@ void interpolate_cpu(int b, int m, int c, int n, const float *points, const int 
 }
 
 int main() {
-    int b = 32;   // batch size
-    int n = 1024; // target points per batch
-    int m = 128;  // candidate points per batch
+    int b = 1;   // batch size
+    int n = 32; // target points per batch
+    int m = 8;  // candidate points per batch
     int c = 64;   // feature channels per point
 
     // Allocating memory

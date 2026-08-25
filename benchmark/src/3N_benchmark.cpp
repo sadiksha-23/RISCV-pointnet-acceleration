@@ -64,9 +64,9 @@ void threenn_cpu(int b, int n, int m, const float *xyz1, const float *xyz2, floa
 } 
 
 int main() {
-    int b = 32;   // batch size
-    int n = 1024; // target points per batch
-    int m = 128;  // candidate points per batch
+    int b = 1;   // batch size
+    int n = 32; // target points per batch
+    int m = 8;  // candidate points per batch
 
     // allocating memory
     float *xyz1 = new float[b * n * 3];

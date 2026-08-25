@@ -102,7 +102,7 @@ void interpolate_cpu(int b, int m, int c, int n, const float *points, const int 
 }
 
 int main() {
-    int b = 32, n = 1024, m = 128, c = 64;
+    int b = 1, n = 32, m = 8, c = 64;
 
     float *xyz1   = new float[b * n * 3];
     float *xyz2   = new float[b * m * 3];

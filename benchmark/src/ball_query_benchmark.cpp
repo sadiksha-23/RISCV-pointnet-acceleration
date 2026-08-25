@@ -62,10 +62,10 @@ void group_point(int b, int n, int c, int m, int nsample, const float *points, c
 }
 
 int main() {
-    int b       = 32;
-    int n       = 1024;
-    int m       = 128;
-    int nsample = 32;
+    int b       = 1;
+    int n       = 32;
+    int m       = 8;
+    int nsample = 8;
     int c       = 64;
     float radius = 0.2f;
 

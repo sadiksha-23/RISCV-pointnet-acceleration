@@ -63,7 +63,7 @@ void gatherPoint (int b, int n, int m, const float * __restrict__ inp, const int
 }
 
 int main() {
-    int b = 32, n = 1024, m = 128;
+    int b = 1, n = 32, m = 8;
 
     // Memory allocation
     float *dataset = new float[b * n * 3]; // Input 3D points

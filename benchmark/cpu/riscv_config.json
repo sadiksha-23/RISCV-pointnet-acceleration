@@ -2569,7 +2569,7 @@
                                 "name": "workload",
                                 "path": "board.processor.cores.core.workload",
                                 "cmd": [
-                                    "weight_benchmark_scalar.riscv"
+                                    "weight_riscv_benchmark.riscv"
                                 ],
                                 "cwd": "/mnt/c/Users/lsadi/Documents/PCD Research",
                                 "drivers": [],
@@ -2578,7 +2578,7 @@
                                 "errout": "cerr",
                                 "euid": 100,
                                 "eventq_index": 0,
-                                "executable": "weight_benchmark_scalar.riscv",
+                                "executable": "weight_riscv_benchmark.riscv",
                                 "gid": 100,
                                 "input": "cin",
                                 "kvmInSE": false,

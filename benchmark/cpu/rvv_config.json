@@ -2499,7 +2499,7 @@
                         "numPhysIntRegs": 128,
                         "numPhysMatRegs": 2,
                         "numPhysVecPredRegs": 32,
-                        "numPhysVecRegs": 64,
+                        "numPhysVecRegs": 256,
                         "numROBEntries": 192,
                         "numRobs": 1,
                         "numThreads": 1,
@@ -2569,7 +2569,7 @@
                                 "name": "workload",
                                 "path": "board.processor.cores.core.workload",
                                 "cmd": [
-                                    "weight_rvv.riscv"
+                                    "weight_benchmark_rvv.riscv"
                                 ],
                                 "cwd": "/mnt/c/Users/lsadi/Documents/PCD Research",
                                 "drivers": [],
@@ -2578,7 +2578,7 @@
                                 "errout": "cerr",
                                 "euid": 100,
                                 "eventq_index": 0,
-                                "executable": "weight_rvv.riscv",
+                                "executable": "weight_benchmark_rvv.riscv",
                                 "gid": 100,
                                 "input": "cin",
                                 "kvmInSE": false,

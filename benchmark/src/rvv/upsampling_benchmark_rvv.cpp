@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <cstring>
 #include <cmath>
+#include <algorithm>
 #include <riscv_vector.h>
 
 extern "C" {
@@ -13,28 +14,23 @@ void threenn_rvv(int b, int n, int m, const float *xyz1, const float *xyz2, floa
 
     for (int i = 0; i < b; ++i) {
         for (int j = 0; j < n; ++j) {
-            // Target point coordinates (x1, y1, z1)
             float x1 = xyz1[j * 3 + 0];
             float y1 = xyz1[j * 3 + 1];
             float z1 = xyz1[j * 3 + 2];
 
-            // Initialize top-3 best distances and their indices
             float best1 = 1e38f, best2 = 1e38f, best3 = 1e38f;
             int besti1 = 0, besti2 = 0, besti3 = 0;
 
             int rem_m = m;
             int k_base = 0;
 
-            // Process source candidate points in vector chunks
             for (size_t vl; rem_m > 0; rem_m -= vl, k_base += vl) {
                 vl = __riscv_vsetvl_e32m1(rem_m);
 
-                // Load candidate points (x2, y2, z2)
                 vfloat32m1_t vx2 = __riscv_vlse32_v_f32m1(xyz2 + k_base * 3 + 0, stride, vl);
                 vfloat32m1_t vy2 = __riscv_vlse32_v_f32m1(xyz2 + k_base * 3 + 1, stride, vl);
                 vfloat32m1_t vz2 = __riscv_vlse32_v_f32m1(xyz2 + k_base * 3 + 2, stride, vl);
 
-                // Compute squared Euclidean distance: d = (x1-x2)^2 + (y1-y2)^2 + (z1-z2)^2
                 vfloat32m1_t vdx = __riscv_vfsub_vf_f32m1(vx2, x1, vl);
                 vfloat32m1_t vdy = __riscv_vfsub_vf_f32m1(vy2, y1, vl);
                 vfloat32m1_t vdz = __riscv_vfsub_vf_f32m1(vz2, z1, vl);
@@ -43,7 +39,6 @@ void threenn_rvv(int b, int n, int m, const float *xyz1, const float *xyz2, floa
                 vd = __riscv_vfmacc_vv_f32m1(vd, vdy, vdy, vl);
                 vd = __riscv_vfmacc_vv_f32m1(vd, vdz, vdz, vl);
 
-                // Store chunk distances to inspect top 3 nearest
                 float d_buf[vl];
                 __riscv_vse32_v_f32m1(d_buf, vd, vl);
 
@@ -64,7 +59,6 @@ void threenn_rvv(int b, int n, int m, const float *xyz1, const float *xyz2, floa
                 }
             }
 
-            // Save top 3 distances and indices for point j
             dist[j * 3 + 0] = best1;  idx[j * 3 + 0] = besti1;
             dist[j * 3 + 1] = best2;  idx[j * 3 + 1] = besti2;
             dist[j * 3 + 2] = best3;  idx[j * 3 + 2] = besti3;
@@ -77,17 +71,49 @@ void threenn_rvv(int b, int n, int m, const float *xyz1, const float *xyz2, floa
     }
 }
 
-// 2. Vectorized Uniform Weights Setup
+// 2. Vectorized Inverse Distance Weighting: w_k = (1/d_k) / sum(1/d_j)
 void get_weights_rvv(int b, int n, const float *dist, float *weight) {
-    const float w = 1.0f / 3.0f;
-    int total_weights = b * n * 3;
-    int offset = 0;
+    const ptrdiff_t stride = 3 * sizeof(float);
+    const float eps = 1e-10f;
 
-    // Fill the weight array with 1/3 in vector chunks
-    for (size_t vl; total_weights > 0; total_weights -= vl, offset += vl) {
-        vl = __riscv_vsetvl_e32m1(total_weights);
-        vfloat32m1_t vw = __riscv_vfmv_v_f_f32m1(w, vl);
-        __riscv_vse32_v_f32m1(weight + offset, vw, vl);
+    for (int i = 0; i < b; ++i) {
+        const float *curr_dist = dist + (i * n * 3);
+        float *curr_weight = weight + (i * n * 3);
+        int rem_n = n;
+
+        for (size_t vl; rem_n > 0; rem_n -= vl, curr_dist += vl * 3, curr_weight += vl * 3) {
+            vl = __riscv_vsetvl_e32m1(rem_n);
+
+            // Strided load for 3 neighbor distances across points
+            vfloat32m1_t vd0 = __riscv_vlse32_v_f32m1(curr_dist + 0, stride, vl);
+            vfloat32m1_t vd1 = __riscv_vlse32_v_f32m1(curr_dist + 1, stride, vl);
+            vfloat32m1_t vd2 = __riscv_vlse32_v_f32m1(curr_dist + 2, stride, vl);
+
+            // Guard against division by zero: max(d, eps)
+            vfloat32m1_t veps = __riscv_vfmv_v_f_f32m1(eps, vl);
+            vd0 = __riscv_vfmax_vv_f32m1(vd0, veps, vl);
+            vd1 = __riscv_vfmax_vv_f32m1(vd1, veps, vl);
+            vd2 = __riscv_vfmax_vv_f32m1(vd2, veps, vl);
+
+            // Inverse distance: w = 1.0f / d
+            vfloat32m1_t vw0 = __riscv_vfrdiv_vf_f32m1(vd0, 1.0f, vl);
+            vfloat32m1_t vw1 = __riscv_vfrdiv_vf_f32m1(vd1, 1.0f, vl);
+            vfloat32m1_t vw2 = __riscv_vfrdiv_vf_f32m1(vd2, 1.0f, vl);
+
+            // Sum of inverse distances: sum = w0 + w1 + w2
+            vfloat32m1_t vsum = __riscv_vfadd_vv_f32m1(vw0, vw1, vl);
+            vsum = __riscv_vfadd_vv_f32m1(vsum, vw2, vl);
+
+            // Normalize weights
+            vw0 = __riscv_vfdiv_vv_f32m1(vw0, vsum, vl);
+            vw1 = __riscv_vfdiv_vv_f32m1(vw1, vsum, vl);
+            vw2 = __riscv_vfdiv_vv_f32m1(vw2, vsum, vl);
+
+            // Strided store back to weight buffer
+            __riscv_vsse32_v_f32m1(curr_weight + 0, stride, vw0, vl);
+            __riscv_vsse32_v_f32m1(curr_weight + 1, stride, vw1, vl);
+            __riscv_vsse32_v_f32m1(curr_weight + 2, stride, vw2, vl);
+        }
     }
 }
 
@@ -115,7 +141,6 @@ void interpolate_rvv(int b, int m, int c, int n, const float *points, const int 
             for (size_t vl; rem_c > 0; rem_c -= vl, c_offset += vl) {
                 vl = __riscv_vsetvl_e32m1(rem_c);
 
-                // Load feature slices for the 3 nearest neighbors
                 vfloat32m1_t vf1 = __riscv_vle32_v_f32m1(p1 + c_offset, vl);
                 vfloat32m1_t vf2 = __riscv_vle32_v_f32m1(p2 + c_offset, vl);
                 vfloat32m1_t vf3 = __riscv_vle32_v_f32m1(p3 + c_offset, vl);
@@ -125,7 +150,6 @@ void interpolate_rvv(int b, int m, int c, int n, const float *points, const int 
                 v_out = __riscv_vfmacc_vf_f32m1(v_out, w2, vf2, vl);
                 v_out = __riscv_vfmacc_vf_f32m1(v_out, w3, vf3, vl);
 
-                // Write interpolated channel vector to output
                 __riscv_vse32_v_f32m1(out_pt + c_offset, v_out, vl);
             }
         }

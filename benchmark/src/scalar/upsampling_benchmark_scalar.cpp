@@ -1,12 +1,13 @@
 #include <cstdio>
 #include <cstring>
 #include <cmath>
+#include <algorithm>
 
 extern "C" {
     #include <gem5/m5ops.h>
 }
 
-// Find three nearest neighbors with square distance
+// 1. Find 3 nearest neighbors with square distance
 // input: xyz1 (b,n,3), xyz2(b,m,3)
 // output: dist (b,n,3), idx (b,n,3)
 void threenn_cpu(int b, int n, int m, const float *xyz1, const float *xyz2, float *dist, int *idx) {
@@ -60,22 +61,34 @@ void threenn_cpu(int b, int n, int m, const float *xyz1, const float *xyz2, floa
     }
 } 
 
-// CONSTANT WEIGHT
+// 2. INVERSE DISTANCE WEIGHTING
 // input: dist (b,n,3)
 // output: weight (b,n,3)
 void get_weights_cpu(int b, int n, const float *dist, float *weight) {
-    const float w = 1.0f / 3.0f;
+    const float eps = 1e-10f;
     for (int i = 0; i < b; ++i) {
         for (int j = 0; j < n; ++j) {
-            weight[j * 3 + 0] = w;
-            weight[j * 3 + 1] = w;
-            weight[j * 3 + 2] = w;
+            float d0 = dist[j * 3 + 0];
+            float d1 = dist[j * 3 + 1];
+            float d2 = dist[j * 3 + 2];
+
+            // Compute inverse distance with numerical safety epsilon
+            float w0 = 1.0f / std::max(d0, eps);
+            float w1 = 1.0f / std::max(d1, eps);
+            float w2 = 1.0f / std::max(d2, eps);
+
+            // Normalize weights so they sum to 1.0
+            float sum = w0 + w1 + w2;
+            weight[j * 3 + 0] = w0 / sum;
+            weight[j * 3 + 1] = w1 / sum;
+            weight[j * 3 + 2] = w2 / sum;
         } 
         dist   += n * 3;
         weight += n * 3;
     }
 }
 
+// 3. FEATURE INTERPOLATION
 // input: points (b,m,c), idx (b,n,3), weight (b,n,3)
 // output: out (b,n,c)
 void interpolate_cpu(int b, int m, int c, int n, const float *points, const int *idx, const float *weight, float *out) {
@@ -114,7 +127,7 @@ int main() {
 
     memset(idx, 0, sizeof(int) * b * n * 3);
 
-    // Fast deterministic setup (Zero rand() overhead)
+    // Fast deterministic setup
     for (int i = 0; i < b * n * 3; i++) xyz1[i]   = (float)(i % 100) * 0.01f;
     for (int i = 0; i < b * m * 3; i++) xyz2[i]   = (float)(i % 50) * 0.02f;
     for (int i = 0; i < b * m * c; i++) points[i] = (float)(i % 200) * 0.005f;
@@ -130,7 +143,7 @@ int main() {
     // --- DUMP STATS AFTER PIPELINE ---
     m5_dump_stats(0, 0);
 
-    // Demo calculation check (Ensures compiler does not optimize away execution)
+    // Demo calculation check
     printf("FP check output point 0, channel 0: %f\n", out[0]);
 
     // Cleanup memory

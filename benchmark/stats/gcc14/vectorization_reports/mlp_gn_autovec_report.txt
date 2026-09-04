@@ -1,0 +1,58 @@
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:20:23: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:20:23: missed: not vectorized: unsupported control flow in loop.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:21:29: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:21:29: missed: not vectorized: unsupported outerloop form.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:25:33: optimized: loop vectorized using variable length vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:11:6: note: vectorized 1 loops in function.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:26:39: missed: statement clobbers memory: vect__10.24_146 = .MASK_LEN_LOAD (vectp.22_148, 32B, { -1, ... }, _125, 0);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:26:60: missed: statement clobbers memory: vect__16.27_131 = .MASK_LEN_GATHER_LOAD (vectp.25_133, _137, 4, { 0.0, ... }, { -1, ... }, _125, 0);
+/usr/riscv64-linux-gnu/include/c++/14/cmath:443:27: missed: statement clobbers memory: _70 = __builtin_sqrtf (_25);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:34:25: note: ***** Analysis failed with vector mode RVVM1SF
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:34:25: note: ***** The result for vector mode RVVM1QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:34:25: note: ***** The result for vector mode RVVMF2QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:34:25: note: ***** The result for vector mode RVVMF4QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:34:25: note: ***** Re-trying analysis with vector mode RVVMF8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:34:25: note: ***** Analysis failed with vector mode RVVMF8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:34:25: note: ***** Re-trying analysis with vector mode V16QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:34:25: note: ***** Analysis failed with vector mode V16QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:34:25: note: ***** Re-trying analysis with vector mode V8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:34:25: note: ***** Analysis failed with vector mode V8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:34:25: note: ***** Re-trying analysis with vector mode V4QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:34:25: note: ***** Analysis failed with vector mode V4QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:34:25: note: ***** Re-trying analysis with vector mode V2QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:34:25: note: ***** Analysis failed with vector mode V2QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:34:25: note: ***** Re-trying analysis with vector mode V1QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:34:25: note: ***** Analysis failed with vector mode V1QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:65:23: optimized: loop vectorized using variable length vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:64:23: optimized: loop vectorized using variable length vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:63:23: optimized: loop vectorized using variable length vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:39:5: note: vectorized 3 loops in function.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:50:48: missed: statement clobbers memory: _30 = operator new [] (65536);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:51:41: missed: statement clobbers memory: _32 = operator new [] (32768);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:52:34: missed: statement clobbers memory: _34 = operator new [] (512);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:55:35: missed: statement clobbers memory: _36 = operator new [] (512);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:56:35: missed: statement clobbers memory: _38 = operator new [] (512);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:57:35: missed: statement clobbers memory: _40 = operator new [] (512);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:58:35: missed: statement clobbers memory: _42 = operator new [] (512);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:60:46: missed: statement clobbers memory: _44 = operator new [] (131072);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:63:56: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.81_199, 32B, { -1, ... }, _204, 0, vect__6.80_197);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:64:57: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.72_149, 32B, { -1, ... }, _154, 0, vect__12.71_147);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:66:18: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.55_71, 32B, { -1, ... }, _104, 0, { 9.99999977648258209228515625e-3, ... });
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:67:18: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.57_27, 32B, { -1, ... }, _104, 0, { 5.00000007450580596923828125e-2, ... });
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:68:18: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.59_22, 32B, { -1, ... }, _104, 0, { 1.0e+0, ... });
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:69:18: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.61_94, 32B, { -1, ... }, _104, 0, { 1.0e+0, ... });
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:70:18: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.63_99, 32B, { -1, ... }, _104, 0, { 0.0, ... });
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:74:19: missed: statement clobbers memory: m5_reset_stats (0, 0);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:77:27: missed: statement clobbers memory: conv2d_mlp_bn_relu_cpu (1, 32, 8, 64, 128, _30, _32, _34, _36, _38, _40, _42, _44);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:80:18: missed: statement clobbers memory: m5_dump_stats (0, 0);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, "Point 0, Channel 0 final output: %f\n", _21);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:86:14: missed: statement clobbers memory: operator delete [] (_30);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:87:14: missed: statement clobbers memory: operator delete [] (_32);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:88:14: missed: statement clobbers memory: operator delete [] (_34);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:89:14: missed: statement clobbers memory: operator delete [] (_36);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:90:14: missed: statement clobbers memory: operator delete [] (_38);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:91:14: missed: statement clobbers memory: operator delete [] (_40);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:92:14: missed: statement clobbers memory: operator delete [] (_42);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:93:14: missed: statement clobbers memory: operator delete [] (_44);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:93:14: note: ***** Analysis failed with vector mode RVVM1SF
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/mlp_gn_benchmark_scalar.cpp:93:14: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1SF

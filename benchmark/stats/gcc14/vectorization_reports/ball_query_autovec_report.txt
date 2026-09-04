@@ -1,0 +1,79 @@
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:15:23: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:15:23: missed: not vectorized: unsupported control flow in loop.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:16:27: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:16:27: missed: not vectorized: unsupported control flow in loop.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:23:31: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:23:31: missed: not vectorized: unsupported outerloop form.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:34:43: optimized: loop vectorized using variable length vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:12:6: note: vectorized 1 loops in function.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:35:60: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.19_197, 32B, { -1, ... }, _191, 0, vect_cst__201);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:38:47: note: ***** Analysis failed with vector mode RVVM1SF
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:38:47: note: ***** The result for vector mode RVVM1QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:38:47: note: ***** The result for vector mode RVVMF2QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:38:47: note: ***** The result for vector mode RVVMF4QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:38:47: note: ***** Re-trying analysis with vector mode RVVMF8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:38:47: note: ***** Analysis failed with vector mode RVVMF8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:38:47: note: ***** Re-trying analysis with vector mode V16QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:38:47: note: ***** Analysis failed with vector mode V16QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:38:47: note: ***** Re-trying analysis with vector mode V8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:38:47: note: ***** Analysis failed with vector mode V8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:38:47: note: ***** Re-trying analysis with vector mode V4QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:38:47: note: ***** Analysis failed with vector mode V4QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:38:47: note: ***** Re-trying analysis with vector mode V2QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:38:47: note: ***** Analysis failed with vector mode V2QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:38:47: note: ***** Re-trying analysis with vector mode V1QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:38:47: note: ***** Analysis failed with vector mode V1QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:51:23: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:51:23: missed: not vectorized: multiple nested loops.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:52:27: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:52:27: missed: not vectorized: multiple nested loops.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:53:31: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:91: missed: failed: evolution of base is not affine.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:56:35: optimized: loop vectorized using variable length vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:56:35: optimized:  loop versioned for vectorization because of possible aliasing
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:50:6: note: vectorized 1 loops in function.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:91: missed: statement clobbers memory: vect__20.57_48 = .MASK_LEN_LOAD (vectp.55_51, 32B, { -1, ... }, _103, 0);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:62: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.58_25, 32B, { -1, ... }, _103, 0, vect__20.57_48);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:57: note: ***** Analysis failed with vector mode RVVM1SI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:57: note: ***** The result for vector mode RVVM1QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:57: note: ***** The result for vector mode RVVMF2QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:57: note: ***** The result for vector mode RVVMF4QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:57: note: ***** Re-trying analysis with vector mode RVVMF8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:57: note: ***** Analysis failed with vector mode RVVMF8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:57: note: ***** Re-trying analysis with vector mode V16QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:57: note: ***** Analysis failed with vector mode V16QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:57: note: ***** Re-trying analysis with vector mode V8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:57: note: ***** Analysis failed with vector mode V8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:57: note: ***** Re-trying analysis with vector mode V4QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:57: note: ***** Analysis failed with vector mode V4QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:57: note: ***** Re-trying analysis with vector mode V2QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:57: note: ***** Analysis failed with vector mode V2QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:57: note: ***** Re-trying analysis with vector mode V1QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:57:57: note: ***** Analysis failed with vector mode V1QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:86:23: optimized: loop vectorized using variable length vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:85:23: optimized: loop vectorized using 16 byte vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:84:23: optimized: loop vectorized using variable length vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:64:5: note: vectorized 3 loops in function.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:72:45: missed: statement clobbers memory: _29 = operator new [] (384);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:73:45: missed: statement clobbers memory: _31 = operator new [] (96);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:74:45: missed: statement clobbers memory: _33 = operator new [] (8192);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:75:49: missed: statement clobbers memory: _35 = operator new [] (256);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:76:39: missed: statement clobbers memory: _37 = operator new [] (32);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:77:55: missed: statement clobbers memory: _39 = operator new [] (16384);
+/usr/riscv64-linux-gnu/include/bits/string_fortified.h:59:33: missed: statement clobbers memory: __builtin_memset (_35, 0, 256);
+/usr/riscv64-linux-gnu/include/bits/string_fortified.h:59:33: missed: statement clobbers memory: __builtin_memset (_39, 0, 16384);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:84:51: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.116_138, 32B, { -1, ... }, _143, 0, vect__6.115_136);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:86:51: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.106_111, 32B, { -1, ... }, _116, 0, vect__18.105_109);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:89:19: missed: statement clobbers memory: m5_reset_stats (0, 0);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:91:21: missed: statement clobbers memory: query_ball_point (1, 32, 8, 2.0000000298023223876953125e-1, 8, _29, _31, _35, _37);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:92:16: missed: statement clobbers memory: group_point (1, 32, 64, 8, 8, _33, _35, _39);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:95:18: missed: statement clobbers memory: m5_dump_stats (0, 0);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, "Sample check grouped_out[0]: %f\n", _20);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:100:14: missed: statement clobbers memory: operator delete [] (_29);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:101:14: missed: statement clobbers memory: operator delete [] (_31);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:102:14: missed: statement clobbers memory: operator delete [] (_33);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:103:14: missed: statement clobbers memory: operator delete [] (_35);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:104:14: missed: statement clobbers memory: operator delete [] (_37);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:105:14: missed: statement clobbers memory: operator delete [] (_39);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:105:14: note: ***** Analysis failed with vector mode RVVM1SF
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/ball_query_benchmark_scalar.cpp:105:14: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1SF

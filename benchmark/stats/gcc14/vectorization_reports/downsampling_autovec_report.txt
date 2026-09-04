@@ -1,0 +1,136 @@
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:13:23: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:13:23: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:21:27: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:21:27: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:29:31: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:39:17: missed: not vectorized: unsupported use in stmt.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:17:27: optimized: loop vectorized using variable length vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:10:6: note: vectorized 1 loops in function.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:10:6: missed: splitting region at dont-vectorize loop 5 entry at bb33
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:18:21: missed: statement clobbers memory: .MASK_LEN_STORE (vectp_temp.24_131, 32B, { -1, ... }, _125, 0, { 9.9999996802856924650656260769173209088e+37, ... });
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** Analysis failed with vector mode RVVM1SI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** The result for vector mode RVVM1QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** The result for vector mode RVVMF2QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** The result for vector mode RVVMF4QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** Re-trying analysis with vector mode RVVMF8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** Analysis failed with vector mode RVVMF8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** Re-trying analysis with vector mode V16QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** Analysis failed with vector mode V16QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** Re-trying analysis with vector mode V8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** Analysis failed with vector mode V8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** Re-trying analysis with vector mode V4QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** Analysis failed with vector mode V4QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** Re-trying analysis with vector mode V2QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** Analysis failed with vector mode V2QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** Re-trying analysis with vector mode V1QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** Analysis failed with vector mode V1QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: missed: splitting region at dominance boundary bb16
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: note: ***** Analysis failed with vector mode VOID
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:25:42: missed: splitting region at loop 2 exit at bb32
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:21:27: note: ***** Analysis failed with vector mode RVVM1SI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:21:27: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1SI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:21:27: missed: splitting region at dominance boundary bb8
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:21:27: note: ***** Analysis failed with vector mode VOID
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:21:27: missed: splitting region at loop 1 exit at bb27
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:13:23: note: ***** Analysis failed with vector mode VOID
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:13:23: missed: splitting region at dominance boundary bb3
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:13:23: note: ***** Analysis failed with vector mode VOID
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:13:23: note: ***** Analysis failed with vector mode VOID
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:10:6: note: vectorized 0 loops in function.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:10:6: missed: statement clobbers memory: _Z21farthestPointSamplingiiiPKfPfPi.part.0 (b_11(D), n_12(D), m_7(D), dataset_13(D), temp_8(D), idxs_9(D));
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:10:6: note: ***** Analysis failed with vector mode VOID
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:54:23: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:58:63: missed: not vectorized: data ref analysis failed: _16 = *_11;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:55:27: optimized: loop vectorized using variable length vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:53:6: note: vectorized 1 loops in function.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:56:17: missed: statement clobbers memory: vect_a_40.68_122 = .MASK_LEN_LOAD (vectp.66_124, 32B, { -1, ... }, _91, 0);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:53:6: missed: statement clobbers memory: vect_patt_55.71_115 = .MASK_LEN_GATHER_LOAD (_116, vect__8.70_118, 4, { 0.0, ... }, { -1, ... }, _91, 0);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:53:6: missed: statement clobbers memory: vect_patt_142.72_111 = .MASK_LEN_GATHER_LOAD (_112, vect__8.70_118, 4, { 0.0, ... }, { -1, ... }, _91, 0);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:53:6: missed: statement clobbers memory: vect_patt_141.73_107 = .MASK_LEN_GATHER_LOAD (_108, vect__8.70_118, 4, { 0.0, ... }, { -1, ... }, _91, 0);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:60:38: missed: statement clobbers memory: .MASK_LEN_STORE_LANES (vectp.74_102, 32B, { -1, ... }, _91, 0, vect_array.76);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:63:1: note: ***** Analysis failed with vector mode VOID
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:68:23: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:68:23: missed: not vectorized: unsupported control flow in loop.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:69:27: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:69:27: missed: not vectorized: unsupported control flow in loop.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:76:31: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:76:31: missed: not vectorized: unsupported outerloop form.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:87:43: optimized: loop vectorized using variable length vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:65:6: note: vectorized 1 loops in function.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:88:60: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.93_197, 32B, { -1, ... }, _191, 0, vect_cst__201);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:91:47: note: ***** Analysis failed with vector mode RVVM1SF
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:91:47: note: ***** The result for vector mode RVVM1QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:91:47: note: ***** The result for vector mode RVVMF2QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:91:47: note: ***** The result for vector mode RVVMF4QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:91:47: note: ***** Re-trying analysis with vector mode RVVMF8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:91:47: note: ***** Analysis failed with vector mode RVVMF8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:91:47: note: ***** Re-trying analysis with vector mode V16QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:91:47: note: ***** Analysis failed with vector mode V16QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:91:47: note: ***** Re-trying analysis with vector mode V8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:91:47: note: ***** Analysis failed with vector mode V8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:91:47: note: ***** Re-trying analysis with vector mode V4QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:91:47: note: ***** Analysis failed with vector mode V4QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:91:47: note: ***** Re-trying analysis with vector mode V2QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:91:47: note: ***** Analysis failed with vector mode V2QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:91:47: note: ***** Re-trying analysis with vector mode V1QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:91:47: note: ***** Analysis failed with vector mode V1QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:102:23: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:102:23: missed: not vectorized: multiple nested loops.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:103:27: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:103:27: missed: not vectorized: multiple nested loops.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:104:31: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:91: missed: failed: evolution of base is not affine.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:107:35: optimized: loop vectorized using variable length vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:107:35: optimized:  loop versioned for vectorization because of possible aliasing
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:101:6: note: vectorized 1 loops in function.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:91: missed: statement clobbers memory: vect__20.130_48 = .MASK_LEN_LOAD (vectp.128_51, 32B, { -1, ... }, _103, 0);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:62: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.131_25, 32B, { -1, ... }, _103, 0, vect__20.130_48);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:57: note: ***** Analysis failed with vector mode RVVM1SI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:57: note: ***** The result for vector mode RVVM1QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:57: note: ***** The result for vector mode RVVMF2QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:57: note: ***** The result for vector mode RVVMF4QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:57: note: ***** Re-trying analysis with vector mode RVVMF8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:57: note: ***** Analysis failed with vector mode RVVMF8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:57: note: ***** Re-trying analysis with vector mode V16QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:57: note: ***** Analysis failed with vector mode V16QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:57: note: ***** Re-trying analysis with vector mode V8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:57: note: ***** Analysis failed with vector mode V8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:57: note: ***** Re-trying analysis with vector mode V4QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:57: note: ***** Analysis failed with vector mode V4QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:57: note: ***** Re-trying analysis with vector mode V2QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:57: note: ***** Analysis failed with vector mode V2QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:57: note: ***** Re-trying analysis with vector mode V1QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:108:57: note: ***** Analysis failed with vector mode V1QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:139:23: optimized: loop vectorized using variable length vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:138:23: optimized: loop vectorized using variable length vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:115:5: note: vectorized 2 loops in function.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:123:45: missed: statement clobbers memory: _21 = operator new [] (384);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:124:45: missed: statement clobbers memory: _23 = operator new [] (8192);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:125:41: missed: statement clobbers memory: _25 = operator new [] (128);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:126:39: missed: statement clobbers memory: _27 = operator new [] (32);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:127:45: missed: statement clobbers memory: _29 = operator new [] (96);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:128:49: missed: statement clobbers memory: _31 = operator new [] (256);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:129:39: missed: statement clobbers memory: _33 = operator new [] (32);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:130:55: missed: statement clobbers memory: _35 = operator new [] (16384);
+/usr/riscv64-linux-gnu/include/bits/string_fortified.h:59:33: missed: statement clobbers memory: __builtin_memset (_27, 0, 32);
+/usr/riscv64-linux-gnu/include/bits/string_fortified.h:59:33: missed: statement clobbers memory: __builtin_memset (_31, 0, 256);
+/usr/riscv64-linux-gnu/include/bits/string_fortified.h:59:33: missed: statement clobbers memory: __builtin_memset (_35, 0, 16384);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:138:52: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.183_124, 32B, { -1, ... }, _129, 0, vect__6.182_122);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:139:52: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.178_108, 32B, { -1, ... }, _113, 0, vect__12.177_106);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:142:19: missed: statement clobbers memory: m5_reset_stats (0, 0);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:115:5: missed: statement clobbers memory: _Z21farthestPointSamplingiiiPKfPfPi.part.0 (1, 32, 8, _21, _25, _27);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:146:16: missed: statement clobbers memory: gatherPoint (1, 32, 8, _21, _27, _29);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:147:21: missed: statement clobbers memory: query_ball_point (1, 32, 8, 2.0000000298023223876953125e-1, 8, _21, _29, _31, _33);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:148:16: missed: statement clobbers memory: group_point (1, 32, 64, 8, 8, _23, _31, _35);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:151:18: missed: statement clobbers memory: m5_dump_stats (0, 0);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, "Pipeline check grouped_out[0]: %f\n", _14);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:156:14: missed: statement clobbers memory: operator delete [] (_21);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:157:14: missed: statement clobbers memory: operator delete [] (_23);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:158:14: missed: statement clobbers memory: operator delete [] (_25);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:159:14: missed: statement clobbers memory: operator delete [] (_27);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:160:14: missed: statement clobbers memory: operator delete [] (_29);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:161:14: missed: statement clobbers memory: operator delete [] (_31);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:162:14: missed: statement clobbers memory: operator delete [] (_33);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:163:14: missed: statement clobbers memory: operator delete [] (_35);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:163:14: note: ***** Analysis failed with vector mode RVVM1SF
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/downsampling_benchmark_scalar.cpp:163:14: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1SF

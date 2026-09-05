@@ -1,4 +1,0 @@
-host_elapsed_seconds=6.83
-host_user_seconds=3.84
-host_system_seconds=0.27
-max_rss_kb=114880

@@ -1,0 +1,262 @@
+benchmark/src/scalar/weight_benchmark_scalar.cpp:13:23: missed: couldn't vectorize loop
+benchmark/src/scalar/weight_benchmark_scalar.cpp:18:37: missed: not vectorized: complicated access pattern.
+benchmark/src/scalar/weight_benchmark_scalar.cpp:14:27: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/weight_benchmark_scalar.cpp:14:27: optimized:  loop versioned for vectorization because of possible aliasing
+benchmark/src/scalar/weight_benchmark_scalar.cpp:10:6: note: vectorized 1 loops in function.
+benchmark/src/scalar/weight_benchmark_scalar.cpp:18:37: missed: statement clobbers memory: vect_array.14 = .MASK_LEN_LOAD_LANES (vectp.12_105, 32B, { -1, ... }, _156, 0);
+benchmark/src/scalar/weight_benchmark_scalar.cpp:33:30: missed: statement clobbers memory: .MASK_LEN_STORE_LANES (vectp.32_145, 32B, { -1, ... }, _156, 0, vect_array.34);
+benchmark/src/scalar/weight_benchmark_scalar.cpp:15:31: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/weight_benchmark_scalar.cpp:15:31: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/weight_benchmark_scalar.cpp:15:31: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/weight_benchmark_scalar.cpp:15:31: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/weight_benchmark_scalar.cpp:15:31: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/weight_benchmark_scalar.cpp:15:31: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/weight_benchmark_scalar.cpp:15:31: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Analysis succeeded with vector mode V16QI
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: SLPing BB part
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Costing subgraph: 
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x1270fe00 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: *_62 = _61;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 *_62 = _61;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 *_59 = _58;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x1270fe88
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x1270fe88 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _61 = w0_71 / sum_63;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _61 = w0_71 / sum_63;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _58 = w1_68 / sum_63;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x1270ff10 0x127102c8
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x1270ff10 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: w0_71 = 1.0e+0 / _72;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 w0_71 = 1.0e+0 / _72;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 w1_68 = 1.0e+0 / _69;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x1270ff98 0x12710020
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x1270ff98 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x12710020 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _69 = _70 ? 1.00000001335143196001808973960578441619873046875e-10 : _78;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x127100a8 0x12710240 0x12710130
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x127100a8 (max_nunits=2, refcnt=1) vector(2) <signed-boolean:1>
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _70 = _78 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x12710130 0x127101b8
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x12710130 (max_nunits=2, refcnt=2) const vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _82 = *_83;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _82 = *_83;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _78 = *_79;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x127101b8 (max_nunits=1, refcnt=1) const vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x12710240 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (external) 0x127102c8 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ sum_63, sum_63 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis: 
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis for part in loop 3:
+  Vector cost: 15
+  Scalar cost: 12
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Analysis succeeded with vector mode V8QI
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: SLPing BB part
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Costing subgraph: 
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x1270fe88 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: *_62 = _61;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 *_62 = _61;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 *_59 = _58;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x127102c8
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x127102c8 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _61 = w0_71 / sum_63;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _61 = w0_71 / sum_63;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _58 = w1_68 / sum_63;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x1270ff10 0x12710350
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x1270ff10 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: w0_71 = 1.0e+0 / _72;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 w0_71 = 1.0e+0 / _72;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 w1_68 = 1.0e+0 / _69;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x12710020 0x12710130
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x12710020 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x12710130 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _69 = _70 ? 1.00000001335143196001808973960578441619873046875e-10 : _78;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x12710240 0x1270ff98 0x127100a8
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x12710240 (max_nunits=2, refcnt=1) vector(2) <signed-boolean:1>
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _70 = _78 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x127100a8 0x127101b8
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x127100a8 (max_nunits=2, refcnt=2) const vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _82 = *_83;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _82 = *_83;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _78 = *_79;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x127101b8 (max_nunits=1, refcnt=1) const vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x1270ff98 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (external) 0x12710350 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ sum_63, sum_63 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis: 
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis for part in loop 3:
+  Vector cost: 15
+  Scalar cost: 12
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Analysis succeeded with vector mode V4QI
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: SLPing BB part
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Costing subgraph: 
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x127102c8 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: *_62 = _61;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 *_62 = _61;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 *_59 = _58;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x12710350
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x12710350 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _61 = w0_71 / sum_63;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _61 = w0_71 / sum_63;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _58 = w1_68 / sum_63;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x1270ff10 0x1270fd78
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x1270ff10 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: w0_71 = 1.0e+0 / _72;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 w0_71 = 1.0e+0 / _72;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 w1_68 = 1.0e+0 / _69;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x12710130 0x127100a8
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x12710130 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x127100a8 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _69 = _70 ? 1.00000001335143196001808973960578441619873046875e-10 : _78;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x1270ff98 0x12710020 0x12710240
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x1270ff98 (max_nunits=2, refcnt=1) vector(2) <signed-boolean:1>
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _70 = _78 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x12710240 0x127101b8
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x12710240 (max_nunits=2, refcnt=2) const vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _82 = *_83;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _82 = *_83;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _78 = *_79;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x127101b8 (max_nunits=1, refcnt=1) const vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x12710020 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (external) 0x1270fd78 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ sum_63, sum_63 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis: 
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis for part in loop 3:
+  Vector cost: 15
+  Scalar cost: 12
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Analysis succeeded with vector mode V2QI
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: SLPing BB part
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Costing subgraph: 
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x12710350 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: *_62 = _61;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 *_62 = _61;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 *_59 = _58;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x1270fd78
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x1270fd78 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _61 = w0_71 / sum_63;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _61 = w0_71 / sum_63;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _58 = w1_68 / sum_63;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x1270ff10 0x1270fe00
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x1270ff10 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: w0_71 = 1.0e+0 / _72;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 w0_71 = 1.0e+0 / _72;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 w1_68 = 1.0e+0 / _69;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x127100a8 0x12710240
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x127100a8 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x12710240 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _69 = _70 ? 1.00000001335143196001808973960578441619873046875e-10 : _78;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x12710020 0x12710130 0x1270ff98
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x12710020 (max_nunits=2, refcnt=1) vector(2) <signed-boolean:1>
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _70 = _78 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x1270ff98 0x127101b8
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x1270ff98 (max_nunits=2, refcnt=2) const vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _82 = *_83;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _82 = *_83;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _78 = *_79;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x127101b8 (max_nunits=1, refcnt=1) const vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x12710130 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (external) 0x1270fe00 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ sum_63, sum_63 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis: 
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis for part in loop 3:
+  Vector cost: 15
+  Scalar cost: 12
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Analysis succeeded with vector mode V1QI
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: SLPing BB part
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Costing subgraph: 
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x12710350 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: *_62 = _61;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 *_62 = _61;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 *_59 = _58;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 2 *_50 = _49;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x1270fd78
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x1270fd78 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _61 = w0_71 / sum_63;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _61 = w0_71 / sum_63;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _58 = w1_68 / sum_63;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 2 _49 = w2_65 / sum_63;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x1270fe00 0x127100a8
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x1270fe00 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: w0_71 = 1.0e+0 / _72;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 w0_71 = 1.0e+0 / _72;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 w1_68 = 1.0e+0 / _69;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 2 w2_65 = 1.0e+0 / _66;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x1270ff10 0x12710240
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x1270ff10 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.0e+0, 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x12710240 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _69 = _70 ? 1.00000001335143196001808973960578441619873046875e-10 : _78;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 2 _66 = _67 ? 1.00000001335143196001808973960578441619873046875e-10 : _74;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x1270ff98 0x127101b8 0x12710130
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x1270ff98 (max_nunits=1, refcnt=1) vector(1) <signed-boolean:1>
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _70 = _78 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 2 _67 = _74 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x12710130 0x12710020
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x12710130 (max_nunits=1, refcnt=2) const vector(1) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _82 = *_83;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _82 = *_83;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _78 = *_79;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 2 _74 = *_75;
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x12710020 (max_nunits=1, refcnt=1) const vector(1) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x127101b8 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (external) 0x127100a8 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ sum_63, sum_63, sum_63 }
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis: 
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis for part in loop 3:
+  Vector cost: 30
+  Scalar cost: 18
+benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/weight_benchmark_scalar.cpp:47:23: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/weight_benchmark_scalar.cpp:38:5: note: vectorized 1 loops in function.
+benchmark/src/scalar/weight_benchmark_scalar.cpp:43:45: missed: statement clobbers memory: _18 = operator new [] (12288);
+benchmark/src/scalar/weight_benchmark_scalar.cpp:44:45: missed: statement clobbers memory: _20 = operator new [] (12288);
+benchmark/src/scalar/weight_benchmark_scalar.cpp:48:17: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.67_79, 32B, { -1, ... }, _84, 0, vect__7.66_77);
+benchmark/src/scalar/weight_benchmark_scalar.cpp:52:19: missed: statement clobbers memory: m5_reset_stats (0, 0);
+benchmark/src/scalar/weight_benchmark_scalar.cpp:54:20: missed: statement clobbers memory: get_weights_cpu (1, 1024, _18, _20);
+benchmark/src/scalar/weight_benchmark_scalar.cpp:57:18: missed: statement clobbers memory: m5_dump_stats (0, 0);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, "Scalar Output Check -> Point 0: [w0=%.4f, w1=%.4f, w2=%.4f]\n", _9, _11, _13);
+benchmark/src/scalar/weight_benchmark_scalar.cpp:63:14: missed: statement clobbers memory: operator delete [] (_18);
+benchmark/src/scalar/weight_benchmark_scalar.cpp:64:14: missed: statement clobbers memory: operator delete [] (_20);
+benchmark/src/scalar/weight_benchmark_scalar.cpp:64:14: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/weight_benchmark_scalar.cpp:64:14: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1SF

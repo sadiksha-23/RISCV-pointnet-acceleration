@@ -1,0 +1,861 @@
+benchmark/src/scalar/pointnet++_scalar.cpp:18:23: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:18:23: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+benchmark/src/scalar/pointnet++_scalar.cpp:26:27: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:26:27: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+benchmark/src/scalar/pointnet++_scalar.cpp:34:31: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:44:17: missed: not vectorized: unsupported use in stmt.
+benchmark/src/scalar/pointnet++_scalar.cpp:22:27: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:15:6: note: vectorized 1 loops in function.
+benchmark/src/scalar/pointnet++_scalar.cpp:15:6: missed: splitting region at dont-vectorize loop 5 entry at bb33
+benchmark/src/scalar/pointnet++_scalar.cpp:23:21: missed: statement clobbers memory: .MASK_LEN_STORE (vectp_temp.51_131, 32B, { -1, ... }, _125, 0, { 9.9999996802856924650656260769173209088e+37, ... });
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** Analysis failed with vector mode RVVM1SI
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** Analysis failed with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** Analysis failed with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** Analysis failed with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** Analysis failed with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** Analysis failed with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: missed: splitting region at dominance boundary bb16
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/pointnet++_scalar.cpp:30:42: missed: splitting region at loop 2 exit at bb32
+benchmark/src/scalar/pointnet++_scalar.cpp:26:27: note: ***** Analysis failed with vector mode RVVM1SI
+benchmark/src/scalar/pointnet++_scalar.cpp:26:27: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1SI
+benchmark/src/scalar/pointnet++_scalar.cpp:26:27: missed: splitting region at dominance boundary bb8
+benchmark/src/scalar/pointnet++_scalar.cpp:26:27: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/pointnet++_scalar.cpp:26:27: missed: splitting region at loop 1 exit at bb27
+benchmark/src/scalar/pointnet++_scalar.cpp:18:23: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/pointnet++_scalar.cpp:18:23: missed: splitting region at dominance boundary bb3
+benchmark/src/scalar/pointnet++_scalar.cpp:18:23: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/pointnet++_scalar.cpp:18:23: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/pointnet++_scalar.cpp:15:6: note: vectorized 0 loops in function.
+benchmark/src/scalar/pointnet++_scalar.cpp:15:6: missed: statement clobbers memory: _Z21farthestPointSamplingiiiPKfPfPi.part.0 (b_11(D), n_12(D), m_7(D), dataset_13(D), temp_8(D), idxs_9(D));
+benchmark/src/scalar/pointnet++_scalar.cpp:15:6: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/pointnet++_scalar.cpp:59:23: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:63:63: missed: not vectorized: data ref analysis failed: _16 = *_11;
+benchmark/src/scalar/pointnet++_scalar.cpp:60:27: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:58:6: note: vectorized 1 loops in function.
+benchmark/src/scalar/pointnet++_scalar.cpp:61:17: missed: statement clobbers memory: vect_a_40.95_122 = .MASK_LEN_LOAD (vectp.93_124, 32B, { -1, ... }, _91, 0);
+benchmark/src/scalar/pointnet++_scalar.cpp:58:6: missed: statement clobbers memory: vect_patt_55.98_115 = .MASK_LEN_GATHER_LOAD (_116, vect__8.97_118, 4, { 0.0, ... }, { -1, ... }, _91, 0);
+benchmark/src/scalar/pointnet++_scalar.cpp:58:6: missed: statement clobbers memory: vect_patt_142.99_111 = .MASK_LEN_GATHER_LOAD (_112, vect__8.97_118, 4, { 0.0, ... }, { -1, ... }, _91, 0);
+benchmark/src/scalar/pointnet++_scalar.cpp:58:6: missed: statement clobbers memory: vect_patt_141.100_107 = .MASK_LEN_GATHER_LOAD (_108, vect__8.97_118, 4, { 0.0, ... }, { -1, ... }, _91, 0);
+benchmark/src/scalar/pointnet++_scalar.cpp:65:38: missed: statement clobbers memory: .MASK_LEN_STORE_LANES (vectp.101_102, 32B, { -1, ... }, _91, 0, vect_array.103);
+benchmark/src/scalar/pointnet++_scalar.cpp:68:1: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/pointnet++_scalar.cpp:73:23: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:73:23: missed: not vectorized: unsupported control flow in loop.
+benchmark/src/scalar/pointnet++_scalar.cpp:74:27: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:74:27: missed: not vectorized: unsupported control flow in loop.
+benchmark/src/scalar/pointnet++_scalar.cpp:81:31: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:81:31: missed: not vectorized: unsupported outerloop form.
+benchmark/src/scalar/pointnet++_scalar.cpp:92:43: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:70:6: note: vectorized 1 loops in function.
+benchmark/src/scalar/pointnet++_scalar.cpp:93:60: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.120_197, 32B, { -1, ... }, _191, 0, vect_cst__201);
+benchmark/src/scalar/pointnet++_scalar.cpp:96:47: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/pointnet++_scalar.cpp:96:47: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:96:47: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:96:47: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:96:47: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:96:47: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:96:47: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:96:47: note: ***** Analysis failed with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:96:47: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:96:47: note: ***** Analysis failed with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:96:47: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:96:47: note: ***** Analysis failed with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:96:47: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:96:47: note: ***** Analysis failed with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:96:47: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:96:47: note: ***** Analysis failed with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:107:23: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:107:23: missed: not vectorized: multiple nested loops.
+benchmark/src/scalar/pointnet++_scalar.cpp:108:27: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:108:27: missed: not vectorized: multiple nested loops.
+benchmark/src/scalar/pointnet++_scalar.cpp:109:31: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:113:91: missed: failed: evolution of base is not affine.
+benchmark/src/scalar/pointnet++_scalar.cpp:112:35: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:112:35: optimized:  loop versioned for vectorization because of possible aliasing
+benchmark/src/scalar/pointnet++_scalar.cpp:106:6: note: vectorized 1 loops in function.
+benchmark/src/scalar/pointnet++_scalar.cpp:113:91: missed: statement clobbers memory: vect__20.157_48 = .MASK_LEN_LOAD (vectp.155_51, 32B, { -1, ... }, _103, 0);
+benchmark/src/scalar/pointnet++_scalar.cpp:113:62: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.158_25, 32B, { -1, ... }, _103, 0, vect__20.157_48);
+benchmark/src/scalar/pointnet++_scalar.cpp:113:57: note: ***** Analysis failed with vector mode RVVM1SI
+benchmark/src/scalar/pointnet++_scalar.cpp:113:57: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:113:57: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:113:57: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:113:57: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:113:57: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:113:57: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:113:57: note: ***** Analysis failed with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:113:57: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:113:57: note: ***** Analysis failed with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:113:57: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:113:57: note: ***** Analysis failed with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:113:57: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:113:57: note: ***** Analysis failed with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:113:57: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:113:57: note: ***** Analysis failed with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:133:23: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:133:23: missed: not vectorized: unsupported control flow in loop.
+benchmark/src/scalar/pointnet++_scalar.cpp:134:29: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:134:29: missed: not vectorized: unsupported outerloop form.
+benchmark/src/scalar/pointnet++_scalar.cpp:138:33: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:124:6: note: vectorized 1 loops in function.
+benchmark/src/scalar/pointnet++_scalar.cpp:139:39: missed: statement clobbers memory: vect__10.205_146 = .MASK_LEN_LOAD (vectp.203_148, 32B, { -1, ... }, _125, 0);
+benchmark/src/scalar/pointnet++_scalar.cpp:139:60: missed: statement clobbers memory: vect__16.208_131 = .MASK_LEN_GATHER_LOAD (vectp.206_133, _137, 4, { 0.0, ... }, { -1, ... }, _125, 0);
+/usr/riscv64-linux-gnu/include/c++/14/cmath:443:27: missed: statement clobbers memory: _70 = __builtin_sqrtf (_25);
+benchmark/src/scalar/pointnet++_scalar.cpp:147:25: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/pointnet++_scalar.cpp:147:25: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:147:25: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:147:25: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:147:25: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:147:25: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:147:25: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:147:25: note: ***** Analysis failed with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:147:25: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:147:25: note: ***** Analysis failed with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:147:25: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:147:25: note: ***** Analysis failed with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:147:25: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:147:25: note: ***** Analysis failed with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:147:25: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:147:25: note: ***** Analysis failed with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:153:31: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:153:31: missed: not vectorized: unsupported control flow in loop.
+benchmark/src/scalar/pointnet++_scalar.cpp:154:29: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:154:29: missed: not vectorized: unsupported control flow in loop.
+benchmark/src/scalar/pointnet++_scalar.cpp:155:33: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:155:33: missed: not vectorized: unsupported outerloop form.
+benchmark/src/scalar/pointnet++_scalar.cpp:159:37: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:152:6: missed: not vectorized: unsupported use in stmt.
+benchmark/src/scalar/pointnet++_scalar.cpp:152:6: note: vectorized 0 loops in function.
+benchmark/src/scalar/pointnet++_scalar.cpp:166:21: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/pointnet++_scalar.cpp:166:21: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:166:21: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:166:21: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:166:21: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:166:21: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:166:21: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: ***** Analysis succeeded with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: SLPing BB part
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: Costing subgraph: 
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node 0x9f130a0 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: op template: _27 = _28 * _23;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 0 _27 = _28 * _23;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 1 _50 = _25 * _44;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	children 0x9f13128 0x9f13348
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node 0x9f13128 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: op template: _28 = _29 * _22;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 0 _28 = _29 * _22;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 1 _25 = _22 * _46;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	children 0x9f13238 0x9f132c0
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node (external) 0x9f13238 (max_nunits=1, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	{ _29, _46 }
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node (external) 0x9f132c0 (max_nunits=1, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	{ _22, _22 }
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node 0x9f13348 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: op template: _23 = (unsigned int) batch_52;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 0 _23 = (unsigned int) batch_52;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 1 _44 = (unsigned int) pt_53;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	children 0x9f13458
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node (external) 0x9f13458 (max_nunits=1, refcnt=1) vector(2) int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	{ batch_52, pt_53 }
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: Cost model analysis: 
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: Cost model analysis for part in loop 0:
+  Vector cost: 8
+  Scalar cost: 2
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: ***** Analysis succeeded with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: SLPing BB part
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: Costing subgraph: 
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node 0x9f130a0 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: op template: _27 = _28 * _23;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 0 _27 = _28 * _23;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 1 _50 = _25 * _44;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	children 0x9f13348 0x9f131b0
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node 0x9f13348 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: op template: _28 = _29 * _22;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 0 _28 = _29 * _22;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 1 _25 = _22 * _46;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	children 0x9f132c0 0x9f13238
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node (external) 0x9f132c0 (max_nunits=1, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	{ _29, _46 }
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node (external) 0x9f13238 (max_nunits=1, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	{ _22, _22 }
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node 0x9f131b0 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: op template: _23 = (unsigned int) batch_52;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 0 _23 = (unsigned int) batch_52;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 1 _44 = (unsigned int) pt_53;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	children 0x9f13018
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node (external) 0x9f13018 (max_nunits=1, refcnt=1) vector(2) int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	{ batch_52, pt_53 }
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: Cost model analysis: 
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: Cost model analysis for part in loop 0:
+  Vector cost: 8
+  Scalar cost: 2
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: ***** Analysis succeeded with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: SLPing BB part
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: Costing subgraph: 
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node 0x9f130a0 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: op template: _27 = _28 * _23;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 0 _27 = _28 * _23;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 1 _50 = _25 * _44;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	children 0x9f131b0 0x9f13128
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node 0x9f131b0 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: op template: _28 = _29 * _22;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 0 _28 = _29 * _22;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 1 _25 = _22 * _46;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	children 0x9f13238 0x9f132c0
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node (external) 0x9f13238 (max_nunits=1, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	{ _29, _46 }
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node (external) 0x9f132c0 (max_nunits=1, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	{ _22, _22 }
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node 0x9f13128 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: op template: _23 = (unsigned int) batch_52;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 0 _23 = (unsigned int) batch_52;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 1 _44 = (unsigned int) pt_53;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	children 0x9f13458
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node (external) 0x9f13458 (max_nunits=1, refcnt=1) vector(2) int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	{ batch_52, pt_53 }
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: Cost model analysis: 
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: Cost model analysis for part in loop 0:
+  Vector cost: 8
+  Scalar cost: 2
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: ***** Analysis succeeded with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: SLPing BB part
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: Costing subgraph: 
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node 0x9f130a0 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: op template: _27 = _28 * _23;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 0 _27 = _28 * _23;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 1 _50 = _25 * _44;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	children 0x9f13128 0x9f13348
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node 0x9f13128 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: op template: _28 = _29 * _22;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 0 _28 = _29 * _22;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 1 _25 = _22 * _46;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	children 0x9f132c0 0x9f13238
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node (external) 0x9f132c0 (max_nunits=1, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	{ _29, _46 }
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node (external) 0x9f13238 (max_nunits=1, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	{ _22, _22 }
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node 0x9f13348 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: op template: _23 = (unsigned int) batch_52;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 0 _23 = (unsigned int) batch_52;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	stmt 1 _44 = (unsigned int) pt_53;
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	children 0x9f13018
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: node (external) 0x9f13018 (max_nunits=1, refcnt=1) vector(2) int
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: 	{ batch_52, pt_53 }
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: Cost model analysis: 
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: Cost model analysis for part in loop 0:
+  Vector cost: 8
+  Scalar cost: 2
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/pointnet++_scalar.cpp:160:51: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:166:21: note: ***** Analysis failed with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:178:23: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:178:23: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+benchmark/src/scalar/pointnet++_scalar.cpp:179:27: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:179:27: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+benchmark/src/scalar/pointnet++_scalar.cpp:187:31: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: missed: not vectorized: unsupported use in stmt.
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: ***** Analysis failed with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: ***** Analysis failed with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: ***** Analysis failed with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: ***** Analysis failed with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: ***** Analysis failed with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: note: vectorized 0 loops in function.
+benchmark/src/scalar/pointnet++_scalar.cpp:177:6: missed: splitting region at dont-vectorize loop 4 entry at bb33
+benchmark/src/scalar/pointnet++_scalar.cpp:187:31: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/pointnet++_scalar.cpp:187:31: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1SF
+benchmark/src/scalar/pointnet++_scalar.cpp:187:31: missed: splitting region at dominance boundary bb11
+benchmark/src/scalar/pointnet++_scalar.cpp:218:31: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/pointnet++_scalar.cpp:218:31: missed: splitting region at loop 2 exit at bb25
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: note: ***** Analysis failed with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: note: ***** Analysis failed with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: note: ***** Analysis failed with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: note: ***** Analysis failed with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: note: ***** Analysis failed with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:215:29: missed: splitting region at loop 1 exit at bb29
+benchmark/src/scalar/pointnet++_scalar.cpp:178:23: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/pointnet++_scalar.cpp:178:23: missed: splitting region at dominance boundary bb26
+benchmark/src/scalar/pointnet++_scalar.cpp:178:23: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/pointnet++_scalar.cpp:178:23: missed: splitting region at dominance boundary bb14
+benchmark/src/scalar/pointnet++_scalar.cpp:178:23: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/pointnet++_scalar.cpp:226:1: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/pointnet++_scalar.cpp:230:23: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:232:38: missed: not vectorized: complicated access pattern.
+benchmark/src/scalar/pointnet++_scalar.cpp:231:27: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:231:27: optimized:  loop versioned for vectorization because of possible aliasing
+benchmark/src/scalar/pointnet++_scalar.cpp:228:6: note: vectorized 1 loops in function.
+benchmark/src/scalar/pointnet++_scalar.cpp:232:38: missed: statement clobbers memory: vect_array.303 = .MASK_LEN_LOAD_LANES (vectp_dist.301_100, 32B, { -1, ... }, _148, 0);
+benchmark/src/scalar/pointnet++_scalar.cpp:243:31: missed: statement clobbers memory: .MASK_LEN_STORE_LANES (vectp_weight.321_137, 32B, { -1, ... }, _148, 0, vect_array.323);
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: ***** Analysis succeeded with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: SLPing BB part
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: Costing subgraph: 
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee230 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: *_27 = _26;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 *_27 = _26;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 *_88 = _89;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee2b8
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee2b8 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _26 = w0_56 / sum_28;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _26 = w0_56 / sum_28;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _89 = w1_53 / sum_28;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee340 0x9dee6f8
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee340 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 w1_53 = 1.0e+0 / _54;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee3c8 0x9dee450
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (constant) 0x9dee3c8 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee450 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _54 = _55 ? 1.00000001335143196001808973960578441619873046875e-10 : _71;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee4d8 0x9dee670 0x9dee560
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee4d8 (max_nunits=2, refcnt=1) vector(2) <signed-boolean:1>
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _55 = _71 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee560 0x9dee5e8
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee560 (max_nunits=2, refcnt=2) const vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _75 = *_76;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _75 = *_76;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _71 = *_72;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (constant) 0x9dee5e8 (max_nunits=1, refcnt=1) const vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (constant) 0x9dee670 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (external) 0x9dee6f8 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ sum_28, sum_28 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: Cost model analysis: 
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: Cost model analysis for part in loop 3:
+  Vector cost: 15
+  Scalar cost: 12
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: ***** Analysis succeeded with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: SLPing BB part
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: Costing subgraph: 
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee2b8 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: *_27 = _26;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 *_27 = _26;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 *_88 = _89;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee6f8
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee6f8 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _26 = w0_56 / sum_28;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _26 = w0_56 / sum_28;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _89 = w1_53 / sum_28;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee340 0x9dee1a8
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee340 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 w1_53 = 1.0e+0 / _54;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee450 0x9dee560
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (constant) 0x9dee450 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee560 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _54 = _55 ? 1.00000001335143196001808973960578441619873046875e-10 : _71;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee670 0x9dee3c8 0x9dee4d8
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee670 (max_nunits=2, refcnt=1) vector(2) <signed-boolean:1>
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _55 = _71 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee4d8 0x9dee5e8
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee4d8 (max_nunits=2, refcnt=2) const vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _75 = *_76;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _75 = *_76;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _71 = *_72;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (constant) 0x9dee5e8 (max_nunits=1, refcnt=1) const vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (constant) 0x9dee3c8 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (external) 0x9dee1a8 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ sum_28, sum_28 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: Cost model analysis: 
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: Cost model analysis for part in loop 3:
+  Vector cost: 15
+  Scalar cost: 12
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: ***** Analysis succeeded with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: SLPing BB part
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: Costing subgraph: 
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee6f8 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: *_27 = _26;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 *_27 = _26;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 *_88 = _89;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee1a8
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee1a8 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _26 = w0_56 / sum_28;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _26 = w0_56 / sum_28;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _89 = w1_53 / sum_28;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee340 0x9dee230
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee340 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 w1_53 = 1.0e+0 / _54;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee560 0x9dee4d8
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (constant) 0x9dee560 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee4d8 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _54 = _55 ? 1.00000001335143196001808973960578441619873046875e-10 : _71;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee3c8 0x9dee450 0x9dee670
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee3c8 (max_nunits=2, refcnt=1) vector(2) <signed-boolean:1>
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _55 = _71 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee670 0x9dee5e8
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee670 (max_nunits=2, refcnt=2) const vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _75 = *_76;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _75 = *_76;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _71 = *_72;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (constant) 0x9dee5e8 (max_nunits=1, refcnt=1) const vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (constant) 0x9dee450 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (external) 0x9dee230 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ sum_28, sum_28 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: Cost model analysis: 
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: Cost model analysis for part in loop 3:
+  Vector cost: 15
+  Scalar cost: 12
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: ***** Analysis succeeded with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: SLPing BB part
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: Costing subgraph: 
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee1a8 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: *_27 = _26;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 *_27 = _26;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 *_88 = _89;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee230
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee230 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _26 = w0_56 / sum_28;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _26 = w0_56 / sum_28;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _89 = w1_53 / sum_28;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee340 0x9dee2b8
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee340 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 w1_53 = 1.0e+0 / _54;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee4d8 0x9dee670
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (constant) 0x9dee4d8 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee670 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _54 = _55 ? 1.00000001335143196001808973960578441619873046875e-10 : _71;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee450 0x9dee560 0x9dee3c8
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee450 (max_nunits=2, refcnt=1) vector(2) <signed-boolean:1>
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _55 = _71 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee3c8 0x9dee5e8
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee3c8 (max_nunits=2, refcnt=2) const vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _75 = *_76;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _75 = *_76;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _71 = *_72;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (constant) 0x9dee5e8 (max_nunits=1, refcnt=1) const vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (constant) 0x9dee560 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (external) 0x9dee2b8 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ sum_28, sum_28 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: Cost model analysis: 
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: Cost model analysis for part in loop 3:
+  Vector cost: 15
+  Scalar cost: 12
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: ***** Analysis succeeded with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: SLPing BB part
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: Costing subgraph: 
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee1a8 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: *_27 = _26;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 *_27 = _26;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 *_88 = _89;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 2 *_91 = _92;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee230
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee230 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _26 = w0_56 / sum_28;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _26 = w0_56 / sum_28;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _89 = w1_53 / sum_28;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 2 _92 = w2_30 / sum_28;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee2b8 0x9dee4d8
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee2b8 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 w1_53 = 1.0e+0 / _54;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 2 w2_30 = 1.0e+0 / _31;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee340 0x9dee670
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (constant) 0x9dee340 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ 1.0e+0, 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee670 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _54 = _55 ? 1.00000001335143196001808973960578441619873046875e-10 : _71;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 2 _31 = _52 ? 1.00000001335143196001808973960578441619873046875e-10 : _67;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee3c8 0x9dee5e8 0x9dee560
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee3c8 (max_nunits=1, refcnt=1) vector(1) <signed-boolean:1>
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _55 = _71 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 2 _52 = _67 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	children 0x9dee560 0x9dee450
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node 0x9dee560 (max_nunits=1, refcnt=2) const vector(1) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: op template: _75 = *_76;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 0 _75 = *_76;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 1 _71 = *_72;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	stmt 2 _67 = *_68;
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (constant) 0x9dee450 (max_nunits=1, refcnt=1) const vector(1) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (constant) 0x9dee5e8 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: node (external) 0x9dee4d8 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: 	{ sum_28, sum_28, sum_28 }
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: Cost model analysis: 
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: note: Cost model analysis for part in loop 3:
+  Vector cost: 30
+  Scalar cost: 18
+benchmark/src/scalar/pointnet++_scalar.cpp:241:31: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/pointnet++_scalar.cpp:253:23: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:253:23: missed: not vectorized: multiple nested loops.
+benchmark/src/scalar/pointnet++_scalar.cpp:254:27: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:263:51: missed: failed: evolution of base is not affine.
+benchmark/src/scalar/pointnet++_scalar.cpp:262:31: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:262:31: optimized:  loop versioned for vectorization because of possible aliasing
+benchmark/src/scalar/pointnet++_scalar.cpp:250:6: note: vectorized 1 loops in function.
+benchmark/src/scalar/pointnet++_scalar.cpp:263:51: missed: statement clobbers memory: vect__19.352_120 = .MASK_LEN_LOAD (vectp.350_122, 32B, { -1, ... }, _196, 0);
+benchmark/src/scalar/pointnet++_scalar.cpp:263:77: missed: statement clobbers memory: vect__26.356_110 = .MASK_LEN_LOAD (vectp.354_112, 32B, { -1, ... }, _196, 0);
+benchmark/src/scalar/pointnet++_scalar.cpp:263:103: missed: statement clobbers memory: vect__34.361_85 = .MASK_LEN_LOAD (vectp.359_87, 32B, { -1, ... }, _196, 0);
+benchmark/src/scalar/pointnet++_scalar.cpp:263:32: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.364_52, 32B, { -1, ... }, _196, 0, vect__41.363_57);
+benchmark/src/scalar/pointnet++_scalar.cpp:263:27: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/pointnet++_scalar.cpp:263:27: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:263:27: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:263:27: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:263:27: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:263:27: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:263:27: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:250:6: note: ***** Analysis failed with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:250:6: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:250:6: note: ***** Analysis failed with vector mode V8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:250:6: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:250:6: note: ***** Analysis failed with vector mode V4QI
+benchmark/src/scalar/pointnet++_scalar.cpp:250:6: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:250:6: note: ***** Analysis failed with vector mode V2QI
+benchmark/src/scalar/pointnet++_scalar.cpp:250:6: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:250:6: note: ***** Analysis failed with vector mode V1QI
+benchmark/src/scalar/pointnet++_scalar.cpp:339:23: missed: couldn't vectorize loop
+benchmark/src/scalar/pointnet++_scalar.cpp:339:23: missed: not vectorized: unsupported data-type
+benchmark/src/scalar/pointnet++_scalar.cpp:338:23: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:330:23: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:329:23: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:327:23: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:326:23: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:277:5: note: vectorized 5 loops in function.
+benchmark/src/scalar/pointnet++_scalar.cpp:289:46: missed: statement clobbers memory: _55 = operator new [] (12288);
+benchmark/src/scalar/pointnet++_scalar.cpp:290:49: missed: statement clobbers memory: _57 = operator new [] (262144);
+benchmark/src/scalar/pointnet++_scalar.cpp:291:42: missed: statement clobbers memory: _59 = operator new [] (4096);
+benchmark/src/scalar/pointnet++_scalar.cpp:292:40: missed: statement clobbers memory: _61 = operator new [] (512);
+benchmark/src/scalar/pointnet++_scalar.cpp:293:46: missed: statement clobbers memory: _63 = operator new [] (1536);
+benchmark/src/scalar/pointnet++_scalar.cpp:294:50: missed: statement clobbers memory: _65 = operator new [] (4096);
+benchmark/src/scalar/pointnet++_scalar.cpp:295:40: missed: statement clobbers memory: _67 = operator new [] (512);
+benchmark/src/scalar/pointnet++_scalar.cpp:296:59: missed: statement clobbers memory: _69 = operator new [] (262144);
+benchmark/src/scalar/pointnet++_scalar.cpp:299:43: missed: statement clobbers memory: _71 = operator new [] (32768);
+benchmark/src/scalar/pointnet++_scalar.cpp:300:36: missed: statement clobbers memory: _73 = operator new [] (512);
+benchmark/src/scalar/pointnet++_scalar.cpp:301:36: missed: statement clobbers memory: _75 = operator new [] (512);
+benchmark/src/scalar/pointnet++_scalar.cpp:302:36: missed: statement clobbers memory: _77 = operator new [] (512);
+benchmark/src/scalar/pointnet++_scalar.cpp:303:36: missed: statement clobbers memory: _79 = operator new [] (512);
+benchmark/src/scalar/pointnet++_scalar.cpp:304:36: missed: statement clobbers memory: _81 = operator new [] (512);
+benchmark/src/scalar/pointnet++_scalar.cpp:305:55: missed: statement clobbers memory: _83 = operator new [] (524288);
+benchmark/src/scalar/pointnet++_scalar.cpp:308:52: missed: statement clobbers memory: _85 = operator new [] (65536);
+benchmark/src/scalar/pointnet++_scalar.cpp:311:43: missed: statement clobbers memory: _87 = operator new [] (12288);
+benchmark/src/scalar/pointnet++_scalar.cpp:312:41: missed: statement clobbers memory: _89 = operator new [] (12288);
+benchmark/src/scalar/pointnet++_scalar.cpp:313:43: missed: statement clobbers memory: _91 = operator new [] (12288);
+benchmark/src/scalar/pointnet++_scalar.cpp:314:54: missed: statement clobbers memory: _93 = operator new [] (524288);
+benchmark/src/scalar/pointnet++_scalar.cpp:317:46: missed: statement clobbers memory: _95 = operator new [] (2048);
+benchmark/src/scalar/pointnet++_scalar.cpp:318:38: missed: statement clobbers memory: _97 = operator new [] (16);
+benchmark/src/scalar/pointnet++_scalar.cpp:319:38: missed: statement clobbers memory: _99 = operator new [] (16);
+benchmark/src/scalar/pointnet++_scalar.cpp:320:38: missed: statement clobbers memory: _101 = operator new [] (16);
+benchmark/src/scalar/pointnet++_scalar.cpp:321:38: missed: statement clobbers memory: _103 = operator new [] (16);
+benchmark/src/scalar/pointnet++_scalar.cpp:322:38: missed: statement clobbers memory: _105 = operator new [] (16);
+benchmark/src/scalar/pointnet++_scalar.cpp:323:52: missed: statement clobbers memory: _107 = operator new [] (16384);
+benchmark/src/scalar/pointnet++_scalar.cpp:326:52: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.455_422, 32B, { -1, ... }, _427, 0, vect__6.454_420);
+benchmark/src/scalar/pointnet++_scalar.cpp:327:54: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.446_372, 32B, { -1, ... }, _377, 0, vect__12.445_370);
+benchmark/src/scalar/pointnet++_scalar.cpp:329:50: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.437_322, 32B, { -1, ... }, _327, 0, vect__18.436_320);
+benchmark/src/scalar/pointnet++_scalar.cpp:331:19: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.420_252, 32B, { -1, ... }, _277, 0, { 9.99999977648258209228515625e-3, ... });
+benchmark/src/scalar/pointnet++_scalar.cpp:332:19: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.422_257, 32B, { -1, ... }, _277, 0, { 5.00000007450580596923828125e-2, ... });
+benchmark/src/scalar/pointnet++_scalar.cpp:333:19: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.424_262, 32B, { -1, ... }, _277, 0, { 1.0e+0, ... });
+benchmark/src/scalar/pointnet++_scalar.cpp:334:19: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.426_267, 32B, { -1, ... }, _277, 0, { 1.0e+0, ... });
+benchmark/src/scalar/pointnet++_scalar.cpp:335:19: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.428_272, 32B, { -1, ... }, _277, 0, { 0.0, ... });
+benchmark/src/scalar/pointnet++_scalar.cpp:338:53: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.418_243, 32B, { -1, ... }, _248, 0, vect__31.417_241);
+/usr/riscv64-linux-gnu/include/bits/string_fortified.h:59:33: missed: statement clobbers memory: __builtin_memset (_61, 0, 512);
+/usr/riscv64-linux-gnu/include/bits/string_fortified.h:59:33: missed: statement clobbers memory: __builtin_memset (_65, 0, 4096);
+/usr/riscv64-linux-gnu/include/bits/string_fortified.h:59:33: missed: statement clobbers memory: __builtin_memset (_89, 0, 12288);
+benchmark/src/scalar/pointnet++_scalar.cpp:355:19: missed: statement clobbers memory: m5_reset_stats (0, 0);
+benchmark/src/scalar/pointnet++_scalar.cpp:277:5: missed: statement clobbers memory: _Z21farthestPointSamplingiiiPKfPfPi.part.0 (1, 1024, 128, _55, _59, _61);
+benchmark/src/scalar/pointnet++_scalar.cpp:359:16: missed: statement clobbers memory: gatherPoint (1, 1024, 128, _55, _61, _63);
+benchmark/src/scalar/pointnet++_scalar.cpp:360:21: missed: statement clobbers memory: query_ball_point (1, 1024, 128, 2.0000000298023223876953125e-1, 8, _55, _63, _65, _67);
+benchmark/src/scalar/pointnet++_scalar.cpp:361:16: missed: statement clobbers memory: group_point (1, 1024, 64, 128, 8, _57, _65, _69);
+benchmark/src/scalar/pointnet++_scalar.cpp:364:27: missed: statement clobbers memory: conv2d_mlp_bn_relu_cpu (1, 128, 8, 64, 128, _69, _71, _73, _75, _77, _79, _81, _83);
+benchmark/src/scalar/pointnet++_scalar.cpp:365:16: missed: statement clobbers memory: maxpool_cpu (1, 128, 8, 128, _83, _85);
+benchmark/src/scalar/pointnet++_scalar.cpp:368:16: missed: statement clobbers memory: threenn_cpu (1, 1024, 128, _55, _63, _87, _89);
+benchmark/src/scalar/pointnet++_scalar.cpp:369:20: missed: statement clobbers memory: get_weights_cpu (1, 1024, _87, _91);
+benchmark/src/scalar/pointnet++_scalar.cpp:370:20: missed: statement clobbers memory: interpolate_cpu (1, 128, 128, 1024, _85, _89, _91, _93);
+benchmark/src/scalar/pointnet++_scalar.cpp:373:27: missed: statement clobbers memory: conv2d_mlp_bn_relu_cpu (1, 1024, 1, 128, 4, _93, _95, _97, _99, _101, _103, _105, _107);
+benchmark/src/scalar/pointnet++_scalar.cpp:378:18: missed: statement clobbers memory: m5_dump_stats (0, 0);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:86:23: missed: statement clobbers memory: __builtin_puts (&"PointNet++ End-to-End Pipeline Completed."[0]);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, "Sample Check: Point 0 Class 0 Logit: %f\n", _40);
+benchmark/src/scalar/pointnet++_scalar.cpp:385:14: missed: statement clobbers memory: operator delete [] (_55);
+benchmark/src/scalar/pointnet++_scalar.cpp:386:14: missed: statement clobbers memory: operator delete [] (_57);
+benchmark/src/scalar/pointnet++_scalar.cpp:387:14: missed: statement clobbers memory: operator delete [] (_59);
+benchmark/src/scalar/pointnet++_scalar.cpp:388:14: missed: statement clobbers memory: operator delete [] (_61);
+benchmark/src/scalar/pointnet++_scalar.cpp:389:14: missed: statement clobbers memory: operator delete [] (_63);
+benchmark/src/scalar/pointnet++_scalar.cpp:390:14: missed: statement clobbers memory: operator delete [] (_65);
+benchmark/src/scalar/pointnet++_scalar.cpp:391:14: missed: statement clobbers memory: operator delete [] (_67);
+benchmark/src/scalar/pointnet++_scalar.cpp:392:14: missed: statement clobbers memory: operator delete [] (_69);
+benchmark/src/scalar/pointnet++_scalar.cpp:393:14: missed: statement clobbers memory: operator delete [] (_71);
+benchmark/src/scalar/pointnet++_scalar.cpp:394:14: missed: statement clobbers memory: operator delete [] (_73);
+benchmark/src/scalar/pointnet++_scalar.cpp:395:14: missed: statement clobbers memory: operator delete [] (_75);
+benchmark/src/scalar/pointnet++_scalar.cpp:396:14: missed: statement clobbers memory: operator delete [] (_77);
+benchmark/src/scalar/pointnet++_scalar.cpp:397:14: missed: statement clobbers memory: operator delete [] (_79);
+benchmark/src/scalar/pointnet++_scalar.cpp:398:14: missed: statement clobbers memory: operator delete [] (_81);
+benchmark/src/scalar/pointnet++_scalar.cpp:399:14: missed: statement clobbers memory: operator delete [] (_83);
+benchmark/src/scalar/pointnet++_scalar.cpp:400:14: missed: statement clobbers memory: operator delete [] (_85);
+benchmark/src/scalar/pointnet++_scalar.cpp:401:14: missed: statement clobbers memory: operator delete [] (_87);
+benchmark/src/scalar/pointnet++_scalar.cpp:402:14: missed: statement clobbers memory: operator delete [] (_89);
+benchmark/src/scalar/pointnet++_scalar.cpp:403:14: missed: statement clobbers memory: operator delete [] (_91);
+benchmark/src/scalar/pointnet++_scalar.cpp:404:14: missed: statement clobbers memory: operator delete [] (_93);
+benchmark/src/scalar/pointnet++_scalar.cpp:405:14: missed: statement clobbers memory: operator delete [] (_95);
+benchmark/src/scalar/pointnet++_scalar.cpp:406:14: missed: statement clobbers memory: operator delete [] (_97);
+benchmark/src/scalar/pointnet++_scalar.cpp:407:14: missed: statement clobbers memory: operator delete [] (_99);
+benchmark/src/scalar/pointnet++_scalar.cpp:408:14: missed: statement clobbers memory: operator delete [] (_101);
+benchmark/src/scalar/pointnet++_scalar.cpp:409:14: missed: statement clobbers memory: operator delete [] (_103);
+benchmark/src/scalar/pointnet++_scalar.cpp:410:14: missed: statement clobbers memory: operator delete [] (_105);
+benchmark/src/scalar/pointnet++_scalar.cpp:411:14: missed: statement clobbers memory: operator delete [] (_107);
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: ***** Analysis succeeded with vector mode V16QI
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: SLPing BB part
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: Costing subgraph: 
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: node 0x9edde98 (max_nunits=4, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: op template: *_97 = 9.99999977648258209228515625e-3;
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: 	stmt 0 *_97 = 9.99999977648258209228515625e-3;
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: 	stmt 1 *_13 = 9.99999977648258209228515625e-3;
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: 	stmt 2 *_159 = 9.99999977648258209228515625e-3;
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: 	stmt 3 *_34 = 9.99999977648258209228515625e-3;
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: 	children 0x9edde10
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: node (constant) 0x9edde10 (max_nunits=1, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: 	{ 9.99999977648258209228515625e-3, 9.99999977648258209228515625e-3, 9.99999977648258209228515625e-3, 9.99999977648258209228515625e-3 }
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: Cost model analysis: 
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 4
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: Costing subgraph: 
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: node 0x9eddc78 (max_nunits=4, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: op template: *_99 = 5.00000007450580596923828125e-2;
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: 	stmt 0 *_99 = 5.00000007450580596923828125e-2;
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: 	stmt 1 *_15 = 5.00000007450580596923828125e-2;
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: 	stmt 2 *_210 = 5.00000007450580596923828125e-2;
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: 	stmt 3 *_35 = 5.00000007450580596923828125e-2;
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: 	children 0x9eddd88
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: node (constant) 0x9eddd88 (max_nunits=1, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: 	{ 5.00000007450580596923828125e-2, 5.00000007450580596923828125e-2, 5.00000007450580596923828125e-2, 5.00000007450580596923828125e-2 }
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: Cost model analysis: 
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 4
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: Costing subgraph: 
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: node 0x9eddd00 (max_nunits=4, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: op template: *_101 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: 	stmt 0 *_101 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: 	stmt 1 *_17 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: 	stmt 2 *_26 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: 	stmt 3 *_36 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: 	children 0x9eddf20
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: node (constant) 0x9eddf20 (max_nunits=1, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: 	{ 1.0e+0, 1.0e+0, 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: Cost model analysis: 
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 4
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: Costing subgraph: 
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: node 0x9eddfa8 (max_nunits=4, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: op template: *_103 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: 	stmt 0 *_103 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: 	stmt 1 *_161 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: 	stmt 2 *_28 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: 	stmt 3 *_37 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: 	children 0x9ede030
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: node (constant) 0x9ede030 (max_nunits=1, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: 	{ 1.0e+0, 1.0e+0, 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: Cost model analysis: 
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 4
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: Costing subgraph: 
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: node 0x9ede0b8 (max_nunits=4, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: op template: *_105 = 0.0;
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: 	stmt 0 *_105 = 0.0;
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: 	stmt 1 *_208 = 0.0;
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: 	stmt 2 *_30 = 0.0;
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: 	stmt 3 *_38 = 0.0;
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: 	children 0x9ede140
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: node (constant) 0x9ede140 (max_nunits=1, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: 	{ 0.0, 0.0, 0.0, 0.0 }
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: Cost model analysis: 
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 4
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: Basic block will be vectorized using SLP
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: optimized: basic block part vectorized using 16 byte vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: Vectorizing SLP tree:
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: node 0x9edde98 (max_nunits=4, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: op template: *_97 = 9.99999977648258209228515625e-3;
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: 	stmt 0 *_97 = 9.99999977648258209228515625e-3;
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: 	stmt 1 *_13 = 9.99999977648258209228515625e-3;
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: 	stmt 2 *_159 = 9.99999977648258209228515625e-3;
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: 	stmt 3 *_34 = 9.99999977648258209228515625e-3;
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: 	children 0x9edde10
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: node (constant) 0x9edde10 (max_nunits=1, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: 	{ 9.99999977648258209228515625e-3, 9.99999977648258209228515625e-3, 9.99999977648258209228515625e-3, 9.99999977648258209228515625e-3 }
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: ------>vectorizing SLP node starting from: *_97 = 9.99999977648258209228515625e-3;
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: vect_is_simple_use: operand 9.99999977648258209228515625e-3, type of def: constant
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: vect_is_simple_use: operand 9.99999977648258209228515625e-3, type of def: constant
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: vect_is_simple_use: operand 9.99999977648258209228515625e-3, type of def: constant
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: transform store. ncopies = 1
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: create vector_type-pointer variable to type: vector(4) float  vectorizing a pointer ref: *_97
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: created vectp.464_2
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: add new stmt: MEM <vector(4) float> [(float *)vectp.464_2] = { 9.99999977648258209228515625e-3, 9.99999977648258209228515625e-3, 9.99999977648258209228515625e-3, 9.99999977648258209228515625e-3 };
+benchmark/src/scalar/pointnet++_scalar.cpp:340:19: note: vectorizing stmts using SLP.
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: optimized: basic block part vectorized using 16 byte vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: Vectorizing SLP tree:
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: node 0x9eddc78 (max_nunits=4, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: op template: *_99 = 5.00000007450580596923828125e-2;
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: 	stmt 0 *_99 = 5.00000007450580596923828125e-2;
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: 	stmt 1 *_15 = 5.00000007450580596923828125e-2;
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: 	stmt 2 *_210 = 5.00000007450580596923828125e-2;
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: 	stmt 3 *_35 = 5.00000007450580596923828125e-2;
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: 	children 0x9eddd88
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: node (constant) 0x9eddd88 (max_nunits=1, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: 	{ 5.00000007450580596923828125e-2, 5.00000007450580596923828125e-2, 5.00000007450580596923828125e-2, 5.00000007450580596923828125e-2 }
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: ------>vectorizing SLP node starting from: *_99 = 5.00000007450580596923828125e-2;
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: vect_is_simple_use: operand 5.00000007450580596923828125e-2, type of def: constant
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: vect_is_simple_use: operand 5.00000007450580596923828125e-2, type of def: constant
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: vect_is_simple_use: operand 5.00000007450580596923828125e-2, type of def: constant
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: transform store. ncopies = 1
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: create vector_type-pointer variable to type: vector(4) float  vectorizing a pointer ref: *_99
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: created vectp.466_4
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: add new stmt: MEM <vector(4) float> [(float *)vectp.466_4] = { 5.00000007450580596923828125e-2, 5.00000007450580596923828125e-2, 5.00000007450580596923828125e-2, 5.00000007450580596923828125e-2 };
+benchmark/src/scalar/pointnet++_scalar.cpp:341:19: note: vectorizing stmts using SLP.
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: optimized: basic block part vectorized using 16 byte vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: Vectorizing SLP tree:
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: node 0x9eddd00 (max_nunits=4, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: op template: *_101 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: 	stmt 0 *_101 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: 	stmt 1 *_17 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: 	stmt 2 *_26 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: 	stmt 3 *_36 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: 	children 0x9eddf20
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: node (constant) 0x9eddf20 (max_nunits=1, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: 	{ 1.0e+0, 1.0e+0, 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: ------>vectorizing SLP node starting from: *_101 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: vect_is_simple_use: operand 1.0e+0, type of def: constant
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: vect_is_simple_use: operand 1.0e+0, type of def: constant
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: vect_is_simple_use: operand 1.0e+0, type of def: constant
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: transform store. ncopies = 1
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: create vector_type-pointer variable to type: vector(4) float  vectorizing a pointer ref: *_101
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: created vectp.468_200
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: add new stmt: MEM <vector(4) float> [(float *)vectp.468_200] = { 1.0e+0, 1.0e+0, 1.0e+0, 1.0e+0 };
+benchmark/src/scalar/pointnet++_scalar.cpp:342:19: note: vectorizing stmts using SLP.
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: optimized: basic block part vectorized using 16 byte vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: Vectorizing SLP tree:
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: node 0x9eddfa8 (max_nunits=4, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: op template: *_103 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: 	stmt 0 *_103 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: 	stmt 1 *_161 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: 	stmt 2 *_28 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: 	stmt 3 *_37 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: 	children 0x9ede030
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: node (constant) 0x9ede030 (max_nunits=1, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: 	{ 1.0e+0, 1.0e+0, 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: ------>vectorizing SLP node starting from: *_103 = 1.0e+0;
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: vect_is_simple_use: operand 1.0e+0, type of def: constant
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: vect_is_simple_use: operand 1.0e+0, type of def: constant
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: vect_is_simple_use: operand 1.0e+0, type of def: constant
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: transform store. ncopies = 1
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: create vector_type-pointer variable to type: vector(4) float  vectorizing a pointer ref: *_103
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: created vectp.470_8
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: add new stmt: MEM <vector(4) float> [(float *)vectp.470_8] = { 1.0e+0, 1.0e+0, 1.0e+0, 1.0e+0 };
+benchmark/src/scalar/pointnet++_scalar.cpp:343:19: note: vectorizing stmts using SLP.
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: optimized: basic block part vectorized using 16 byte vectors
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: Vectorizing SLP tree:
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: node 0x9ede0b8 (max_nunits=4, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: op template: *_105 = 0.0;
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: 	stmt 0 *_105 = 0.0;
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: 	stmt 1 *_208 = 0.0;
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: 	stmt 2 *_30 = 0.0;
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: 	stmt 3 *_38 = 0.0;
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: 	children 0x9ede140
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: node (constant) 0x9ede140 (max_nunits=1, refcnt=1) vector(4) float
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: 	{ 0.0, 0.0, 0.0, 0.0 }
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: ------>vectorizing SLP node starting from: *_105 = 0.0;
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: vect_is_simple_use: operand 0.0, type of def: constant
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: vect_is_simple_use: operand 0.0, type of def: constant
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: vect_is_simple_use: operand 0.0, type of def: constant
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: transform store. ncopies = 1
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: create vector_type-pointer variable to type: vector(4) float  vectorizing a pointer ref: *_105
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: created vectp.472_11
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: add new stmt: MEM <vector(4) float> [(float *)vectp.472_11] = { 0.0, 0.0, 0.0, 0.0 };
+benchmark/src/scalar/pointnet++_scalar.cpp:344:19: note: vectorizing stmts using SLP.

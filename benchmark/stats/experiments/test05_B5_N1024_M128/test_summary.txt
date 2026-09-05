@@ -1,0 +1,10 @@
+test=test05_B5_N1024_M128
+B=5
+N=1024
+M=128
+compiler=14.2.0
+runs=6
+normal_modes=scalar,autovec,rvv
+profiled_modes=scalar,autovec,rvv
+total_wall_time=4504 seconds
+completed=Sat Sep  5 00:10:31 CDT 2026

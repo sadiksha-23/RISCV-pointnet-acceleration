@@ -1,0 +1,48 @@
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:13:24: missed: couldn't vectorize loop
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:13:24: missed: not vectorized: multiple nested loops.
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:14:27: missed: couldn't vectorize loop
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:23:51: missed: failed: evolution of base is not affine.
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:22:31: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:22:31: optimized:  loop versioned for vectorization because of possible aliasing
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:9:6: note: vectorized 1 loops in function.
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:23:51: missed: statement clobbers memory: vect__19.16_120 = .MASK_LEN_LOAD (vectp.14_122, 32B, { -1, ... }, _196, 0);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:23:77: missed: statement clobbers memory: vect__26.20_110 = .MASK_LEN_LOAD (vectp.18_112, 32B, { -1, ... }, _196, 0);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:23:103: missed: statement clobbers memory: vect__34.25_85 = .MASK_LEN_LOAD (vectp.23_87, 32B, { -1, ... }, _196, 0);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:23:32: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.28_52, 32B, { -1, ... }, _196, 0, vect__41.27_57);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:23:27: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:23:27: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:23:27: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:23:27: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:23:27: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:23:27: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:23:27: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:9:6: note: ***** Analysis failed with vector mode V16QI
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:9:6: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:9:6: note: ***** Analysis failed with vector mode V8QI
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:9:6: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:9:6: note: ***** Analysis failed with vector mode V4QI
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:9:6: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:9:6: note: ***** Analysis failed with vector mode V2QI
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:9:6: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:9:6: note: ***** Analysis failed with vector mode V1QI
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:50:23: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:47:23: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:34:5: note: vectorized 2 loops in function.
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:41:40: missed: statement clobbers memory: _22 = operator new [] (8192);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:42:38: missed: statement clobbers memory: _24 = operator new [] (3072);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:43:40: missed: statement clobbers memory: _26 = operator new [] (3072);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:44:40: missed: statement clobbers memory: _28 = operator new [] (65536);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:48:19: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.84_112, 32B, { -1, ... }, _117, 0, vect__6.83_110);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:51:19: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.73_57, 32B, { -1, ... }, _67, 0, vect__10.72_17);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:52:19: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.75_62, 32B, { -1, ... }, _67, 0, { 3.333333432674407958984375e-1, ... });
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:56:19: missed: statement clobbers memory: m5_reset_stats (0, 0);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:59:20: missed: statement clobbers memory: interpolate_cpu (1, 32, 64, 256, _22, _24, _26, _28);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:62:18: missed: statement clobbers memory: m5_dump_stats (0, 0);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, "Point 0 -> Feature Channel 0 out: %f\n", _13);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, "Point 0 -> Feature Channel 1 out: %f\n", _15);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:69:14: missed: statement clobbers memory: operator delete [] (_22);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:70:14: missed: statement clobbers memory: operator delete [] (_24);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:71:14: missed: statement clobbers memory: operator delete [] (_26);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:72:14: missed: statement clobbers memory: operator delete [] (_28);
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:72:14: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/interpolation_benchmark_scalar.cpp:72:14: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1SF

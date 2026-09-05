@@ -1,0 +1,262 @@
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:13:23: missed: couldn't vectorize loop
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:18:37: missed: not vectorized: complicated access pattern.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:14:27: optimized: loop vectorized using variable length vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:14:27: optimized:  loop versioned for vectorization because of possible aliasing
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:10:6: note: vectorized 1 loops in function.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:18:37: missed: statement clobbers memory: vect_array.14 = .MASK_LEN_LOAD_LANES (vectp.12_105, 32B, { -1, ... }, _156, 0);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:33:30: missed: statement clobbers memory: .MASK_LEN_STORE_LANES (vectp.32_145, 32B, { -1, ... }, _156, 0, vect_array.34);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:15:31: note: ***** Analysis failed with vector mode RVVM1SF
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:15:31: note: ***** The result for vector mode RVVM1QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:15:31: note: ***** The result for vector mode RVVMF2QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:15:31: note: ***** The result for vector mode RVVMF4QI would be the same
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:15:31: note: ***** Re-trying analysis with vector mode RVVMF8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:15:31: note: ***** Analysis failed with vector mode RVVMF8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:15:31: note: ***** Re-trying analysis with vector mode V16QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Analysis succeeded with vector mode V16QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: SLPing BB part
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Costing subgraph: 
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e04de0 (max_nunits=2, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: *_62 = _61;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 *_62 = _61;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 *_59 = _58;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e04e68
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e04e68 (max_nunits=2, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _61 = w0_71 / sum_63;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _61 = w0_71 / sum_63;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _58 = w1_68 / sum_63;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e04ef0 0x41e052a8
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e04ef0 (max_nunits=2, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: w0_71 = 1.0e+0 / _72;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 w0_71 = 1.0e+0 / _72;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 w1_68 = 1.0e+0 / _69;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e04f78 0x41e05000
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x41e04f78 (max_nunits=1, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.0e+0, 1.0e+0 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e05000 (max_nunits=2, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _69 = _70 ? 1.00000001335143196001808973960578441619873046875e-10 : _78;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e05088 0x41e05220 0x41e05110
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e05088 (max_nunits=2, refcnt=1) vector(2) <signed-boolean:1>
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _70 = _78 < 1.00000001335143196001808973960578441619873046875e-10;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e05110 0x41e05198
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e05110 (max_nunits=2, refcnt=2) const vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _82 = *_83;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _82 = *_83;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _78 = *_79;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x41e05198 (max_nunits=1, refcnt=1) const vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x41e05220 (max_nunits=1, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (external) 0x41e052a8 (max_nunits=1, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ sum_63, sum_63 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis: 
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis for part in loop 3:
+  Vector cost: 15
+  Scalar cost: 12
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: missed: not vectorized: vectorization is not profitable.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Re-trying analysis with vector mode V8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Analysis succeeded with vector mode V8QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: SLPing BB part
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Costing subgraph: 
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e04e68 (max_nunits=2, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: *_62 = _61;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 *_62 = _61;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 *_59 = _58;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e052a8
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e052a8 (max_nunits=2, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _61 = w0_71 / sum_63;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _61 = w0_71 / sum_63;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _58 = w1_68 / sum_63;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e04ef0 0x41e05330
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e04ef0 (max_nunits=2, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: w0_71 = 1.0e+0 / _72;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 w0_71 = 1.0e+0 / _72;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 w1_68 = 1.0e+0 / _69;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e05000 0x41e05110
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x41e05000 (max_nunits=1, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.0e+0, 1.0e+0 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e05110 (max_nunits=2, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _69 = _70 ? 1.00000001335143196001808973960578441619873046875e-10 : _78;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e05220 0x41e04f78 0x41e05088
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e05220 (max_nunits=2, refcnt=1) vector(2) <signed-boolean:1>
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _70 = _78 < 1.00000001335143196001808973960578441619873046875e-10;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e05088 0x41e05198
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e05088 (max_nunits=2, refcnt=2) const vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _82 = *_83;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _82 = *_83;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _78 = *_79;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x41e05198 (max_nunits=1, refcnt=1) const vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x41e04f78 (max_nunits=1, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (external) 0x41e05330 (max_nunits=1, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ sum_63, sum_63 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis: 
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis for part in loop 3:
+  Vector cost: 15
+  Scalar cost: 12
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: missed: not vectorized: vectorization is not profitable.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Re-trying analysis with vector mode V4QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Analysis succeeded with vector mode V4QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: SLPing BB part
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Costing subgraph: 
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e052a8 (max_nunits=2, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: *_62 = _61;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 *_62 = _61;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 *_59 = _58;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e05330
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e05330 (max_nunits=2, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _61 = w0_71 / sum_63;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _61 = w0_71 / sum_63;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _58 = w1_68 / sum_63;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e04ef0 0x41e04d58
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e04ef0 (max_nunits=2, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: w0_71 = 1.0e+0 / _72;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 w0_71 = 1.0e+0 / _72;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 w1_68 = 1.0e+0 / _69;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e05110 0x41e05088
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x41e05110 (max_nunits=1, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.0e+0, 1.0e+0 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e05088 (max_nunits=2, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _69 = _70 ? 1.00000001335143196001808973960578441619873046875e-10 : _78;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e04f78 0x41e05000 0x41e05220
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e04f78 (max_nunits=2, refcnt=1) vector(2) <signed-boolean:1>
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _70 = _78 < 1.00000001335143196001808973960578441619873046875e-10;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e05220 0x41e05198
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e05220 (max_nunits=2, refcnt=2) const vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _82 = *_83;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _82 = *_83;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _78 = *_79;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x41e05198 (max_nunits=1, refcnt=1) const vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x41e05000 (max_nunits=1, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (external) 0x41e04d58 (max_nunits=1, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ sum_63, sum_63 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis: 
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis for part in loop 3:
+  Vector cost: 15
+  Scalar cost: 12
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: missed: not vectorized: vectorization is not profitable.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Re-trying analysis with vector mode V2QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Analysis succeeded with vector mode V2QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: SLPing BB part
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Costing subgraph: 
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e05330 (max_nunits=2, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: *_62 = _61;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 *_62 = _61;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 *_59 = _58;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e04d58
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e04d58 (max_nunits=2, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _61 = w0_71 / sum_63;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _61 = w0_71 / sum_63;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _58 = w1_68 / sum_63;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e04ef0 0x41e04de0
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e04ef0 (max_nunits=2, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: w0_71 = 1.0e+0 / _72;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 w0_71 = 1.0e+0 / _72;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 w1_68 = 1.0e+0 / _69;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e05088 0x41e05220
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x41e05088 (max_nunits=1, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.0e+0, 1.0e+0 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e05220 (max_nunits=2, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _69 = _70 ? 1.00000001335143196001808973960578441619873046875e-10 : _78;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e05000 0x41e05110 0x41e04f78
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e05000 (max_nunits=2, refcnt=1) vector(2) <signed-boolean:1>
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _70 = _78 < 1.00000001335143196001808973960578441619873046875e-10;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e04f78 0x41e05198
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e04f78 (max_nunits=2, refcnt=2) const vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _82 = *_83;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _82 = *_83;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _78 = *_79;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x41e05198 (max_nunits=1, refcnt=1) const vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x41e05110 (max_nunits=1, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (external) 0x41e04de0 (max_nunits=1, refcnt=1) vector(2) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ sum_63, sum_63 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis: 
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis for part in loop 3:
+  Vector cost: 15
+  Scalar cost: 12
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: missed: not vectorized: vectorization is not profitable.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Re-trying analysis with vector mode V1QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: ***** Analysis succeeded with vector mode V1QI
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: SLPing BB part
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Costing subgraph: 
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e05330 (max_nunits=1, refcnt=1) vector(1) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: *_62 = _61;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 *_62 = _61;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 *_59 = _58;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 2 *_50 = _49;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e04d58
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e04d58 (max_nunits=1, refcnt=1) vector(1) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _61 = w0_71 / sum_63;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _61 = w0_71 / sum_63;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _58 = w1_68 / sum_63;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 2 _49 = w2_65 / sum_63;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e04de0 0x41e05088
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e04de0 (max_nunits=1, refcnt=1) vector(1) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: w0_71 = 1.0e+0 / _72;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 w0_71 = 1.0e+0 / _72;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 w1_68 = 1.0e+0 / _69;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 2 w2_65 = 1.0e+0 / _66;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e04ef0 0x41e05220
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x41e04ef0 (max_nunits=1, refcnt=1) vector(1) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.0e+0, 1.0e+0, 1.0e+0 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e05220 (max_nunits=1, refcnt=1) vector(1) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _72 = _73 ? 1.00000001335143196001808973960578441619873046875e-10 : _82;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _69 = _70 ? 1.00000001335143196001808973960578441619873046875e-10 : _78;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 2 _66 = _67 ? 1.00000001335143196001808973960578441619873046875e-10 : _74;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e04f78 0x41e05198 0x41e05110
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e04f78 (max_nunits=1, refcnt=1) vector(1) <signed-boolean:1>
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _73 = _82 < 1.00000001335143196001808973960578441619873046875e-10;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _70 = _78 < 1.00000001335143196001808973960578441619873046875e-10;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 2 _67 = _74 < 1.00000001335143196001808973960578441619873046875e-10;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	children 0x41e05110 0x41e05000
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node 0x41e05110 (max_nunits=1, refcnt=2) const vector(1) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: op template: _82 = *_83;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 0 _82 = *_83;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 1 _78 = *_79;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	stmt 2 _74 = *_75;
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x41e05000 (max_nunits=1, refcnt=1) const vector(1) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (constant) 0x41e05198 (max_nunits=1, refcnt=1) vector(1) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: node (external) 0x41e05088 (max_nunits=1, refcnt=1) vector(1) float
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: 	{ sum_63, sum_63, sum_63 }
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis: 
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: note: Cost model analysis for part in loop 3:
+  Vector cost: 30
+  Scalar cost: 18
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:31:30: missed: not vectorized: vectorization is not profitable.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:47:23: optimized: loop vectorized using variable length vectors
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:38:5: note: vectorized 1 loops in function.
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:43:45: missed: statement clobbers memory: _18 = operator new [] (1920);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:44:45: missed: statement clobbers memory: _20 = operator new [] (1920);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:48:17: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.67_79, 32B, { -1, ... }, _84, 0, vect__7.66_77);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:52:19: missed: statement clobbers memory: m5_reset_stats (0, 0);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:54:20: missed: statement clobbers memory: get_weights_cpu (5, 32, _18, _20);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:57:18: missed: statement clobbers memory: m5_dump_stats (0, 0);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, "Scalar Output Check -> Point 0: [w0=%.4f, w1=%.4f, w2=%.4f]\n", _9, _11, _13);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:63:14: missed: statement clobbers memory: operator delete [] (_18);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:64:14: missed: statement clobbers memory: operator delete [] (_20);
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:64:14: note: ***** Analysis failed with vector mode RVVM1SF
+/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/scalar/weight_benchmark_scalar.cpp:64:14: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1SF

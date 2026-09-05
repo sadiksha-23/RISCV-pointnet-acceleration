@@ -1,0 +1,358 @@
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:14:23: missed: couldn't vectorize loop
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:14:23: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:15:27: missed: couldn't vectorize loop
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:15:27: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:23:31: missed: couldn't vectorize loop
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: missed: not vectorized: unsupported use in stmt.
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: ***** Analysis failed with vector mode V16QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: ***** Analysis failed with vector mode V8QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: ***** Analysis failed with vector mode V4QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: ***** Analysis failed with vector mode V2QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: ***** Analysis failed with vector mode V1QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: note: vectorized 0 loops in function.
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:13:6: missed: splitting region at dont-vectorize loop 4 entry at bb33
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:23:31: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:23:31: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1SF
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:23:31: missed: splitting region at dominance boundary bb11
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:54:31: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:54:31: missed: splitting region at loop 2 exit at bb25
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: note: ***** Analysis failed with vector mode V16QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: note: ***** Analysis failed with vector mode V8QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: note: ***** Analysis failed with vector mode V4QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: note: ***** Analysis failed with vector mode V2QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: note: ***** Analysis failed with vector mode V1QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:51:29: missed: splitting region at loop 1 exit at bb29
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:14:23: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:14:23: missed: splitting region at dominance boundary bb26
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:14:23: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:14:23: missed: splitting region at dominance boundary bb14
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:14:23: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:62:1: note: ***** Analysis failed with vector mode VOID
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:69:23: missed: couldn't vectorize loop
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:71:38: missed: not vectorized: complicated access pattern.
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:70:27: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:70:27: optimized:  loop versioned for vectorization because of possible aliasing
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:67:6: note: vectorized 1 loops in function.
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:71:38: missed: statement clobbers memory: vect_array.57 = .MASK_LEN_LOAD_LANES (vectp_dist.55_100, 32B, { -1, ... }, _148, 0);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:84:31: missed: statement clobbers memory: .MASK_LEN_STORE_LANES (vectp_weight.75_137, 32B, { -1, ... }, _148, 0, vect_array.77);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: ***** Analysis succeeded with vector mode V16QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: SLPing BB part
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: Costing subgraph: 
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0ce10 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: *_27 = _26;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 *_27 = _26;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 *_88 = _89;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0ce98
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0ce98 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _26 = w0_56 / sum_28;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _26 = w0_56 / sum_28;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _89 = w1_53 / sum_28;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0cf20 0x2ed0d2d8
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0cf20 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 w1_53 = 1.0e+0 / _54;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0cfa8 0x2ed0d030
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (constant) 0x2ed0cfa8 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0d030 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _54 = _55 ? 1.00000001335143196001808973960578441619873046875e-10 : _71;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0d0b8 0x2ed0d250 0x2ed0d140
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0d0b8 (max_nunits=2, refcnt=1) vector(2) <signed-boolean:1>
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _55 = _71 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0d140 0x2ed0d1c8
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0d140 (max_nunits=2, refcnt=2) const vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _75 = *_76;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _75 = *_76;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _71 = *_72;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (constant) 0x2ed0d1c8 (max_nunits=1, refcnt=1) const vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (constant) 0x2ed0d250 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (external) 0x2ed0d2d8 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ sum_28, sum_28 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: Cost model analysis: 
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: Cost model analysis for part in loop 3:
+  Vector cost: 15
+  Scalar cost: 12
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: ***** Analysis succeeded with vector mode V8QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: SLPing BB part
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: Costing subgraph: 
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0ce98 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: *_27 = _26;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 *_27 = _26;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 *_88 = _89;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0d2d8
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0d2d8 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _26 = w0_56 / sum_28;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _26 = w0_56 / sum_28;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _89 = w1_53 / sum_28;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0cf20 0x2ed0cd88
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0cf20 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 w1_53 = 1.0e+0 / _54;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0d030 0x2ed0d140
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (constant) 0x2ed0d030 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0d140 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _54 = _55 ? 1.00000001335143196001808973960578441619873046875e-10 : _71;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0d250 0x2ed0cfa8 0x2ed0d0b8
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0d250 (max_nunits=2, refcnt=1) vector(2) <signed-boolean:1>
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _55 = _71 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0d0b8 0x2ed0d1c8
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0d0b8 (max_nunits=2, refcnt=2) const vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _75 = *_76;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _75 = *_76;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _71 = *_72;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (constant) 0x2ed0d1c8 (max_nunits=1, refcnt=1) const vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (constant) 0x2ed0cfa8 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (external) 0x2ed0cd88 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ sum_28, sum_28 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: Cost model analysis: 
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: Cost model analysis for part in loop 3:
+  Vector cost: 15
+  Scalar cost: 12
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: ***** Analysis succeeded with vector mode V4QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: SLPing BB part
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: Costing subgraph: 
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0d2d8 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: *_27 = _26;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 *_27 = _26;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 *_88 = _89;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0cd88
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0cd88 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _26 = w0_56 / sum_28;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _26 = w0_56 / sum_28;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _89 = w1_53 / sum_28;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0cf20 0x2ed0ce10
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0cf20 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 w1_53 = 1.0e+0 / _54;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0d140 0x2ed0d0b8
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (constant) 0x2ed0d140 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0d0b8 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _54 = _55 ? 1.00000001335143196001808973960578441619873046875e-10 : _71;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0cfa8 0x2ed0d030 0x2ed0d250
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0cfa8 (max_nunits=2, refcnt=1) vector(2) <signed-boolean:1>
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _55 = _71 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0d250 0x2ed0d1c8
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0d250 (max_nunits=2, refcnt=2) const vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _75 = *_76;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _75 = *_76;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _71 = *_72;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (constant) 0x2ed0d1c8 (max_nunits=1, refcnt=1) const vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (constant) 0x2ed0d030 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (external) 0x2ed0ce10 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ sum_28, sum_28 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: Cost model analysis: 
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: Cost model analysis for part in loop 3:
+  Vector cost: 15
+  Scalar cost: 12
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: ***** Analysis succeeded with vector mode V2QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: SLPing BB part
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: Costing subgraph: 
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0cd88 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: *_27 = _26;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 *_27 = _26;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 *_88 = _89;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0ce10
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0ce10 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _26 = w0_56 / sum_28;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _26 = w0_56 / sum_28;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _89 = w1_53 / sum_28;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0cf20 0x2ed0ce98
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0cf20 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 w1_53 = 1.0e+0 / _54;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0d0b8 0x2ed0d250
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (constant) 0x2ed0d0b8 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0d250 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _54 = _55 ? 1.00000001335143196001808973960578441619873046875e-10 : _71;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0d030 0x2ed0d140 0x2ed0cfa8
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0d030 (max_nunits=2, refcnt=1) vector(2) <signed-boolean:1>
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _55 = _71 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0cfa8 0x2ed0d1c8
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0cfa8 (max_nunits=2, refcnt=2) const vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _75 = *_76;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _75 = *_76;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _71 = *_72;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (constant) 0x2ed0d1c8 (max_nunits=1, refcnt=1) const vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (constant) 0x2ed0d140 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (external) 0x2ed0ce98 (max_nunits=1, refcnt=1) vector(2) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ sum_28, sum_28 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: Cost model analysis: 
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: Cost model analysis for part in loop 3:
+  Vector cost: 15
+  Scalar cost: 12
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: ***** Analysis succeeded with vector mode V1QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: SLPing BB part
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: Costing subgraph: 
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0cd88 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: *_27 = _26;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 *_27 = _26;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 *_88 = _89;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 2 *_91 = _92;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0ce10
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0ce10 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _26 = w0_56 / sum_28;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _26 = w0_56 / sum_28;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _89 = w1_53 / sum_28;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 2 _92 = w2_30 / sum_28;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0ce98 0x2ed0d0b8
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0ce98 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 w0_56 = 1.0e+0 / _57;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 w1_53 = 1.0e+0 / _54;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 2 w2_30 = 1.0e+0 / _31;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0cf20 0x2ed0d250
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (constant) 0x2ed0cf20 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ 1.0e+0, 1.0e+0, 1.0e+0 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0d250 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _57 = _66 ? 1.00000001335143196001808973960578441619873046875e-10 : _75;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _54 = _55 ? 1.00000001335143196001808973960578441619873046875e-10 : _71;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 2 _31 = _52 ? 1.00000001335143196001808973960578441619873046875e-10 : _67;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0cfa8 0x2ed0d1c8 0x2ed0d140
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0cfa8 (max_nunits=1, refcnt=1) vector(1) <signed-boolean:1>
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _66 = _75 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _55 = _71 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 2 _52 = _67 < 1.00000001335143196001808973960578441619873046875e-10;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	children 0x2ed0d140 0x2ed0d030
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node 0x2ed0d140 (max_nunits=1, refcnt=2) const vector(1) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: op template: _75 = *_76;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 0 _75 = *_76;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 1 _71 = *_72;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	stmt 2 _67 = *_68;
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (constant) 0x2ed0d030 (max_nunits=1, refcnt=1) const vector(1) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (constant) 0x2ed0d1c8 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10, 1.00000001335143196001808973960578441619873046875e-10 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: node (external) 0x2ed0d0b8 (max_nunits=1, refcnt=1) vector(1) float
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: 	{ sum_28, sum_28, sum_28 }
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: Cost model analysis: 
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: note: Cost model analysis for part in loop 3:
+  Vector cost: 30
+  Scalar cost: 18
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:82:31: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:97:23: missed: couldn't vectorize loop
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:97:23: missed: not vectorized: multiple nested loops.
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:98:27: missed: couldn't vectorize loop
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:107:51: missed: failed: evolution of base is not affine.
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:106:31: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:106:31: optimized:  loop versioned for vectorization because of possible aliasing
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:94:6: note: vectorized 1 loops in function.
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:107:51: missed: statement clobbers memory: vect__19.106_120 = .MASK_LEN_LOAD (vectp.104_122, 32B, { -1, ... }, _196, 0);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:107:77: missed: statement clobbers memory: vect__26.110_110 = .MASK_LEN_LOAD (vectp.108_112, 32B, { -1, ... }, _196, 0);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:107:103: missed: statement clobbers memory: vect__34.115_85 = .MASK_LEN_LOAD (vectp.113_87, 32B, { -1, ... }, _196, 0);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:107:32: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.118_52, 32B, { -1, ... }, _196, 0, vect__41.117_57);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:107:27: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:107:27: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:107:27: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:107:27: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:107:27: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:107:27: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:107:27: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:94:6: note: ***** Analysis failed with vector mode V16QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:94:6: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:94:6: note: ***** Analysis failed with vector mode V8QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:94:6: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:94:6: note: ***** Analysis failed with vector mode V4QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:94:6: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:94:6: note: ***** Analysis failed with vector mode V2QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:94:6: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:94:6: note: ***** Analysis failed with vector mode V1QI
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:133:23: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:132:23: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:131:23: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:117:5: note: vectorized 3 loops in function.
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:120:40: missed: statement clobbers memory: _29 = operator new [] (12288);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:121:40: missed: statement clobbers memory: _31 = operator new [] (1536);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:122:40: missed: statement clobbers memory: _33 = operator new [] (12288);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:123:38: missed: statement clobbers memory: _35 = operator new [] (12288);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:124:40: missed: statement clobbers memory: _37 = operator new [] (12288);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:125:40: missed: statement clobbers memory: _39 = operator new [] (32768);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:126:40: missed: statement clobbers memory: _41 = operator new [] (262144);
+/usr/riscv64-linux-gnu/include/bits/string_fortified.h:59:33: missed: statement clobbers memory: __builtin_memset (_35, 0, 12288);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:131:51: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.186_215, 32B, { -1, ... }, _220, 0, vect__6.185_213);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:132:51: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.177_165, 32B, { -1, ... }, _170, 0, vect__12.176_163);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:133:51: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.168_115, 32B, { -1, ... }, _120, 0, vect__18.167_113);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:136:19: missed: statement clobbers memory: m5_reset_stats (0, 0);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:139:16: missed: statement clobbers memory: threenn_cpu (1, 1024, 128, _29, _31, _33, _35);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:140:20: missed: statement clobbers memory: get_weights_cpu (1, 1024, _33, _37);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:141:20: missed: statement clobbers memory: interpolate_cpu (1, 128, 64, 1024, _39, _35, _37, _41);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:144:18: missed: statement clobbers memory: m5_dump_stats (0, 0);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, "FP check output point 0, channel 0: %f\n", _20);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:150:14: missed: statement clobbers memory: operator delete [] (_29);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:151:14: missed: statement clobbers memory: operator delete [] (_31);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:152:14: missed: statement clobbers memory: operator delete [] (_33);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:153:14: missed: statement clobbers memory: operator delete [] (_35);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:154:14: missed: statement clobbers memory: operator delete [] (_37);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:155:14: missed: statement clobbers memory: operator delete [] (_39);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:156:14: missed: statement clobbers memory: operator delete [] (_41);
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:156:14: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/upsampling_benchmark_scalar.cpp:156:14: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1SF

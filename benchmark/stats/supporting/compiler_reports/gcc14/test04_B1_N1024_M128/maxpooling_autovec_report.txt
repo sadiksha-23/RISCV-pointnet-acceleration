@@ -1,0 +1,150 @@
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:12:31: missed: couldn't vectorize loop
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:12:31: missed: not vectorized: unsupported control flow in loop.
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:13:29: missed: couldn't vectorize loop
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:13:29: missed: not vectorized: unsupported control flow in loop.
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:14:33: missed: couldn't vectorize loop
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:14:33: missed: not vectorized: unsupported outerloop form.
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:18:37: missed: couldn't vectorize loop
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:11:6: missed: not vectorized: unsupported use in stmt.
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:11:6: note: vectorized 0 loops in function.
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:27:21: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:27:21: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:27:21: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:27:21: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:27:21: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:27:21: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:27:21: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: ***** Analysis succeeded with vector mode V16QI
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: SLPing BB part
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: Costing subgraph: 
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node 0x2b09dbc0 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: op template: _27 = _28 * _23;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 0 _27 = _28 * _23;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 1 _50 = _25 * _44;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	children 0x2b09dc48 0x2b09de68
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node 0x2b09dc48 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: op template: _28 = _29 * _22;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 0 _28 = _29 * _22;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 1 _25 = _22 * _46;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	children 0x2b09dd58 0x2b09dde0
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node (external) 0x2b09dd58 (max_nunits=1, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	{ _29, _46 }
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node (external) 0x2b09dde0 (max_nunits=1, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	{ _22, _22 }
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node 0x2b09de68 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: op template: _23 = (unsigned int) batch_52;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 0 _23 = (unsigned int) batch_52;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 1 _44 = (unsigned int) pt_53;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	children 0x2b09df78
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node (external) 0x2b09df78 (max_nunits=1, refcnt=1) vector(2) int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	{ batch_52, pt_53 }
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: Cost model analysis: 
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: Cost model analysis for part in loop 0:
+  Vector cost: 8
+  Scalar cost: 2
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: ***** Analysis succeeded with vector mode V8QI
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: SLPing BB part
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: Costing subgraph: 
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node 0x2b09dbc0 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: op template: _27 = _28 * _23;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 0 _27 = _28 * _23;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 1 _50 = _25 * _44;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	children 0x2b09de68 0x2b09dcd0
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node 0x2b09de68 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: op template: _28 = _29 * _22;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 0 _28 = _29 * _22;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 1 _25 = _22 * _46;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	children 0x2b09dde0 0x2b09dd58
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node (external) 0x2b09dde0 (max_nunits=1, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	{ _29, _46 }
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node (external) 0x2b09dd58 (max_nunits=1, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	{ _22, _22 }
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node 0x2b09dcd0 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: op template: _23 = (unsigned int) batch_52;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 0 _23 = (unsigned int) batch_52;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 1 _44 = (unsigned int) pt_53;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	children 0x2b09db38
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node (external) 0x2b09db38 (max_nunits=1, refcnt=1) vector(2) int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	{ batch_52, pt_53 }
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: Cost model analysis: 
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: Cost model analysis for part in loop 0:
+  Vector cost: 8
+  Scalar cost: 2
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: ***** Analysis succeeded with vector mode V4QI
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: SLPing BB part
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: Costing subgraph: 
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node 0x2b09dbc0 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: op template: _27 = _28 * _23;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 0 _27 = _28 * _23;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 1 _50 = _25 * _44;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	children 0x2b09dcd0 0x2b09dc48
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node 0x2b09dcd0 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: op template: _28 = _29 * _22;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 0 _28 = _29 * _22;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 1 _25 = _22 * _46;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	children 0x2b09dd58 0x2b09dde0
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node (external) 0x2b09dd58 (max_nunits=1, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	{ _29, _46 }
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node (external) 0x2b09dde0 (max_nunits=1, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	{ _22, _22 }
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node 0x2b09dc48 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: op template: _23 = (unsigned int) batch_52;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 0 _23 = (unsigned int) batch_52;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 1 _44 = (unsigned int) pt_53;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	children 0x2b09df78
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node (external) 0x2b09df78 (max_nunits=1, refcnt=1) vector(2) int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	{ batch_52, pt_53 }
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: Cost model analysis: 
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: Cost model analysis for part in loop 0:
+  Vector cost: 8
+  Scalar cost: 2
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: ***** Analysis succeeded with vector mode V2QI
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: SLPing BB part
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: Costing subgraph: 
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node 0x2b09dbc0 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: op template: _27 = _28 * _23;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 0 _27 = _28 * _23;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 1 _50 = _25 * _44;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	children 0x2b09dc48 0x2b09de68
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node 0x2b09dc48 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: op template: _28 = _29 * _22;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 0 _28 = _29 * _22;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 1 _25 = _22 * _46;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	children 0x2b09dde0 0x2b09dd58
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node (external) 0x2b09dde0 (max_nunits=1, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	{ _29, _46 }
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node (external) 0x2b09dd58 (max_nunits=1, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	{ _22, _22 }
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node 0x2b09de68 (max_nunits=2, refcnt=1) vector(2) unsigned int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: op template: _23 = (unsigned int) batch_52;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 0 _23 = (unsigned int) batch_52;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	stmt 1 _44 = (unsigned int) pt_53;
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	children 0x2b09db38
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: node (external) 0x2b09db38 (max_nunits=1, refcnt=1) vector(2) int
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: 	{ batch_52, pt_53 }
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: Cost model analysis: 
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: Cost model analysis for part in loop 0:
+  Vector cost: 8
+  Scalar cost: 2
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: missed: not vectorized: vectorization is not profitable.
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:20:51: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:27:21: note: ***** Analysis failed with vector mode V1QI
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:48:23: optimized: loop vectorized using variable length vectors
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:34:5: note: vectorized 1 loops in function.
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:44:59: missed: statement clobbers memory: _13 = operator new [] (2097152);
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:45:61: missed: statement clobbers memory: _15 = operator new [] (262144);
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:49:27: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.47_71, 32B, { -1, ... }, _76, 0, vect__6.46_69);
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:53:19: missed: statement clobbers memory: m5_reset_stats (0, 0);
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:56:16: missed: statement clobbers memory: maxpool_cpu (1, 1024, 8, 64, _13, _15);
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:59:18: missed: statement clobbers memory: m5_dump_stats (0, 0);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, "Point 0, Channel 0 max value: %f\n", _8);
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:65:14: missed: statement clobbers memory: operator delete [] (_13);
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:66:14: missed: statement clobbers memory: operator delete [] (_15);
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:66:14: note: ***** Analysis failed with vector mode RVVM1SF
+benchmark/src/scalar/maxpooling_benchmark_scalar.cpp:66:14: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1SF

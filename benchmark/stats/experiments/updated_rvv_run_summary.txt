@@ -1,0 +1,6 @@
+tests=test01,test02,test03,test04,test05
+modes=end_to_end_rvv,profiled_rvv
+runs=10
+compiler=14.2.0
+total_host_wall_time=602 seconds
+completed=Sat Sep 12 17:18:39 CDT 2026

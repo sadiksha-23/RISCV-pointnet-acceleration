@@ -2569,7 +2569,7 @@
                                 "name": "workload",
                                 "path": "board.processor.cores.core.workload",
                                 "cmd": [
-                                    "benchmark/bin/rvv/pointnet++_rvv_profiled.riscv"
+                                    "benchmark/bin/pipeline/rvv/pointnet++_rvv_profiled.riscv"
                                 ],
                                 "cwd": "/mnt/c/Users/lsadi/Documents/PCD Research",
                                 "drivers": [],
@@ -2578,7 +2578,7 @@
                                 "errout": "cerr",
                                 "euid": 100,
                                 "eventq_index": 0,
-                                "executable": "benchmark/bin/rvv/pointnet++_rvv_profiled.riscv",
+                                "executable": "benchmark/bin/pipeline/rvv/pointnet++_rvv_profiled.riscv",
                                 "gid": 100,
                                 "input": "cin",
                                 "kvmInSE": false,

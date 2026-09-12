@@ -4,6 +4,8 @@
 #include <cmath>
 #include <vector>
 #include <algorithm>
+#include <cstddef>
+#include <cstdint>
 #include <riscv_vector.h>
 
 extern "C" {
@@ -14,17 +16,34 @@ extern "C" {
 // 1. DOWNSAMPLING & GROUPING KERNELS (RVV)
 // -------------------------------------------------------------
 
+static inline void find_vector_maximum(vfloat32m1_t values, size_t vl, float &maximum_value, int &maximum_lane) {
+    // FPS distances are nonnegative, so -1 is a safe starting value.
+    vfloat32m1_t initial = __riscv_vfmv_v_f_f32m1(-1.0f, 1);
+
+    // Find the largest value across all active vector lanes.
+    vfloat32m1_t reduced = __riscv_vfredmax_vs_f32m1_f32m1(values, initial, vl);
+    maximum_value = __riscv_vfmv_f_s_f32m1_f32(reduced);
+
+    // Mark all lanes containing the maximum value.
+    vbool32_t maximum_mask = __riscv_vmfeq_vf_f32m1_b32(values, maximum_value, vl);
+
+    // Select the first lane containing that maximum.
+    maximum_lane = static_cast<int>(__riscv_vfirst_m_b32(maximum_mask, vl));
+}
+
 void farthestPointSampling_rvv(int b, int n, int m, const float * __restrict__ dataset, float * __restrict__ temp, int * __restrict__ idxs) {
     if (m <= 0) return;
+
     const ptrdiff_t stride = 3 * sizeof(float);
 
     for (int i = 0; i < b; ++i) {
         int old = 0;
         idxs[0] = old;
 
-        // Initialize temp distance buffer with infinity (1e38)
+        // Initialize the minimum-distance buffer.
         int rem_init = n;
         int init_offset = 0;
+
         for (size_t vl; rem_init > 0; rem_init -= vl, init_offset += vl) {
             vl = __riscv_vsetvl_e32m1(rem_init);
             vfloat32m1_t v_inf = __riscv_vfmv_v_f_f32m1(1e38f, vl);
@@ -33,10 +52,12 @@ void farthestPointSampling_rvv(int b, int n, int m, const float * __restrict__ d
 
         const float *cur_dataset = dataset + i * n * 3;
 
+        // Select the remaining m - 1 centroid points.
         for (int j = 1; j < m; ++j) {
             int besti = 0;
             float best = -1.0f;
 
+            // Coordinates of the previously selected centroid.
             float x1 = cur_dataset[old * 3 + 0];
             float y1 = cur_dataset[old * 3 + 1];
             float z1 = cur_dataset[old * 3 + 2];
@@ -44,39 +65,43 @@ void farthestPointSampling_rvv(int b, int n, int m, const float * __restrict__ d
             int rem_n = n;
             int k_base = 0;
 
+            // Process candidate points in RVV chunks.
             for (size_t vl; rem_n > 0; rem_n -= vl, k_base += vl) {
                 vl = __riscv_vsetvl_e32m1(rem_n);
 
-                // Load candidate points (x2, y2, z2)
+                // Load candidate x, y and z coordinates.
                 vfloat32m1_t vx2 = __riscv_vlse32_v_f32m1(cur_dataset + k_base * 3 + 0, stride, vl);
                 vfloat32m1_t vy2 = __riscv_vlse32_v_f32m1(cur_dataset + k_base * 3 + 1, stride, vl);
                 vfloat32m1_t vz2 = __riscv_vlse32_v_f32m1(cur_dataset + k_base * 3 + 2, stride, vl);
 
-                // Distance calculation
+                // Calculate coordinate differences.
                 vfloat32m1_t vdx = __riscv_vfsub_vf_f32m1(vx2, x1, vl);
                 vfloat32m1_t vdy = __riscv_vfsub_vf_f32m1(vy2, y1, vl);
                 vfloat32m1_t vdz = __riscv_vfsub_vf_f32m1(vz2, z1, vl);
 
+                // Calculate squared Euclidean distances.
                 vfloat32m1_t vd = __riscv_vfmul_vv_f32m1(vdx, vdx, vl);
                 vd = __riscv_vfmacc_vv_f32m1(vd, vdy, vdy, vl);
                 vd = __riscv_vfmacc_vv_f32m1(vd, vdz, vdz, vl);
 
-                // Update shortest distance across samples
+                // Update each point's minimum distance to a selected centroid.
                 vfloat32m1_t v_temp = __riscv_vle32_v_f32m1(temp + k_base, vl);
                 v_temp = __riscv_vfmin_vv_f32m1(v_temp, vd, vl);
                 __riscv_vse32_v_f32m1(temp + k_base, v_temp, vl);
 
-                // Find local maximum distance
-                float chunk_temp[vl];
-                __riscv_vse32_v_f32m1(chunk_temp, v_temp, vl);
-                for (size_t elem = 0; elem < vl; ++elem) {
-                    if (chunk_temp[elem] > best) {
-                        best = chunk_temp[elem];
-                        besti = k_base + elem;
-                    }
+                // Find the maximum updated distance and its lane using RVV.
+                float chunk_best;
+                int chunk_best_lane;
+                find_vector_maximum(v_temp, vl, chunk_best, chunk_best_lane);
+
+                // Compare this chunk's winner with the overall winner.
+                if (chunk_best > best) {
+                    best = chunk_best;
+                    besti = k_base + chunk_best_lane;
                 }
             }
 
+            // The farthest point becomes the next centroid.
             old = besti;
             idxs[j] = old;
         }
@@ -101,6 +126,20 @@ void gatherPoint_rvv(int b, int n, int m, const float * __restrict__ inp, const 
     }
 }
 
+static inline void fill_indices_rvv(int *output, int count, int value) {
+    int remaining = count;
+    int offset = 0;
+
+    while (remaining > 0) {
+        size_t vl = __riscv_vsetvl_e32m1(remaining);
+        vuint32m1_t values = __riscv_vmv_v_x_u32m1(static_cast<uint32_t>(value), vl);
+        __riscv_vse32_v_u32m1(reinterpret_cast<uint32_t *>(output + offset), values, vl);
+
+        remaining -= static_cast<int>(vl);
+        offset += static_cast<int>(vl);
+    }
+}
+
 void query_ball_point_rvv(int b, int n, int m, float radius, int nsample, const float *xyz1, const float *xyz2, int *idx, int *pts_cnt) {
     float radius2 = radius * radius;
     const ptrdiff_t stride = 3 * sizeof(float);
@@ -108,50 +147,70 @@ void query_ball_point_rvv(int b, int n, int m, float radius, int nsample, const 
     for (int i = 0; i < b; ++i) {
         for (int j = 0; j < m; ++j) {
             int cnt = 0;
-            int *cur_idx = idx + (i * m + j) * nsample;
+            int *current_output = idx + (i * m + j) * nsample;
 
             float x2 = xyz2[(i * m + j) * 3 + 0];
             float y2 = xyz2[(i * m + j) * 3 + 1];
             float z2 = xyz2[(i * m + j) * 3 + 2];
 
-            int rem_n = n;
+            const float *curr_xyz1 = xyz1 + i * n * 3;
             int k_base = 0;
+            int rem_n = n;
 
-            for (size_t vl; rem_n > 0; rem_n -= vl, k_base += vl) {
+            // Process candidate points in RVV chunks.
+            for (size_t vl; rem_n > 0; rem_n -= vl, k_base += vl, curr_xyz1 += vl * 3) {
                 if (cnt == nsample) break;
+
                 vl = __riscv_vsetvl_e32m1(rem_n);
 
-                // Load candidate points from dataset
-                vfloat32m1_t vx1 = __riscv_vlse32_v_f32m1(xyz1 + (i * n + k_base) * 3 + 0, stride, vl);
-                vfloat32m1_t vy1 = __riscv_vlse32_v_f32m1(xyz1 + (i * n + k_base) * 3 + 1, stride, vl);
-                vfloat32m1_t vz1 = __riscv_vlse32_v_f32m1(xyz1 + (i * n + k_base) * 3 + 2, stride, vl);
+                // Load candidate coordinates.
+                vfloat32m1_t vx1 = __riscv_vlse32_v_f32m1(curr_xyz1 + 0, stride, vl);
+                vfloat32m1_t vy1 = __riscv_vlse32_v_f32m1(curr_xyz1 + 1, stride, vl);
+                vfloat32m1_t vz1 = __riscv_vlse32_v_f32m1(curr_xyz1 + 2, stride, vl);
 
-                // Compute squared Euclidean distance
-                vfloat32m1_t vdx = __riscv_vfsub_vf_f32m1(vx1, x2, vl);
-                vfloat32m1_t vdy = __riscv_vfsub_vf_f32m1(vy1, y2, vl);
-                vfloat32m1_t vdz = __riscv_vfsub_vf_f32m1(vz1, z2, vl);
+                // Calculate coordinate differences.
+                vfloat32m1_t vdx = __riscv_vfrsub_vf_f32m1(vx1, x2, vl);
+                vfloat32m1_t vdy = __riscv_vfrsub_vf_f32m1(vy1, y2, vl);
+                vfloat32m1_t vdz = __riscv_vfrsub_vf_f32m1(vz1, z2, vl);
 
-                vfloat32m1_t vd2 = __riscv_vfmul_vv_f32m1(vdx, vdx, vl);
-                vd2 = __riscv_vfmacc_vv_f32m1(vd2, vdy, vdy, vl);
-                vd2 = __riscv_vfmacc_vv_f32m1(vd2, vdz, vdz, vl);
+                // Calculate squared distances.
+                vfloat32m1_t vd = __riscv_vfmul_vv_f32m1(vdx, vdx, vl);
+                vd = __riscv_vfmacc_vv_f32m1(vd, vdy, vdy, vl);
+                vd = __riscv_vfmacc_vv_f32m1(vd, vdz, vdz, vl);
 
-                float temp_d[vl];
-                __riscv_vse32_v_f32m1(temp_d, vd2, vl);
+                // Mark lanes whose distance is smaller than radius².
+                vbool32_t within_radius = __riscv_vmflt_vf_f32m1_b32(vd, radius2, vl);
 
-                // Check distance against radius threshold
-                for (size_t elem = 0; elem < vl; ++elem) {
-                    if (temp_d[elem] < radius2) {
-                        if (cnt == 0) {
-                            for (int l = 0; l < nsample; ++l) {
-                                cur_idx[l] = k_base + elem;
-                            }
-                        }
-                        cur_idx[cnt] = k_base + elem;
-                        cnt++;
-                        if (cnt == nsample) break;
-                    }
+                // Count matching lanes.
+                size_t match_count = __riscv_vcpop_m_b32(within_radius, vl);
+                if (match_count == 0) continue;
+
+                // Generate complete candidate indices for this chunk.
+                vuint32m1_t lane_numbers = __riscv_vid_v_u32m1(vl);
+                vuint32m1_t candidate_indices = __riscv_vadd_vx_u32m1(lane_numbers, static_cast<uint32_t>(k_base), vl);
+
+                // Move all matching indices to the beginning of the vector.
+                vuint32m1_t matching_indices = __riscv_vcompress_vm_u32m1(candidate_indices, within_radius, vl);
+
+                // Preserve PointNet++ behavior by filling empty positions with the first match.
+                if (cnt == 0) {
+                    uint32_t first_index = __riscv_vmv_x_s_u32m1_u32(matching_indices);
+                    fill_indices_rvv(current_output, nsample, static_cast<int>(first_index));
                 }
+
+                // Store only as many matching indices as are still needed.
+                int remaining_slots = nsample - cnt;
+                int indices_to_store = std::min(remaining_slots, static_cast<int>(match_count));
+
+                __riscv_vse32_v_u32m1(
+                    reinterpret_cast<uint32_t *>(current_output + cnt),
+                    matching_indices,
+                    static_cast<size_t>(indices_to_store)
+                );
+
+                cnt += indices_to_store;
             }
+
             pts_cnt[i * m + j] = cnt;
         }
     }
@@ -261,66 +320,115 @@ void maxpool_rvv(int b, int n, int k, int c, const float *input_features, float 
 // 3. FEATURE PROPAGATION (UPSAMPLING) KERNELS (RVV)
 // -------------------------------------------------------------
 
+static inline vfloat32m1_t take_vector_minimum(vfloat32m1_t values, size_t vl, float &minimum_value, int &minimum_lane) {
+    const float infinity = 1e30f;
+
+    // Find the smallest value across the active vector lanes.
+    vfloat32m1_t initial = __riscv_vfmv_v_f_f32m1(infinity, 1);
+    vfloat32m1_t reduced = __riscv_vfredmin_vs_f32m1_f32m1(values, initial, vl);
+    minimum_value = __riscv_vfmv_f_s_f32m1_f32(reduced);
+
+    // Find the first lane containing the minimum value.
+    vbool32_t minimum_mask = __riscv_vmfeq_vf_f32m1_b32(values, minimum_value, vl);
+    minimum_lane = static_cast<int>(__riscv_vfirst_m_b32(minimum_mask, vl));
+
+    // Select only that lane.
+    vuint32m1_t lane_numbers = __riscv_vid_v_u32m1(vl);
+    vbool32_t selected_lane = __riscv_vmseq_vx_u32m1_b32(lane_numbers, static_cast<uint32_t>(minimum_lane), vl);
+
+    // Remove the selected lane so the next call finds the next minimum.
+    return __riscv_vfmerge_vfm_f32m1(values, infinity, selected_lane, vl);
+}
+
 void threenn_rvv(int b, int n, int m, const float *xyz1, const float *xyz2, float *dist, int *idx) {
     const ptrdiff_t stride = 3 * sizeof(float);
 
     for (int i = 0; i < b; ++i) {
         for (int j = 0; j < n; ++j) {
-            float x1 = xyz1[j * 3 + 0]; 
+            // Load the current target point.
+            float x1 = xyz1[j * 3 + 0];
             float y1 = xyz1[j * 3 + 1];
             float z1 = xyz1[j * 3 + 2];
-                
-            float best1 = 1e30f; float best2 = 1e30f; float best3 = 1e30f;
-            int besti1 = 0; int besti2 = 0; int besti3 = 0;
+
+            // Store the three smallest distances and their indices.
+            float best1 = 1e30f;
+            float best2 = 1e30f;
+            float best3 = 1e30f;
+
+            int besti1 = 0;
+            int besti2 = 0;
+            int besti3 = 0;
 
             const float *curr_xyz2 = xyz2;
             int k_base = 0;
             int rem_m = m;
 
+            // Process candidate points in RVV chunks.
             for (size_t vl; rem_m > 0; rem_m -= vl, k_base += vl, curr_xyz2 += vl * 3) {
                 vl = __riscv_vsetvl_e32m1(rem_m);
 
+                // Load candidate x, y and z coordinates.
                 vfloat32m1_t vx2 = __riscv_vlse32_v_f32m1(curr_xyz2 + 0, stride, vl);
                 vfloat32m1_t vy2 = __riscv_vlse32_v_f32m1(curr_xyz2 + 1, stride, vl);
                 vfloat32m1_t vz2 = __riscv_vlse32_v_f32m1(curr_xyz2 + 2, stride, vl);
 
+                // Calculate coordinate differences.
                 vfloat32m1_t vdx = __riscv_vfrsub_vf_f32m1(vx2, x1, vl);
                 vfloat32m1_t vdy = __riscv_vfrsub_vf_f32m1(vy2, y1, vl);
                 vfloat32m1_t vdz = __riscv_vfrsub_vf_f32m1(vz2, z1, vl);
 
-                vfloat32m1_t vd = __riscv_vfmul_vv_f32m1(vdx, vdx, vl);
-                vd = __riscv_vfmacc_vv_f32m1(vd, vdy, vdy, vl);
+                // Calculate squared distances: dx² + dy² + dz².
+                vfloat32m1_t vd = __riscv_vfmul_vv_f32m1(vdy, vdy, vl);
+                vd = __riscv_vfmacc_vv_f32m1(vd, vdx, vdx, vl);
                 vd = __riscv_vfmacc_vv_f32m1(vd, vdz, vdz, vl);
 
-                float temp_d[64];
-                __riscv_vse32_v_f32m1(temp_d, vd, vl);
+                // Keep the distances in the vector and extract up to three minima.
+                vfloat32m1_t remaining_distances = vd;
+                int candidates_to_check = (vl < 3) ? static_cast<int>(vl) : 3;
 
-                for (size_t elem = 0; elem < vl; ++elem) {
-                    float d = temp_d[elem];
-                    int curr_k = k_base + elem;
+                for (int candidate = 0; candidate < candidates_to_check; ++candidate) {
+                    float d;
+                    int minimum_lane;
 
+                    remaining_distances = take_vector_minimum(remaining_distances, vl, d, minimum_lane);
+                    int curr_k = k_base + minimum_lane;
+
+                    // Original top-three update logic.
                     if (d < best1) {
-                        best3 = best2; besti3 = besti2;
-                        best2 = best1; besti2 = besti1;
-                        best1 = d;     besti1 = curr_k;
+                        best3 = best2;
+                        besti3 = besti2;
+                        best2 = best1;
+                        besti2 = besti1;
+                        best1 = d;
+                        besti1 = curr_k;
                     } else if (d < best2) {
-                        best3 = best2; besti3 = besti2;
-                        best2 = d;     besti2 = curr_k;
+                        best3 = best2;
+                        besti3 = besti2;
+                        best2 = d;
+                        besti2 = curr_k;
                     } else if (d < best3) {
-                        best3 = d;     besti3 = curr_k;
+                        best3 = d;
+                        besti3 = curr_k;
                     }
                 }
             }
 
-            dist[j * 3 + 0] = best1; idx[j * 3 + 0] = besti1;
-            dist[j * 3 + 1] = best2; idx[j * 3 + 1] = besti2;
-            dist[j * 3 + 2] = best3; idx[j * 3 + 2] = besti3;
+            // Store the final three nearest neighbors.
+            dist[j * 3 + 0] = best1;
+            idx[j * 3 + 0] = besti1;
+
+            dist[j * 3 + 1] = best2;
+            idx[j * 3 + 1] = besti2;
+
+            dist[j * 3 + 2] = best3;
+            idx[j * 3 + 2] = besti3;
         }
 
+        // Move pointers to the next batch.
         xyz1 += n * 3;
         xyz2 += m * 3;
         dist += n * 3;
-        idx  += n * 3;
+        idx += n * 3;
     }
 }
 
@@ -338,6 +446,12 @@ void get_weights_rvv(int b, int n, const float *dist, float *weight) {
             vfloat32m1_t vd0 = __riscv_vlse32_v_f32m1(curr_dist + 0, stride, vl);
             vfloat32m1_t vd1 = __riscv_vlse32_v_f32m1(curr_dist + 1, stride, vl);
             vfloat32m1_t vd2 = __riscv_vlse32_v_f32m1(curr_dist + 2, stride, vl);
+
+            // Clamp distances before taking reciprocals, matching the scalar kernel.
+            vfloat32m1_t veps = __riscv_vfmv_v_f_f32m1(1e-10f, vl);
+            vd0 = __riscv_vfmax_vv_f32m1(vd0, veps, vl);
+            vd1 = __riscv_vfmax_vv_f32m1(vd1, veps, vl);
+            vd2 = __riscv_vfmax_vv_f32m1(vd2, veps, vl);
 
             vfloat32m1_t vw0 = __riscv_vfrdiv_vf_f32m1(vd0, 1.0f, vl);
             vfloat32m1_t vw1 = __riscv_vfrdiv_vf_f32m1(vd1, 1.0f, vl);
@@ -645,25 +759,25 @@ int main() {
     m5_dump_stats(0, 0);
 
 
-// =========================================================
-// REGION 10: FINAL MLP + BN + RELU
-// =========================================================
-printf("PROFILE_REGION_10_FINAL_MLP_BN_RELU_RVV\n");
-m5_reset_stats(0, 0);
+    // =========================================================
+    // REGION 10: FINAL MLP + BN + RELU
+    // =========================================================
+    printf("PROFILE_REGION_10_FINAL_MLP_BN_RELU_RVV\n");
+    m5_reset_stats(0, 0);
 
-conv2d_mlp_bn_relu_rvv(
-    b, n, 1,
-    c_out,
-    classes,
-    interpolated_out,
-    W2,
-    bias2,
-    scale2,
-    shift2,
-    final_logits
-);
+    conv2d_mlp_bn_relu_rvv(
+        b, n, 1,
+        c_out,
+        classes,
+        interpolated_out,
+        W2,
+        bias2,
+        scale2,
+        shift2,
+        final_logits
+    );
 
-m5_dump_stats(0, 0);
+    m5_dump_stats(0, 0);
 
     // Prevent Dead Code Elimination
     printf("PointNet++ RVV End-to-End Pipeline Completed.\n");

@@ -1,0 +1,8 @@
+test=test01_B1_N32_M8
+B=1
+N=32
+M=8
+compiler=14.2.0
+updated_rvv_normal=completed
+updated_rvv_profiled=completed
+completed=Sat Sep 12 17:08:54 CDT 2026

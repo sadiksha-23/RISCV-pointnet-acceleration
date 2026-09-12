@@ -25,6 +25,12 @@ void get_weights_rvv(int b, int n, const float *dist, float *weight) {
             vfloat32m1_t vd1 = __riscv_vlse32_v_f32m1(curr_dist + 1, stride, vl);
             vfloat32m1_t vd2 = __riscv_vlse32_v_f32m1(curr_dist + 2, stride, vl);
 
+            // Clamp distances before taking reciprocals, matching the scalar kernel.
+            vfloat32m1_t veps = __riscv_vfmv_v_f_f32m1(1e-10f, vl);
+            vd0 = __riscv_vfmax_vv_f32m1(vd0, veps, vl);
+            vd1 = __riscv_vfmax_vv_f32m1(vd1, veps, vl);
+            vd2 = __riscv_vfmax_vv_f32m1(vd2, veps, vl);
+
             // 2. Vector reciprocal division: w = 1.0f / d
             vfloat32m1_t vw0 = __riscv_vfrdiv_vf_f32m1(vd0, 1.0f, vl);
             vfloat32m1_t vw1 = __riscv_vfrdiv_vf_f32m1(vd1, 1.0f, vl);

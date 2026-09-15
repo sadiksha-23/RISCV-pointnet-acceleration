@@ -12,12 +12,14 @@ from gem5.simulate.simulator import Simulator
 from gem5.isas import ISA
 
 
-if len(sys.argv) != 3:
-    print(f"Usage: {sys.argv[0]} <RISC-V binary> <KITTI frame>")
+if len(sys.argv) != 5:
+    print(f"Usage: {sys.argv[0]} <RISC-V binary> <KITTI frame> <N> <M>")
     sys.exit(1)
 
 binary_path = sys.argv[1]
 kitti_frame = sys.argv[2]
+point_count = sys.argv[3]
+sample_count = sys.argv[4]
 
 
 # Single-core out-of-order RISC-V processor
@@ -72,7 +74,7 @@ board = SimpleBoard(
 # Run the binary in syscall-emulation mode
 board.set_se_binary_workload(
     CustomResource(binary_path),
-    arguments=[kitti_frame],
+    arguments=[kitti_frame, point_count, sample_count],
 )
 
 
@@ -80,5 +82,7 @@ simulator = Simulator(board=board)
 
 print(f"Starting RISC-V simulation: {binary_path}")
 print(f"KITTI frame: {kitti_frame}")
+print(f"Point count N: {point_count}")
+print(f"Sample count M: {sample_count}")
 simulator.run()
 print("RISC-V simulation finished successfully.")

@@ -1,0 +1,59 @@
+benchmark/src/fps/fps_scalar.cpp:11:23: missed: couldn't vectorize loop
+benchmark/src/fps/fps_scalar.cpp:11:23: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+benchmark/src/fps/fps_scalar.cpp:19:27: missed: couldn't vectorize loop
+benchmark/src/fps/fps_scalar.cpp:19:27: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+benchmark/src/fps/fps_scalar.cpp:27:31: missed: couldn't vectorize loop
+benchmark/src/fps/fps_scalar.cpp:37:17: missed: not vectorized: unsupported use in stmt.
+benchmark/src/fps/fps_scalar.cpp:15:27: optimized: loop vectorized using variable length vectors
+benchmark/src/fps/fps_scalar.cpp:8:6: note: vectorized 1 loops in function.
+benchmark/src/fps/fps_scalar.cpp:8:6: missed: splitting region at dont-vectorize loop 5 entry at bb33
+benchmark/src/fps/fps_scalar.cpp:16:21: missed: statement clobbers memory: .MASK_LEN_STORE (vectp_temp.16_131, 32B, { -1, ... }, _125, 0, { 9.9999996802856924650656260769173209088e+37, ... });
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** Analysis failed with vector mode RVVM1SI
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** Analysis failed with vector mode V16QI
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** Analysis failed with vector mode V8QI
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** Analysis failed with vector mode V4QI
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** Analysis failed with vector mode V2QI
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** Analysis failed with vector mode V1QI
+benchmark/src/fps/fps_scalar.cpp:23:42: missed: splitting region at dominance boundary bb16
+benchmark/src/fps/fps_scalar.cpp:23:42: note: ***** Analysis failed with vector mode VOID
+benchmark/src/fps/fps_scalar.cpp:23:42: missed: splitting region at loop 2 exit at bb32
+benchmark/src/fps/fps_scalar.cpp:19:27: note: ***** Analysis failed with vector mode RVVM1SI
+benchmark/src/fps/fps_scalar.cpp:19:27: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1SI
+benchmark/src/fps/fps_scalar.cpp:19:27: missed: splitting region at dominance boundary bb8
+benchmark/src/fps/fps_scalar.cpp:19:27: note: ***** Analysis failed with vector mode VOID
+benchmark/src/fps/fps_scalar.cpp:19:27: missed: splitting region at loop 1 exit at bb27
+benchmark/src/fps/fps_scalar.cpp:11:23: note: ***** Analysis failed with vector mode VOID
+benchmark/src/fps/fps_scalar.cpp:11:23: missed: splitting region at dominance boundary bb3
+benchmark/src/fps/fps_scalar.cpp:11:23: note: ***** Analysis failed with vector mode VOID
+benchmark/src/fps/fps_scalar.cpp:11:23: note: ***** Analysis failed with vector mode VOID
+benchmark/src/fps/fps_scalar.cpp:8:6: note: vectorized 0 loops in function.
+benchmark/src/fps/fps_scalar.cpp:8:6: missed: statement clobbers memory: _Z21farthestPointSamplingiiiPKfPfPi.part.0 (b_11(D), n_12(D), m_7(D), dataset_13(D), temp_8(D), idxs_9(D));
+benchmark/src/fps/fps_scalar.cpp:8:6: note: ***** Analysis failed with vector mode VOID
+benchmark/src/fps/fps_scalar.cpp:58:23: optimized: loop vectorized using variable length vectors
+benchmark/src/fps/fps_scalar.cpp:51:5: note: vectorized 1 loops in function.
+benchmark/src/fps/fps_scalar.cpp:54:41: missed: statement clobbers memory: _13 = operator new [] (120000);
+benchmark/src/fps/fps_scalar.cpp:55:34: missed: statement clobbers memory: _15 = operator new [] (40000);
+benchmark/src/fps/fps_scalar.cpp:56:30: missed: statement clobbers memory: _17 = operator new [] (512);
+benchmark/src/fps/fps_scalar.cpp:59:20: missed: statement clobbers memory: .MASK_LEN_STORE (vectp.62_77, 32B, { -1, ... }, _82, 0, vect__6.61_75);
+/usr/riscv64-linux-gnu/include/bits/string_fortified.h:59:33: missed: statement clobbers memory: __builtin_memset (_15, 0, 40000);
+/usr/riscv64-linux-gnu/include/bits/string_fortified.h:59:33: missed: statement clobbers memory: __builtin_memset (_17, 0, 512);
+benchmark/src/fps/fps_scalar.cpp:65:19: missed: statement clobbers memory: m5_reset_stats (0, 0);
+benchmark/src/fps/fps_scalar.cpp:51:5: missed: statement clobbers memory: _Z21farthestPointSamplingiiiPKfPfPi.part.0 (1, 10000, 128, _13, _15, _17);
+benchmark/src/fps/fps_scalar.cpp:69:18: missed: statement clobbers memory: m5_dump_stats (0, 0);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, "First FPS index: %d\n", _7);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, "Last FPS index: %d\n", _8);
+benchmark/src/fps/fps_scalar.cpp:74:14: missed: statement clobbers memory: operator delete [] (_13);
+benchmark/src/fps/fps_scalar.cpp:75:14: missed: statement clobbers memory: operator delete [] (_15);
+benchmark/src/fps/fps_scalar.cpp:76:14: missed: statement clobbers memory: operator delete [] (_17);
+benchmark/src/fps/fps_scalar.cpp:76:14: note: ***** Analysis failed with vector mode RVVM1SI
+benchmark/src/fps/fps_scalar.cpp:76:14: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1SI

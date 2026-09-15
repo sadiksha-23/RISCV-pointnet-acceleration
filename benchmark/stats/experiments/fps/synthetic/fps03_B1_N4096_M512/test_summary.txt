@@ -1,0 +1,11 @@
+test=fps03_B1_N4096_M512
+B=1
+N=4096
+M=512
+sampling_ratio=1/8
+compiler=14.2.0
+modes=scalar,autovec,rvv
+measurement=fps_only
+dataset=current_deterministic_modulo_generator
+total_host_wall_time=267 seconds
+completed=Sat Sep 12 18:12:58 CDT 2026

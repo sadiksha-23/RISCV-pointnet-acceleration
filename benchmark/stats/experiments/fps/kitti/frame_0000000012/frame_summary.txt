@@ -1,0 +1,17 @@
+dataset=kitti
+frame=0000000012.bin
+points=120122
+M=128
+compiler=14.2.0
+modes=scalar,autovec,rvv
+correctness=PASS
+scalar_simTicks=60773432500
+autovec_simTicks=60742428500
+rvv_simTicks=34032580000
+scalar_simInsts=276179040
+autovec_simInsts=275908763
+rvv_simInsts=66871003
+autovec_speedup=1.000510
+rvv_speedup=1.785743
+total_host_wall_time=1510 seconds
+completed=Sun Sep 13 16:20:34 CDT 2026

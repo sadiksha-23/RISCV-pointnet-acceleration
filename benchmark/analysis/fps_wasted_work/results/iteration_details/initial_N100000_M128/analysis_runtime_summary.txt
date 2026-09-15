@@ -1,0 +1,6 @@
+synthetic_runtime_ms=117.324
+kitti_runtime_ms=118.143
+N=100000
+M=128
+expected_total_checks=12700000
+completed=Mon Sep 14 15:54:34 CDT 2026

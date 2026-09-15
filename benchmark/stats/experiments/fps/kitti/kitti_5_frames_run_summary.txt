@@ -1,0 +1,9 @@
+dataset=kitti
+frames=0000000000 0000000005 0000000010 0000000015 0000000021
+frame_count=5
+M=128
+modes=scalar,autovec,rvv
+runs=15
+all_frames_correctness=PASS
+total_host_wall_time=8816 seconds
+completed=Sun Sep 13 14:00:33 CDT 2026

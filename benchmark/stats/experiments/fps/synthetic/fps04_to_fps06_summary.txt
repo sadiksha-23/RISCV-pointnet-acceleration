@@ -1,0 +1,6 @@
+tests=fps04,fps05,fps06
+compiler=14.2.0
+modes=scalar,autovec,rvv
+runs=9
+total_host_wall_time=953 seconds
+completed=Sat Sep 12 18:33:47 CDT 2026

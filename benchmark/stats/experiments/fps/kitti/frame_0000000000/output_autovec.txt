@@ -1,0 +1,159 @@
+warn: Base 10 memory/cache size 8GB will be cast to base 2 size 8GiB.
+warn: The `CustomResource` class is deprecated. Please use an `AbstractResource` subclass instead.
+warn: Base 10 memory/cache size 32kB will be cast to base 2 size 32KiB.
+warn: Base 10 memory/cache size 32kB will be cast to base 2 size 32KiB.
+warn: Base 10 memory/cache size 512kB will be cast to base 2 size 512KiB.
+Global frequency set at 1000000000000 ticks per second
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (16384 Mbytes) does not match the address range assigned (8192 Mbytes)
+src/arch/riscv/isa.cc:321: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+board.remote_gdb: Listening for connections on port 7000
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Jul  6 2026 16:59:53
+gem5 started Sep 13 2026 11:47:07
+gem5 executing on Sadiksha, pid 1561
+command line: gem5/build/RISCV/gem5.opt --outdir=/tmp/kitti_fps_0000000000.UAC378/autovec --json-config=/tmp/kitti_fps_0000000000.UAC378/autovec/config.json benchmark/cpu/riscv_benchmark.py benchmark/bin/fps/kitti/fps_kitti_autovec.riscv '/mnt/c/Users/lsadi/Documents/PCD Research/datasets/kitti/0000000000.bin'
+
+Starting RISC-V simulation: benchmark/bin/fps/kitti/fps_kitti_autovec.riscv
+KITTI frame: /mnt/c/Users/lsadi/Documents/PCD Research/datasets/kitti/0000000000.bin
+src/sim/syscall_emul.cc:97: warn: ignoring syscall set_robust_list(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/bin/fps/kitti/fps_kitti_autovec.riscv'
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+POINT_COUNT=119977
+FPS_INDEX[0]=0
+FPS_INDEX[1]=3052
+FPS_INDEX[2]=20530
+FPS_INDEX[3]=853
+FPS_INDEX[4]=29561
+FPS_INDEX[5]=103029
+FPS_INDEX[6]=113598
+FPS_INDEX[7]=7897
+FPS_INDEX[8]=8892
+FPS_INDEX[9]=10753
+FPS_INDEX[10]=14320
+FPS_INDEX[11]=36965
+FPS_INDEX[12]=1064
+FPS_INDEX[13]=2230
+FPS_INDEX[14]=5199
+FPS_INDEX[15]=17736
+FPS_INDEX[16]=11873
+FPS_INDEX[17]=969
+FPS_INDEX[18]=2026
+FPS_INDEX[19]=15775
+FPS_INDEX[20]=2924
+FPS_INDEX[21]=81384
+FPS_INDEX[22]=28697
+FPS_INDEX[23]=20679
+FPS_INDEX[24]=50387
+FPS_INDEX[25]=16344
+FPS_INDEX[26]=2826
+FPS_INDEX[27]=65124
+FPS_INDEX[28]=1932
+FPS_INDEX[29]=27726
+FPS_INDEX[30]=74664
+FPS_INDEX[31]=35799
+FPS_INDEX[32]=1075
+FPS_INDEX[33]=36250
+FPS_INDEX[34]=20590
+FPS_INDEX[35]=2071
+FPS_INDEX[36]=38792
+FPS_INDEX[37]=77842
+FPS_INDEX[38]=20682
+FPS_INDEX[39]=6893
+FPS_INDEX[40]=12821
+FPS_INDEX[41]=17778
+FPS_INDEX[42]=862
+FPS_INDEX[43]=113589
+FPS_INDEX[44]=22726
+FPS_INDEX[45]=20677
+FPS_INDEX[46]=1548
+FPS_INDEX[47]=32757
+FPS_INDEX[48]=103017
+FPS_INDEX[49]=23663
+FPS_INDEX[50]=55605
+FPS_INDEX[51]=29693
+FPS_INDEX[52]=1872
+FPS_INDEX[53]=12536
+FPS_INDEX[54]=25652
+FPS_INDEX[55]=118230
+FPS_INDEX[56]=5058
+FPS_INDEX[57]=1979
+FPS_INDEX[58]=43639
+FPS_INDEX[59]=3715
+FPS_INDEX[60]=270
+FPS_INDEX[61]=32705
+FPS_INDEX[62]=1017
+FPS_INDEX[63]=7913
+FPS_INDEX[64]=6938
+FPS_INDEX[65]=56010
+FPS_INDEX[66]=2014
+FPS_INDEX[67]=1941
+FPS_INDEX[68]=14332
+FPS_INDEX[69]=40882
+FPS_INDEX[70]=60807
+FPS_INDEX[71]=14897
+FPS_INDEX[72]=25875
+FPS_INDEX[73]=28681
+FPS_INDEX[74]=26591
+FPS_INDEX[75]=98313
+FPS_INDEX[76]=15793
+FPS_INDEX[77]=983
+FPS_INDEX[78]=29640
+FPS_INDEX[79]=20219
+FPS_INDEX[80]=15794
+FPS_INDEX[81]=16868
+FPS_INDEX[82]=19721
+FPS_INDEX[83]=1922
+FPS_INDEX[84]=103429
+FPS_INDEX[85]=68144
+FPS_INDEX[86]=46512
+FPS_INDEX[87]=18211
+FPS_INDEX[88]=35730
+FPS_INDEX[89]=24645
+FPS_INDEX[90]=33814
+FPS_INDEX[91]=14723
+FPS_INDEX[92]=36903
+FPS_INDEX[93]=42738
+FPS_INDEX[94]=807
+FPS_INDEX[95]=26327
+FPS_INDEX[96]=36819
+FPS_INDEX[97]=30697
+FPS_INDEX[98]=1787
+FPS_INDEX[99]=11959
+FPS_INDEX[100]=16773
+FPS_INDEX[101]=69744
+FPS_INDEX[102]=29741
+FPS_INDEX[103]=28690
+FPS_INDEX[104]=3022
+FPS_INDEX[105]=980
+FPS_INDEX[106]=103069
+FPS_INDEX[107]=98613
+FPS_INDEX[108]=61883
+FPS_INDEX[109]=14698
+FPS_INDEX[110]=17769
+FPS_INDEX[111]=3654
+FPS_INDEX[112]=24658
+FPS_INDEX[113]=375
+FPS_INDEX[114]=21659
+FPS_INDEX[115]=8324
+FPS_INDEX[116]=49526
+FPS_INDEX[117]=1839
+FPS_INDEX[118]=3942
+FPS_INDEX[119]=989
+FPS_INDEX[120]=46676
+FPS_INDEX[121]=47486
+FPS_INDEX[122]=2005
+FPS_INDEX[123]=57317
+FPS_INDEX[124]=963
+FPS_INDEX[125]=37873
+FPS_INDEX[126]=16704
+FPS_INDEX[127]=20678
+RISC-V simulation finished successfully.

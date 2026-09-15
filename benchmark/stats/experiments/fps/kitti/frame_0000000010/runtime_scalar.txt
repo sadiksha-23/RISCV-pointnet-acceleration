@@ -1,0 +1,4 @@
+wall_time=594.04 seconds
+user_time=592.77 seconds
+system_time=0.16 seconds
+max_memory=128480 KB

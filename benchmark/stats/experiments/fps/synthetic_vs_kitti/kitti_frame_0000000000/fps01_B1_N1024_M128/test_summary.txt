@@ -1,0 +1,8 @@
+test=fps01_B1_N1024_M128
+dataset=kitti
+frame=0000000000.bin
+N=1024
+M=128
+autovec_correctness=PASS
+rvv_correctness=PASS
+completed=Sun Sep 13 17:54:17 CDT 2026

@@ -1,0 +1,11 @@
+test=fps01_B1_N1024_M128
+B=1
+N=1024
+M=128
+sampling_ratio=1/8
+compiler=14.2.0
+modes=scalar,autovec,rvv
+measurement=fps_only
+dataset=current_deterministic_modulo_generator
+total_host_wall_time=20 seconds
+completed=Sat Sep 12 18:07:19 CDT 2026

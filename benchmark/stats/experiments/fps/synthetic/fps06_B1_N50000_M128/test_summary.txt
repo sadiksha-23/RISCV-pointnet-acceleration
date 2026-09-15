@@ -1,0 +1,9 @@
+test=fps06_B1_N50000_M128
+B=1
+N=50000
+M=128
+compiler=14.2.0
+modes=scalar,autovec,rvv
+runs=3
+total_host_wall_time=588 seconds
+completed=Sat Sep 12 18:33:46 CDT 2026

@@ -1,0 +1,283 @@
+benchmark/src/fps/kitti/fps_scalar.cpp:15:23: missed: couldn't vectorize loop
+benchmark/src/fps/kitti/fps_scalar.cpp:15:23: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+benchmark/src/fps/kitti/fps_scalar.cpp:23:27: missed: couldn't vectorize loop
+benchmark/src/fps/kitti/fps_scalar.cpp:23:27: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+benchmark/src/fps/kitti/fps_scalar.cpp:31:31: missed: couldn't vectorize loop
+benchmark/src/fps/kitti/fps_scalar.cpp:41:17: missed: not vectorized: unsupported use in stmt.
+benchmark/src/fps/kitti/fps_scalar.cpp:19:27: optimized: loop vectorized using variable length vectors
+benchmark/src/fps/kitti/fps_scalar.cpp:12:6: note: vectorized 1 loops in function.
+benchmark/src/fps/kitti/fps_scalar.cpp:12:6: missed: splitting region at dont-vectorize loop 5 entry at bb33
+benchmark/src/fps/kitti/fps_scalar.cpp:20:21: missed: statement clobbers memory: .MASK_LEN_STORE (vectp_temp.168_131, 32B, { -1, ... }, _125, 0, { 9.9999996802856924650656260769173209088e+37, ... });
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** Analysis failed with vector mode RVVM1SI
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** Analysis failed with vector mode V16QI
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** Re-trying analysis with vector mode V8QI
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** Analysis failed with vector mode V8QI
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** Re-trying analysis with vector mode V4QI
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** Analysis failed with vector mode V4QI
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** Re-trying analysis with vector mode V2QI
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** Analysis failed with vector mode V2QI
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** Re-trying analysis with vector mode V1QI
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** Analysis failed with vector mode V1QI
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: missed: splitting region at dominance boundary bb16
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: note: ***** Analysis failed with vector mode VOID
+benchmark/src/fps/kitti/fps_scalar.cpp:27:42: missed: splitting region at loop 2 exit at bb32
+benchmark/src/fps/kitti/fps_scalar.cpp:23:27: note: ***** Analysis failed with vector mode RVVM1SI
+benchmark/src/fps/kitti/fps_scalar.cpp:23:27: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1SI
+benchmark/src/fps/kitti/fps_scalar.cpp:23:27: missed: splitting region at dominance boundary bb8
+benchmark/src/fps/kitti/fps_scalar.cpp:23:27: note: ***** Analysis failed with vector mode VOID
+benchmark/src/fps/kitti/fps_scalar.cpp:23:27: missed: splitting region at loop 1 exit at bb27
+benchmark/src/fps/kitti/fps_scalar.cpp:15:23: note: ***** Analysis failed with vector mode VOID
+benchmark/src/fps/kitti/fps_scalar.cpp:15:23: missed: splitting region at dominance boundary bb3
+benchmark/src/fps/kitti/fps_scalar.cpp:15:23: note: ***** Analysis failed with vector mode VOID
+benchmark/src/fps/kitti/fps_scalar.cpp:15:23: note: ***** Analysis failed with vector mode VOID
+benchmark/src/fps/kitti/fps_scalar.cpp:12:6: note: vectorized 0 loops in function.
+benchmark/src/fps/kitti/fps_scalar.cpp:12:6: missed: statement clobbers memory: _Z21farthestPointSamplingiiiPKfPfPi.part.0 (b_11(D), n_12(D), m_7(D), dataset_13(D), temp_8(D), idxs_9(D));
+benchmark/src/fps/kitti/fps_scalar.cpp:12:6: note: ***** Analysis failed with vector mode VOID
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:556:7: note: vectorized 0 loops in function.
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:151:48: missed: statement clobbers memory: _28 = operator new (_27);
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_algobase.h:952:11: missed: statement clobbers memory: __builtin_memset (__first_29, 0, _40);
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1920:24: missed: statement clobbers memory: std::__throw_length_error ("cannot create std::vector larger than max_size()");
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: ***** Analysis failed with vector mode RVVM1DI
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: ***** The result for vector mode RVVM1QI would be the same
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: ***** The result for vector mode RVVMF2QI would be the same
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: ***** The result for vector mode RVVMF4QI would be the same
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: ***** Re-trying analysis with vector mode RVVMF8QI
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: ***** Analysis failed with vector mode RVVMF8QI
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: ***** Re-trying analysis with vector mode V16QI
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: ***** Analysis succeeded with vector mode V16QI
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: SLPing BB part
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: Costing subgraph: 
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: node 0xfe83be0 (max_nunits=2, refcnt=1) vector(2) long unsigned int
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: op template: MEM[(struct _Vector_impl_data *)this_3(D)]._M_start = 0B;
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: 	stmt 0 MEM[(struct _Vector_impl_data *)this_3(D)]._M_start = 0B;
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: 	stmt 1 MEM[(struct _Vector_impl_data *)this_3(D)]._M_finish = 0B;
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: 	children 0xfe83c68
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: node (constant) 0xfe83c68 (max_nunits=1, refcnt=1) vector(2) long unsigned int
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: 	{ 0B, 0B }
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: Cost model analysis: 
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: Basic block will be vectorized using SLP
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: optimized: basic block part vectorized using 16 byte vectors
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: Vectorizing SLP tree:
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: node 0xfe83be0 (max_nunits=2, refcnt=1) vector(2) long unsigned int
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: op template: MEM[(struct _Vector_impl_data *)this_3(D)]._M_start = 0B;
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: 	stmt 0 MEM[(struct _Vector_impl_data *)this_3(D)]._M_start = 0B;
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: 	stmt 1 MEM[(struct _Vector_impl_data *)this_3(D)]._M_finish = 0B;
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: 	children 0xfe83c68
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: node (constant) 0xfe83c68 (max_nunits=1, refcnt=1) vector(2) long unsigned int
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: 	{ 0B, 0B }
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: ------>vectorizing SLP node starting from: MEM[(struct _Vector_impl_data *)this_3(D)]._M_start = 0B;
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: vect_is_simple_use: operand 0B, type of def: constant
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: transform store. ncopies = 1
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: create vector_type-pointer variable to type: vector(2) long unsigned int  vectorizing a pointer ref: MEM[(struct _Vector_impl_data *)this_3(D)]._M_start
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: created vectp.208_17
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: add new stmt: MEM <vector(2) long unsigned int> [(float * *)vectp.208_17] = { 0, 0 };
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:99:4: note: vectorizing stmts using SLP.
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:805:5: note: vectorized 0 loops in function.
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:151:48: missed: statement clobbers memory: _67 = operator new (_66);
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_algobase.h:952:11: missed: statement clobbers memory: __builtin_memset (__first_68, 0, _64);
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_uninitialized.h:1129:20: missed: statement clobbers memory: __builtin_memcpy (_67, _24, _6);
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:172:26: missed: statement clobbers memory: operator delete (_24, _31);
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1909:24: missed: statement clobbers memory: std::__throw_length_error ("vector::_M_default_append");
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_algobase.h:952:11: missed: statement clobbers memory: __builtin_memset (__first_45, 0, _59);
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1911:18: note: ***** Analysis failed with vector mode RVVM1DI
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1911:18: note: ***** The result for vector mode RVVM1QI would be the same
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1911:18: note: ***** The result for vector mode RVVMF2QI would be the same
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1911:18: note: ***** The result for vector mode RVVMF4QI would be the same
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1911:18: note: ***** Re-trying analysis with vector mode RVVMF8QI
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1911:18: note: ***** Analysis failed with vector mode RVVMF8QI
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1911:18: note: ***** Re-trying analysis with vector mode V16QI
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: ***** Analysis succeeded with vector mode V16QI
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: SLPing BB part
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: Costing subgraph: 
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: node 0x100260c0 (max_nunits=2, refcnt=1) vector(2) long unsigned int
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: op template: this_17(D)->D.71746._M_impl.D.71047._M_start = _67;
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: 	stmt 0 this_17(D)->D.71746._M_impl.D.71047._M_start = _67;
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: 	stmt 1 this_17(D)->D.71746._M_impl.D.71047._M_finish = _11;
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: 	children 0x100261d0
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: node (external) 0x100261d0 (max_nunits=1, refcnt=1) vector(2) long unsigned int
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: 	{ _67, _11 }
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: Cost model analysis: 
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 3
+  Scalar cost: 2
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: missed: not vectorized: vectorization is not profitable.
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: ***** Re-trying analysis with vector mode V8QI
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1911:18: note: ***** Analysis failed with vector mode V8QI
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1911:18: note: ***** Re-trying analysis with vector mode V4QI
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1911:18: note: ***** Analysis failed with vector mode V4QI
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1911:18: note: ***** Re-trying analysis with vector mode V2QI
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: ***** Analysis succeeded with vector mode V2QI
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: SLPing BB part
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: Costing subgraph: 
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: node 0x100260c0 (max_nunits=2, refcnt=1) vector(2) long unsigned int
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: op template: this_17(D)->D.71746._M_impl.D.71047._M_start = _67;
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: 	stmt 0 this_17(D)->D.71746._M_impl.D.71047._M_start = _67;
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: 	stmt 1 this_17(D)->D.71746._M_impl.D.71047._M_finish = _11;
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: 	children 0x10026258
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: node (external) 0x10026258 (max_nunits=1, refcnt=1) vector(2) long unsigned int
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: 	{ _67, _11 }
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: Cost model analysis: 
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: Cost model analysis for part in loop 0:
+  Vector cost: 3
+  Scalar cost: 2
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: missed: not vectorized: vectorization is not profitable.
+/usr/riscv64-linux-gnu/include/c++/14/bits/vector.tcc:908:31: note: ***** Re-trying analysis with vector mode V1QI
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1911:18: note: ***** Analysis failed with vector mode V1QI
+benchmark/src/fps/kitti/fps_scalar.cpp:132:23: missed: couldn't vectorize loop
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:86:23: missed: not vectorized: statement can throw an exception: __printf_chk (2, "FPS_INDEX[%d]=%d\n", i_217, _8);
+benchmark/src/fps/kitti/fps_scalar.cpp:82:26: missed: couldn't vectorize loop
+benchmark/src/fps/kitti/fps_scalar.cpp:85:32: missed: can't safely apply code motion to dependencies of z_123 = *_122;
+ to vectorize the early exit.
+benchmark/src/fps/kitti/fps_scalar.cpp:100:5: note: vectorized 0 loops in function.
+benchmark/src/fps/kitti/fps_scalar.cpp:100:5: missed: splitting region at control altering definition D.82166 = std::basic_istream<char>::tellg (&file.D.64816);
+benchmark/src/fps/kitti/fps_scalar.cpp:56:66: missed: not vectorized: statement can throw an exception: std::basic_ifstream<char>::basic_ifstream (&file, _3, 6);
+benchmark/src/fps/kitti/fps_scalar.cpp:63:39: missed: not vectorized: statement can throw an exception: D.82166 = std::basic_istream<char>::tellg (&file.D.64816);
+benchmark/src/fps/kitti/fps_scalar.cpp:63:39: note: ***** Analysis failed with vector mode RVVM1DI
+benchmark/src/fps/kitti/fps_scalar.cpp:63:39: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1DI
+benchmark/src/fps/kitti/fps_scalar.cpp:63:39: missed: splitting region at dominance boundary bb12
+benchmark/src/fps/kitti/fps_scalar.cpp:63:39: note: ***** Analysis failed with vector mode VOID
+benchmark/src/fps/kitti/fps_scalar.cpp:63:39: missed: splitting region at control altering definition _105 = std::basic_istream<char>::read (&file.D.64816, _104, _98);
+benchmark/src/fps/kitti/fps_scalar.cpp:70:15: missed: not vectorized: statement can throw an exception: std::basic_istream<char>::seekg (&file.D.64816, 0, 0);
+benchmark/src/fps/kitti/fps_scalar.cpp:73:43: missed: not vectorized: statement can throw an exception: std::vector<float>::vector (&raw, _103, &D.82167);
+benchmark/src/fps/kitti/fps_scalar.cpp:75:19: missed: not vectorized: statement can throw an exception: _105 = std::basic_istream<char>::read (&file.D.64816, _104, _98);
+benchmark/src/fps/kitti/fps_scalar.cpp:75:19: note: ***** Analysis failed with vector mode RVVM1DI
+benchmark/src/fps/kitti/fps_scalar.cpp:75:19: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1DI
+benchmark/src/fps/kitti/fps_scalar.cpp:75:19: missed: splitting region at dominance boundary bb21
+benchmark/src/fps/kitti/fps_scalar.cpp:75:19: note: ***** Analysis failed with vector mode VOID
+benchmark/src/fps/kitti/fps_scalar.cpp:75:19: missed: splitting region at dominance boundary bb83
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: missed: not vectorized: statement can throw an exception: std::vector<float>::_M_default_append (&dataset, _113);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: missed: not vectorized: statement can throw an exception: __fprintf_chk (stderr.12_127, 2, "ERROR: Non-finite coordinate at point %zu\n", i_218);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: missed: not vectorized: statement can throw an exception: __builtin_fwrite ("ERROR: Failed while reading KITTI frame\n", 1, 40, stderr.9_112);
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: ***** Analysis failed with vector mode RVVM1DI
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: ***** The result for vector mode RVVM1QI would be the same
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: ***** The result for vector mode RVVMF2QI would be the same
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: ***** The result for vector mode RVVMF4QI would be the same
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: ***** Re-trying analysis with vector mode RVVMF8QI
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: ***** Analysis failed with vector mode RVVMF8QI
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: ***** Re-trying analysis with vector mode V16QI
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: ***** Analysis succeeded with vector mode V16QI
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: SLPing BB part
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: Costing subgraph: 
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: node 0x100ca940 (max_nunits=2, refcnt=1) vector(2) long unsigned int
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: op template: MEM <float *> [(struct vector *)&dataset] = 0B;
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: 	stmt 0 MEM <float *> [(struct vector *)&dataset] = 0B;
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: 	stmt 1 MEM <float *> [(struct vector *)&dataset + 8B] = 0B;
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: 	children 0x100ca9c8
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: node (constant) 0x100ca9c8 (max_nunits=1, refcnt=1) vector(2) long unsigned int
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: 	{ 0B, 0B }
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: Cost model analysis: 
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: Cost model analysis for part in loop 0:
+  Vector cost: 2
+  Scalar cost: 2
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: Costing subgraph: 
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: node 0x100caad8 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: op template: *_130 = x_117;
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: 	stmt 0 *_130 = x_117;
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: 	stmt 1 *_132 = y_120;
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: 	children 0x100cab60
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: node 0x100cab60 (max_nunits=2, refcnt=1) vector(2) float
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: op template: x_117 = *_116;
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: 	stmt 0 x_117 = *_116;
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: 	stmt 1 y_120 = *_119;
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: Cost model analysis: 
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: Cost model analysis for part in loop 2:
+  Vector cost: 6
+  Scalar cost: 4
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: missed: not vectorized: vectorization is not profitable.
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: Basic block will be vectorized using SLP
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: optimized: basic block part vectorized using 16 byte vectors
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: Vectorizing SLP tree:
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: node 0x100ca940 (max_nunits=2, refcnt=1) vector(2) long unsigned int
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: op template: MEM <float *> [(struct vector *)&dataset] = 0B;
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: 	stmt 0 MEM <float *> [(struct vector *)&dataset] = 0B;
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: 	stmt 1 MEM <float *> [(struct vector *)&dataset + 8B] = 0B;
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: 	children 0x100ca9c8
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: node (constant) 0x100ca9c8 (max_nunits=1, refcnt=1) vector(2) long unsigned int
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: 	{ 0B, 0B }
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: ------>vectorizing SLP node starting from: MEM <float *> [(struct vector *)&dataset] = 0B;
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: vect_is_simple_use: operand 0B, type of def: constant
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: transform store. ncopies = 1
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: create vector_type-pointer variable to type: vector(2) long unsigned int  vectorizing a pointer ref: MEM <float *> [(struct vector *)&dataset]
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: created &MEM <float *> [(struct vector *)&dataset]
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: add new stmt: MEM <vector(2) long unsigned int> [(struct vector *)&dataset] = { 0, 0 };
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:1016:21: note: vectorizing stmts using SLP.
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: missed: splitting region at dominance boundary bb38
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: note: ***** Analysis failed with vector mode VOID
+benchmark/src/fps/kitti/fps_scalar.cpp:92:28: missed: splitting region at dominance boundary bb32
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:172:26: missed: statement clobbers memory: operator delete (_104, _142);
+benchmark/src/fps/kitti/fps_scalar.cpp:100:5: missed: not vectorized: statement can throw an exception: resx 18
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:738:7: note: ***** Analysis failed with vector mode VOID
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:738:7: missed: splitting region at dominance boundary bb14
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:172:26: missed: statement clobbers memory: operator delete (_104, _138);
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:738:7: note: ***** Analysis failed with vector mode VOID
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:738:7: missed: splitting region at dominance boundary bb7
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: missed: not vectorized: statement can throw an exception: __fprintf_chk (stderr.6_100, 2, "ERROR: Invalid KITTI frame size: %lld bytes\n", _98);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: note: ***** Analysis failed with vector mode RVVM1DI
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1DI
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: missed: splitting region at dominance boundary bb84
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: missed: not vectorized: statement can throw an exception: __fprintf_chk (stderr.4_97, 2, "ERROR: Could not open KITTI frame: %s\n", _3);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: note: ***** Analysis failed with vector mode RVVM1DI
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1DI
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: missed: splitting region at dominance boundary bb43
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: note: ***** Analysis failed with vector mode VOID
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: missed: splitting region at dominance boundary bb9
+benchmark/src/fps/kitti/fps_scalar.cpp:98:1: missed: statement clobbers memory: std::basic_ifstream<char>::~basic_ifstream (&file);
+benchmark/src/fps/kitti/fps_scalar.cpp:100:5: missed: not vectorized: statement can throw an exception: resx 17
+benchmark/src/fps/kitti/fps_scalar.cpp:98:1: note: ***** Analysis failed with vector mode VOID
+benchmark/src/fps/kitti/fps_scalar.cpp:98:1: missed: splitting region at dominance boundary bb35
+benchmark/src/fps/kitti/fps_scalar.cpp:98:1: note: ***** Analysis failed with vector mode VOID
+benchmark/src/fps/kitti/fps_scalar.cpp:98:1: missed: splitting region at control altering definition _165 = operator new (512);
+benchmark/src/fps/kitti/fps_scalar.cpp:98:1: missed: statement clobbers memory: std::basic_ifstream<char>::~basic_ifstream (&file);
+benchmark/src/fps/kitti/fps_scalar.cpp:121:51: missed: not vectorized: statement can throw an exception: std::vector<float>::vector (&temp, _6, &D.71887);
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:151:48: missed: not vectorized: statement can throw an exception: _165 = operator new (512);
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:151:48: note: ***** Analysis failed with vector mode RVVM1DI
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:151:48: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1DI
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:151:48: missed: splitting region at dominance boundary bb50
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:151:48: note: ***** Analysis failed with vector mode VOID
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:151:48: missed: splitting region at dominance boundary bb71
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_algobase.h:952:11: missed: statement clobbers memory: __builtin_memset (__first_166, 0, 508);
+benchmark/src/fps/kitti/fps_scalar.cpp:124:19: missed: not vectorized: statement can throw an exception: m5_reset_stats (0, 0);
+benchmark/src/fps/kitti/fps_scalar.cpp:100:5: missed: statement clobbers memory: _Z21farthestPointSamplingiiiPKfPfPi.part.0 (1, n_23, 128, dataset$_M_start_9, temp$D71746$_M_impl$D71047$_M_start_163, _165);
+benchmark/src/fps/kitti/fps_scalar.cpp:128:18: missed: not vectorized: statement can throw an exception: m5_dump_stats (0, 0);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:86:23: missed: not vectorized: statement can throw an exception: __printf_chk (2, "POINT_COUNT=%d\n", n_23);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:86:23: missed: not vectorized: statement can throw an exception: __printf_chk (2, "FPS_INDEX[%d]=%d\n", i_217, _8);
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:172:26: missed: statement clobbers memory: operator delete (_165, 512);
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:172:26: missed: statement clobbers memory: operator delete (temp$D71746$_M_impl$D71047$_M_start_163, _47);
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:172:26: missed: statement clobbers memory: operator delete (_165, 512);
+benchmark/src/fps/kitti/fps_scalar.cpp:100:5: missed: not vectorized: statement can throw an exception: resx 12
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:738:7: note: ***** Analysis failed with vector mode RVVM1SI
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:738:7: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1SI
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:738:7: missed: splitting region at dominance boundary bb75
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:172:26: missed: statement clobbers memory: operator delete (temp$D71746$_M_impl$D71047$_M_start_163, _63);
+benchmark/src/fps/kitti/fps_scalar.cpp:100:5: missed: not vectorized: statement can throw an exception: resx 7
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:738:7: note: ***** Analysis failed with vector mode VOID
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:738:7: missed: splitting region at dominance boundary bb46
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:738:7: note: ***** Analysis failed with vector mode VOID
+/usr/riscv64-linux-gnu/include/c++/14/bits/stl_vector.h:738:7: missed: splitting region at dominance boundary bb85
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: missed: not vectorized: statement can throw an exception: __fprintf_chk (stderr.2_5, 2, "ERROR: Frame has only %d points but M=%d\n", n_23, 128);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: note: ***** Analysis failed with vector mode RVVM1DI
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1DI
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: missed: splitting region at dominance boundary bb76
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: note: ***** Analysis failed with vector mode VOID
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: missed: splitting region at dominance boundary bb36
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:172:26: missed: statement clobbers memory: operator delete (dataset$_M_start_182, _67);
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:172:26: note: ***** Analysis failed with vector mode VOID
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:172:26: missed: splitting region at dominance boundary bb63
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:172:26: note: ***** Analysis failed with vector mode VOID
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:172:26: missed: splitting region at dominance boundary bb3
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:172:26: missed: statement clobbers memory: operator delete (dataset$_M_start_9, _55);
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:172:26: note: ***** Analysis failed with vector mode VOID
+/usr/riscv64-linux-gnu/include/c++/14/bits/new_allocator.h:172:26: missed: splitting region at dominance boundary bb66
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: missed: statement clobbers memory: __fprintf_chk (stderr.0_1, 2, "Usage: %s <KITTI_frame.bin>\n", _2);
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: note: ***** Analysis failed with vector mode RVVM1DI
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:79:24: note: ***** Skipping vector mode RVVM1QI, which would repeat the analysis for RVVM1DI
+benchmark/src/fps/kitti/fps_scalar.cpp:100:5: note: ***** Analysis failed with vector mode VOID

@@ -187,7 +187,7 @@ def main():
     parser.add_argument("--n", type=int, default=1000, help="Points per shape (default 1000)")
     parser.add_argument("--m", type=int, default=32, help="FPS samples per shape (default 32)")
     parser.add_argument("--seed", type=int, default=42, help="Random seed (default 42)")
-    parser.add_argument("--out", default="benchmark/analysis/fps_polar_experiment1", help="Output folder relative to current working directory")
+    parser.add_argument("--out", default="spherical_fps/selection_patterns/results/synthetic_1k_32", help="Output folder relative to current working directory")
     args = parser.parse_args()
     if args.n < 32 or not 1 <= args.m <= args.n:
         parser.error("Require n >= 32 and 1 <= m <= n")

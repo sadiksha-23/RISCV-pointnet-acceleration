@@ -94,14 +94,14 @@ def main():
                    help='KITTI velodyne .bin; default: root/datasets/kitti/0000000000.bin')
     p.add_argument('--n', type=int, default=100000)
     p.add_argument('--m', type=int, default=128)
-    p.add_argument('--out', type=Path, help='Results folder (defaults to Polar/experiment_result/KITTI_N..._M...)')
+    p.add_argument('--out', type=Path, help='Results folder (defaults to spherical_fps/selection_patterns/results/kitti_N..._M...)')
     p.add_argument('--seed', type=int, default=42, help='Only used for plot background sampling')
     p.add_argument('--max-background', type=int, default=14000, help='Background dots per plot')
     args = p.parse_args()
 
     root = Path(__file__).resolve().parents[2]
     data_file = args.bin_path if args.bin_path else root / 'datasets/kitti/0000000000.bin'
-    output = args.out if args.out else root / 'Polar/experiment_result' / f'KITTI_N{args.n}_M{args.m}'
+    output = args.out if args.out else root / 'spherical_fps/selection_patterns/results' / f'kitti_{args.n}_{args.m}'
     data_file = data_file.resolve()
     output = output.resolve()
     if not data_file.is_file():

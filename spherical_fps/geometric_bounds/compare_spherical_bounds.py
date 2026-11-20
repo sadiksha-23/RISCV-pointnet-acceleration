@@ -161,7 +161,7 @@ def main():
     ap = argparse.ArgumentParser()
     project = Path(__file__).resolve().parents[2]
     ap.add_argument('--kitti', type=Path, default=project/'datasets/kitti/0000000000.bin')
-    ap.add_argument('--out', type=Path, default=project/'Polar/Exp/spherical_bound_results')
+    ap.add_argument('--out', type=Path, default=project/'spherical_fps/geometric_bounds/results/cosine_bounds')
     ap.add_argument('--n', type=int, default=100000)
     ap.add_argument('--m', type=int, default=128)
     a = ap.parse_args()

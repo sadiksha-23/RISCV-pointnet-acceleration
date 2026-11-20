@@ -210,7 +210,7 @@ def parse_args():
     project = Path(__file__).resolve().parents[2]
     p = argparse.ArgumentParser(description='Exact FPS + spherical region research tests on KITTI')
     p.add_argument('--kitti', type=Path, default=project / 'datasets/kitti/0000000000.bin')
-    p.add_argument('--out', type=Path, default=project / 'Polar/experiment_result/spherical_kitti_N100000_M128')
+    p.add_argument('--out', type=Path, default=project / 'spherical_fps/geometric_bounds/results/region_prediction_127_checkpoints')
     p.add_argument('--n', type=int, default=100000)
     p.add_argument('--m', type=int, default=128)
     p.add_argument('--seed', type=int, default=0)

@@ -31,3 +31,7 @@ Thumbs.db
 # gem5 folder
 /gem5/
 /benchmark/bin/
+
+# Root folder for locally compiled executables
+/bin/*
+!/bin/README.md

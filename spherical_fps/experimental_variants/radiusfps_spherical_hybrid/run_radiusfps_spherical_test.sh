@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 cd "$ROOT"
 
 if command -v g++ >/dev/null 2>&1; then
@@ -14,13 +14,14 @@ else
   exit 1
 fi
 
-EXE="$SCRIPT_DIR/radiusfps_spherical_test"
+mkdir -p "$ROOT/bin"
+EXE="$ROOT/bin/radiusfps_spherical_test"
 case "$(uname -s)" in
   MINGW*|MSYS*|CYGWIN*) EXE="$EXE.exe" ;;
 esac
 
-mkdir -p "$SCRIPT_DIR/radius_spherical_results"
-OUT="$SCRIPT_DIR/radius_spherical_results"
+mkdir -p "$SCRIPT_DIR/results"
+OUT="$SCRIPT_DIR/results"
 DATA="datasets/kitti/0000000000.bin"
 if [[ ! -f "$DATA" ]]; then
   echo "ERROR: Cannot find $ROOT/$DATA" >&2

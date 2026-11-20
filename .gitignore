@@ -34,4 +34,3 @@ Thumbs.db
 
 # Root folder for locally compiled executables
 /bin/*
-!/bin/README.md

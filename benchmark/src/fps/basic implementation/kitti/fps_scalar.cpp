@@ -5,6 +5,8 @@
 #include <cstring>
 #include <cmath>
 
+using namespace std;
+
 extern "C" {
     #include <gem5/m5ops.h>
 }
@@ -12,15 +14,15 @@ extern "C" {
 void farthestPointSampling (int b, int n, int m, const float * __restrict__ dataset, float * __restrict__ temp, int * __restrict__ idxs) {
     if (m <= 0) return;
 
-    for (int i = 0; i < b; ++i) {
+    for (int i = 0; i < b; i++) {
         int old = 0;
         idxs[0] = old;
 
-        for (int a = 0; a < n; ++a) {
+        for (int a = 0; a < n; a++) {
             temp[a] = 1e38f;
         }
 
-        for (int j = 1; j < m; ++j) {
+        for (int j = 1; j < m; j++) {
             int besti = 0;
             float best = -1;
 
@@ -28,7 +30,7 @@ void farthestPointSampling (int b, int n, int m, const float * __restrict__ data
             float y1 = dataset[i * n * 3 + old * 3 + 1];
             float z1 = dataset[i * n * 3 + old * 3 + 2];
 
-            for (int k = 0; k < n; ++k) {
+            for (int k = 0; k < n; k++) {
                 float x2 = dataset[i * n * 3 + k * 3 + 0];
                 float y2 = dataset[i * n * 3 + k * 3 + 1];
                 float z2 = dataset[i * n * 3 + k * 3 + 2];
@@ -52,40 +54,40 @@ void farthestPointSampling (int b, int n, int m, const float * __restrict__ data
     }
 }
 
-static bool loadKittiFrame(const char *filename, std::vector<float> &dataset) {
-    std::ifstream file(filename, std::ios::binary | std::ios::ate);
+static bool loadKittiFrame(const char *filename, vector<float> &dataset) {
+    ifstream file(filename, ios::binary | ios::ate);
 
     if (!file) {
-        std::fprintf(stderr, "ERROR: Could not open KITTI frame: %s\n", filename);
+        fprintf(stderr, "ERROR: Could not open KITTI frame: %s\n", filename);
         return false;
     }
 
-    std::streamsize bytes = file.tellg();
+    streamsize bytes = file.tellg();
 
     if (bytes <= 0 || bytes % (4 * sizeof(float)) != 0) {
-        std::fprintf(stderr, "ERROR: Invalid KITTI frame size: %lld bytes\n", static_cast<long long>(bytes));
+        fprintf(stderr, "ERROR: Invalid KITTI frame size: %lld bytes\n", static_cast<long long>(bytes));
         return false;
     }
 
-    file.seekg(0, std::ios::beg);
+    file.seekg(0, ios::beg);
 
-    size_t point_count = static_cast<size_t>(bytes) / (4 * sizeof(float));
-    std::vector<float> raw(point_count * 4);
+    size_t point_count = (size_t)(bytes) / (4 * sizeof(float));
+    vector<float> raw(point_count * 4);
 
     if (!file.read(reinterpret_cast<char *>(raw.data()), bytes)) {
-        std::fprintf(stderr, "ERROR: Failed while reading KITTI frame\n");
+        fprintf(stderr, "ERROR: Failed while reading KITTI frame\n");
         return false;
     }
 
     dataset.resize(point_count * 3);
 
-    for (size_t i = 0; i < point_count; ++i) {
+    for (size_t i = 0; i < point_count; i++) {
         float x = raw[i * 4 + 0];
         float y = raw[i * 4 + 1];
         float z = raw[i * 4 + 2];
 
-        if (!std::isfinite(x) || !std::isfinite(y) || !std::isfinite(z)) {
-            std::fprintf(stderr, "ERROR: Non-finite coordinate at point %zu\n", i);
+        if (!isfinite(x) || !isfinite(y) || !isfinite(z)) {
+            fprintf(stderr, "ERROR: Non-finite coordinate at point %zu\n", i);
             return false;
         }
 
@@ -99,27 +101,27 @@ static bool loadKittiFrame(const char *filename, std::vector<float> &dataset) {
 
 int main(int argc, char **argv) {
     if (argc != 2) {
-        std::fprintf(stderr, "Usage: %s <KITTI_frame.bin>\n", argv[0]);
+        fprintf(stderr, "Usage: %s <KITTI_frame.bin>\n", argv[0]);
         return 1;
     }
 
-    std::vector<float> dataset;
+    vector<float> dataset;
 
-    if (!loadKittiFrame(argv[1], dataset)) {
+    if (!loadKittiFrame("/mnt/c/Users/lsadi/Documents/PCD Research/datasets/kitti/0000000000.bin", dataset)) {
         return 1;
     }
 
     int b = 1;
-    int n = static_cast<int>(dataset.size() / 3);
+    int n = 100000;
     int m = 128;
 
     if (n < m) {
-        std::fprintf(stderr, "ERROR: Frame has only %d points but M=%d\n", n, m);
+        fprintf(stderr, "ERROR: Frame has only %d points but M=%d\n", n, m);
         return 1;
     }
 
-    std::vector<float> temp(static_cast<size_t>(n));
-    std::vector<int> idxs(static_cast<size_t>(m));
+    vector<float> temp((size_t)(n));
+    vector<int> idxs((size_t)(m));
 
     m5_reset_stats(0, 0);
 
@@ -127,10 +129,10 @@ int main(int argc, char **argv) {
 
     m5_dump_stats(0, 0);
 
-    std::printf("POINT_COUNT=%d\n", n);
+    printf("POINT_COUNT=%d\n", n);
 
-    for (int i = 0; i < m; ++i) {
-        std::printf("FPS_INDEX[%d]=%d\n", i, idxs[i]);
+    for (int i = 0; i < m; i++) {
+        printf("FPS_INDEX[%d]=%d\n", i, idxs[i]);
     }
 
     return 0;

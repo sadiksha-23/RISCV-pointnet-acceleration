@@ -8,15 +8,15 @@ extern "C" {
 void farthestPointSampling (int b, int n, int m, const float * __restrict__ dataset, float * __restrict__ temp, int * __restrict__ idxs) {
     if (m <= 0) return;
 
-    for (int i = 0; i < b; ++i) {
+    for (int i = 0; i < b; i++) {
         int old = 0;
         idxs[0] = old;
 
-        for (int a = 0; a < n; ++a) {
+        for (int a = 0; a < n; a++) {
             temp[a] = 1e38f;
         }
 
-        for (int j = 1; j < m; ++j) {
+        for (int j = 1; j < m; j++) {
             int besti = 0;
             float best = -1;
 
@@ -24,7 +24,7 @@ void farthestPointSampling (int b, int n, int m, const float * __restrict__ data
             float y1 = dataset[i * n * 3 + old * 3 + 1];
             float z1 = dataset[i * n * 3 + old * 3 + 2];
 
-            for (int k = 0; k < n; ++k) {
+            for (int k = 0; k < n; k++) {
                 float x2 = dataset[i * n * 3 + k * 3 + 0];
                 float y2 = dataset[i * n * 3 + k * 3 + 1];
                 float z2 = dataset[i * n * 3 + k * 3 + 2];
@@ -49,13 +49,13 @@ void farthestPointSampling (int b, int n, int m, const float * __restrict__ data
 }
 
 int main() {
-    int b = 1, n = 100000, m = 128;
+    int b = 1, n = 100000, m = 1024;
 
     float *dataset = new float[b * n * 3];
     float *temp = new float[b * n];
     int *idxs = new int[b * m];
 
-    for (int i = 0; i < b * n * 3; ++i) {
+    for (int i = 0; i < b * n * 3; i++) {
         dataset[i] = (float)(i % 100) * 0.01f;
     }
 

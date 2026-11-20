@@ -1,0 +1,32 @@
+# Python temporary files
+__pycache__/
+*.pyc
+.venv/
+
+# C/C++ compiled files
+*.o
+*.obj
+*.exe
+*.out
+
+# Build folders
+build/
+cmake-build-*/
+CMakeFiles/
+
+# gem5 temporary simulation outputs
+m5out/
+
+# Large KITTI dataset
+datasets/kitti/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# gem5 folder
+/gem5/

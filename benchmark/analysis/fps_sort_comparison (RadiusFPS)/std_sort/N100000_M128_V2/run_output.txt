@@ -1,0 +1,10 @@
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Jul  6 2026 16:59:53
+gem5 started Oct  6 2026 14:05:30
+gem5 executing on Sadiksha, pid 485
+command line: '/mnt/c/Users/lsadi/Documents/PCD Research/gem5/build/RISCV/gem5.opt' '--outdir=/mnt/c/Users/lsadi/Documents/PCD Research/m5out/radiusfps_std_sort_N100000_M128_V2' '/mnt/c/Users/lsadi/Documents/PCD Research/gem5/custom/riscv_benchmark.py' '/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/fps/RadiusFPS/kitti/radius_fps_std_sort.riscv' '/mnt/c/Users/lsadi/Documents/PCD Research/datasets/kitti/0000000000.bin' 100000
+
+Usage: /mnt/c/Users/lsadi/Documents/PCD Research/gem5/custom/riscv_benchmark.py <RISC-V binary>

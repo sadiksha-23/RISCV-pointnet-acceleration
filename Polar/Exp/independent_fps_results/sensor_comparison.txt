@@ -1,0 +1,24 @@
+INDEPENDENT ALGORITHMS: RadiusFPS versus SphericalFPS (NO hybrid)
+DATASET=datasets/kitti/0000000000.bin N=100000 M=128 REPEATS=5 ORIGIN=sensor
+BASICFPS_REFERENCE_FIRST10=0,3052,20530,853,29561,30686,7897,14320,30792,6898
+REPEAT=1 RadiusFPS: prep=24.038ms sample=6.395ms total=30.433ms
+REPEAT=1 SphericalFPS: prep=11.652ms sample=68.081ms total=79.733ms regions=129 points_pruned=6389775 distance_evals=11961636
+EXACT_128_CHECK=PASS (128/128)
+REPEAT=2 RadiusFPS: prep=21.044ms sample=5.169ms total=26.213ms
+REPEAT=2 SphericalFPS: prep=8.412ms sample=66.687ms total=75.099ms regions=129 points_pruned=6389775 distance_evals=11961636
+EXACT_128_CHECK=PASS (128/128)
+REPEAT=3 RadiusFPS: prep=22.357ms sample=4.873ms total=27.230ms
+REPEAT=3 SphericalFPS: prep=10.902ms sample=66.379ms total=77.282ms regions=129 points_pruned=6389775 distance_evals=11961636
+EXACT_128_CHECK=PASS (128/128)
+REPEAT=4 RadiusFPS: prep=22.291ms sample=5.196ms total=27.487ms
+REPEAT=4 SphericalFPS: prep=8.384ms sample=69.229ms total=77.613ms regions=129 points_pruned=6389775 distance_evals=11961636
+EXACT_128_CHECK=PASS (128/128)
+REPEAT=5 RadiusFPS: prep=23.984ms sample=6.617ms total=30.600ms
+REPEAT=5 SphericalFPS: prep=13.829ms sample=71.033ms total=84.862ms regions=129 points_pruned=6389775 distance_evals=11961636
+EXACT_128_CHECK=PASS (128/128)
+
+MEDIAN RadiusFPS: prep=22.357ms sample=5.196ms TOTAL=27.487ms
+MEDIAN SphericalFPS: prep=10.902ms sample=68.081ms TOTAL=77.613ms
+SPEED_RATIO_Radius_over_Spherical=0.3542x (>1 means spherical faster)
+WINNER=RadiusFPS
+CORRECTNESS=PASS (128/128 exact matches for both algorithms, every repeat)

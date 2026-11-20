@@ -43,7 +43,7 @@ int chooseSplitAxis(const float *dataset, const vector<int> &indices) {
     float maximum[3] = {-numeric_limits<float>::infinity(), -numeric_limits<float>::infinity(), -numeric_limits<float>::infinity()};
 
     for (int point : indices) {
-        for (int axis = 0; axis < 3; ++axis) {
+        for (int axis = 0; axis < 3; axis++) {
             float value = coordinate(dataset, point, axis);
             minimum[axis] = min(minimum[axis], value);
             maximum[axis] = max(maximum[axis], value);
@@ -53,7 +53,7 @@ int chooseSplitAxis(const float *dataset, const vector<int> &indices) {
     int best_axis = 0;
     float best_range = maximum[0] - minimum[0];
 
-    for (int axis = 1; axis < 3; ++axis) {
+    for (int axis = 1; axis < 3; axis++) {
         float range = maximum[axis] - minimum[axis];
         if (range > best_range) {
             best_range = range;
@@ -80,10 +80,10 @@ void buildNodes(const float *dataset, vector<int> indices, int requested_nodes, 
     int left_nodes = requested_nodes / 2;
     int right_nodes = requested_nodes - left_nodes;
     size_t point_count = indices.size();
-    size_t left_count = point_count * static_cast<size_t>(left_nodes) / static_cast<size_t>(requested_nodes);
+    size_t left_count = point_count * (size_t)(left_nodes) / (size_t)(requested_nodes);
 
-    left_count = max(left_count, static_cast<size_t>(left_nodes));
-    left_count = min(left_count, point_count - static_cast<size_t>(right_nodes));
+    left_count = max(left_count, (size_t)(left_nodes));
+    left_count = min(left_count, point_count - (size_t)(right_nodes));
 
     int axis = chooseSplitAxis(dataset, indices);
 
@@ -131,7 +131,7 @@ void findTopTwoNodes(const vector<Node> &nodes, const float *temp, int &far_node
     far_node = -1;
     second_node = -1;
 
-    for (int i = 0; i < static_cast<int>(nodes.size()); ++i) {
+    for (int i = 0; i < (int)(nodes.size()); ++i) {
         if (nodes[i].far_point < 0) continue;
 
         if (far_node < 0 || betterPoint(nodes[i].far_point, nodes[far_node].far_point, temp)) {
@@ -145,7 +145,7 @@ void findTopTwoNodes(const vector<Node> &nodes, const float *temp, int &far_node
 
 // Recheck one candidate against new samples
 void validateCandidate(Node &node, int candidate, const float *dataset, const int *idxs, int selected_count, float *temp) {
-    for (int sample = node.sample_stamp; sample < selected_count; ++sample) {
+    for (int sample = node.sample_stamp; sample < selected_count; sample++) {
         float distance = squaredDistance(dataset, candidate, idxs[sample]);
         if (distance < temp[candidate]) temp[candidate] = distance;
         ++distance_checks;
@@ -156,7 +156,7 @@ void validateCandidate(Node &node, int candidate, const float *dataset, const in
 
 // Update every point in one node
 void refreshNode(Node &node, const float *dataset, const int *idxs, int selected_count, const bool *selected, float *temp) {
-    for (int sample = node.sample_stamp; sample < selected_count; ++sample) {
+    for (int sample = node.sample_stamp; sample < selected_count; sample++) {
         int sampled_point = idxs[sample];
 
         for (int point : node.points) {
@@ -177,16 +177,16 @@ void refreshNode(Node &node, const float *dataset, const int *idxs, int selected
 void lazyFarthestPointSampling(int b, int n, int m, int node_count, const float * __restrict__ dataset, float * __restrict__ temp, int * __restrict__ idxs) {
     if (m <= 0 || n <= 0) return;
 
-    for (int batch = 0; batch < b; ++batch) {
+    for (int batch = 0; batch < b; batch++) {
         const float *current_dataset = dataset + batch * n * 3;
         float *current_temp = temp + batch * n;
         int *current_idxs = idxs + batch * m;
 
-        vector<int> all_indices(static_cast<size_t>(n));
+        vector<int> all_indices((size_t)(n));
         iota(all_indices.begin(), all_indices.end(), 0);
 
         vector<Node> nodes;
-        nodes.reserve(static_cast<size_t>(node_count));
+        nodes.reserve((size_t)(node_count));
         buildNodes(current_dataset, move(all_indices), node_count, nodes);
 
         bool *selected = new bool[n];
@@ -195,7 +195,7 @@ void lazyFarthestPointSampling(int b, int n, int m, int node_count, const float 
         current_idxs[0] = 0;
         selected[0] = true;
 
-        for (int point = 0; point < n; ++point) {
+        for (int point = 0; point < n; point++) {
             current_temp[point] = squaredDistance(current_dataset, point, 0);
             ++distance_checks;
         }
@@ -252,7 +252,7 @@ int main() {
     float *temp = new float[b * n];
     int *idxs = new int[b * m];
 
-    for (int i = 0; i < b * n * 3; ++i) dataset[i] = static_cast<float>(i % 100) * 0.01f;
+    for (int i = 0; i < b * n * 3; i++) dataset[i] = static_cast<float>(i % 100) * 0.01f;
 
     memset(temp, 0, sizeof(float) * b * n);
     memset(idxs, 0, sizeof(int) * b * m);
@@ -268,7 +268,7 @@ int main() {
     printf("CANDIDATE_CHECKS=%llu\n", candidate_checks);
     printf("NODE_REFRESHES=%llu\n", node_refreshes);
 
-    for (int i = 0; i < m; ++i) printf("FPS_INDEX[%d]=%d\n", i, idxs[i]);
+    for (int i = 0; i < m; i++) printf("FPS_INDEX[%d]=%d\n", i, idxs[i]);
 
     delete[] dataset;
     delete[] temp;

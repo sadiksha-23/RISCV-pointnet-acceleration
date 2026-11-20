@@ -24,7 +24,7 @@ void farthestPointSampling_rvv(int b, int n, int m, const float *__restrict__ da
 
     const ptrdiff_t stride = 3 * sizeof(float);
 
-    for (int i = 0; i < b; ++i) {
+    for (int i = 0; i < b; i++) {
         const float *cur_dataset = dataset + i * n * 3;
 
         int old = 0;
@@ -44,7 +44,7 @@ void farthestPointSampling_rvv(int b, int n, int m, const float *__restrict__ da
         }
 
         // Select the remaining m - 1 centroids.
-        for (int j = 1; j < m; ++j) {
+        for (int j = 1; j < m; j++) {
             float best = -1.0f;
             int besti = 0;
 
@@ -82,7 +82,7 @@ void farthestPointSampling_rvv(int b, int n, int m, const float *__restrict__ da
                 // Only one winner from each vector chunk is checked here.
                 if (chunk_lane >= 0 && chunk_best > best) {
                     best = chunk_best;
-                    besti = k_base + static_cast<int>(chunk_lane);
+                    besti = k_base + (int)(chunk_lane);
                 }
 
                 rem_n -= vl;
@@ -105,7 +105,7 @@ int main() {
     float *temp = new float[b * n];
     int *idxs = new int[b * m];
 
-    for (int i = 0; i < b * n * 3; ++i) {
+    for (int i = 0; i < b * n * 3; i++) {
         dataset[i] = static_cast<float>(i % 100) * 0.01f;
     }
 

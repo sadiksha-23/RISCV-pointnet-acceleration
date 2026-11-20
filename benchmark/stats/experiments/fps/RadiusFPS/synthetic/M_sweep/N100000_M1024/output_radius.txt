@@ -1,0 +1,33 @@
+warn: Base 10 memory/cache size 8GB will be cast to base 2 size 8GiB.
+warn: The `CustomResource` class is deprecated. Please use an `AbstractResource` subclass instead.
+warn: Base 10 memory/cache size 32kB will be cast to base 2 size 32KiB.
+warn: Base 10 memory/cache size 32kB will be cast to base 2 size 32KiB.
+warn: Base 10 memory/cache size 512kB will be cast to base 2 size 512KiB.
+Global frequency set at 1000000000000 ticks per second
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (16384 Mbytes) does not match the address range assigned (8192 Mbytes)
+src/arch/riscv/isa.cc:321: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+board.remote_gdb: Listening for connections on port 7000
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Jul  6 2026 16:59:53
+gem5 started Oct  3 2026 20:48:28
+gem5 executing on Sadiksha, pid 2526
+command line: '/mnt/c/Users/lsadi/Documents/PCD Research/gem5/build/RISCV/gem5.opt' '--outdir=/mnt/c/Users/lsadi/Documents/PCD Research/m5out/radius_synth_M1024' '/mnt/c/Users/lsadi/Documents/PCD Research/gem5/custom/riscv_benchmark.py' '/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/bin/fps/RadiusFPS/synthetic/radius_scalar_m_sweep.riscv'
+
+Starting RISC-V simulation: /mnt/c/Users/lsadi/Documents/PCD Research/benchmark/bin/fps/RadiusFPS/synthetic/radius_scalar_m_sweep.riscv
+src/sim/syscall_emul.cc:97: warn: ignoring syscall set_robust_list(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/bin/fps/RadiusFPS/synthetic/radius_scalar_m_sweep.riscv'
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+First FPS index: 0
+Last FPS index: 0
+Voxel count: 30
+Voxel size: 0.100000
+RISC-V simulation finished successfully.

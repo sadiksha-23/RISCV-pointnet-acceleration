@@ -1,0 +1,18 @@
+Global frequency set at 1000000000000 ticks per second
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Jul  6 2026 16:59:53
+gem5 started Oct  6 2026 14:56:25
+gem5 executing on Sadiksha, pid 1262
+command line: '/mnt/c/Users/lsadi/Documents/PCD Research/gem5/build/RISCV/gem5.opt' '--outdir=/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/stats/experiments/fps/RadiusFPS/kitti/preparation_profile/N100000_M128_V2/m5out' '/mnt/c/Users/lsadi/Documents/PCD Research/gem5/custom/riscv_benchmark.py' '/mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/fps/RadiusFPS/kitti/radius_fps_radix_profile.riscv'
+
+Starting RISC-V simulation: /mnt/c/Users/lsadi/Documents/PCD Research/benchmark/src/fps/RadiusFPS/kitti/radius_fps_radix_profile.riscv
+POINT_COUNT=100000
+VOXEL_COUNT=937
+FPS_INDEX[0]=0
+FPS_INDEX[1]=3052
+FPS_INDEX[2]=20530
+FPS_INDEX[3]=853
+RISC-V simulation finished successfully.

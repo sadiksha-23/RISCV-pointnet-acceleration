@@ -1,0 +1,5 @@
+variant,prep_ms,sampling_ms,total_ms,evals,correctness
+01_reference,7.105953,7.16829,13.997926,1247077,PASS
+05_elevation_squared,8.466954,6.225439,14.364675,1247077,PASS
+06_radial_squared,6.938838,7.095638,14.034476,1247077,PASS
+07_region_radius_squared,7.059294,5.625057,13.35997,1247077,PASS

@@ -1,0 +1,5 @@
+variant,n,m,az,el,rad,prep,sampling,total,evals,regions,checks,skips,indices_match
+01_reference,10000,128,24,8,6,0.853213,0.75028,1.603493,102162,82,10414,9699,True
+A_aabb_bound,10000,128,24,8,6,0.950345,0.853294,1.830779,88813,82,10414,9769,True
+B_adaptive_regions,10000,128,24,8,6,1.110508,0.832411,1.949222,100600,84,10668,9937,True
+C_radial_short_circuit,10000,128,24,8,6,0.86692,0.72158,1.5885,102162,82,10414,9699,True

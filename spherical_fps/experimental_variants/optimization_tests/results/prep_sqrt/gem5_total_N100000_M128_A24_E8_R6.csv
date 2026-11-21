@@ -1,0 +1,5 @@
+variant,gem5_total_roi_ms,point_evals,indices_match
+01_reference,24.196347,1247077,True
+05_elevation_squared,21.408538,1247077,True
+06_radial_squared,21.81259,1247077,True
+07_region_radius_squared,24.056004,1247077,True

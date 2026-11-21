@@ -50,6 +50,7 @@ RISCV-pointnet-acceleration/
 │   ├── selection_patterns/   Where FPS selects points
 │   ├── geometric_bounds/     Safe geometric pruning studies
 │   ├── initial_implementation/
+│   ├── main_implementation/    Optimized scalar, profiling and RVV work (local)
 │   └── experimental_variants/
 ├── datasets/                 KITTI LiDAR point clouds
 ├── documentation/            Research PDFs and figures
@@ -319,7 +320,7 @@ The spherical research developed in four steps:
 3. **Initial independent implementation:** put the geometry into a complete C++ algorithm; verify the selected indices; measure its cost.
 4. **Alternative hybrid:** add spherical bounds to RadiusFPS and check whether that helps.
 
-The next direction is a more efficient **SphericalFPS v2**. A promising target is reducing the repeated/catch-up distance updates and region-management overhead while retaining proof of correctness. This is **planned research**, not a completed improvement.
+The more efficient scalar candidate **has now been developed and measured** in local experiments. Direct-sector binning (01), squared elevation binning (05), squared radial binning (06), and AABB region bounds (A) form the leading **F2** variant. The separate early radial-short-circuit addition (C) did not improve the measured F2 total in the combined test. The current phase is final scalar/RVV correctness validation, scaling sweeps and hardware-oriented analysis, rather than another broad round of algorithmic variants.
 
 For the RISC-V branch of the project, another priority is to make build/run commands more portable and verify scalar-versus-RVV correctness for all reported configurations.
 
@@ -334,6 +335,50 @@ For the RISC-V branch of the project, another priority is to make build/run comm
 - Before deleting or reorganizing anything, check `git status` and any code paths that refer to the old name.
 
 For new readers: **start with `selection_patterns/`, then `geometric_bounds/`, then the initial implementation**. That order explains not only what we built but why we built it.
+
+## 8. Current SphericalFPS optimization and RVV study (November 2026)
+
+**Repository-sync note:** The measurements below were reported from local gem5 runs. Updated `main_implementation` sources, temporary sweep helpers, and new result folders may still be uncommitted; do not mistake a documentation update for a push of those files.
+
+### Algorithm decisions and completed timings
+
+The optimization sequence first replaced per-point angular calculations with direct sector assignment (01). Later experiments independently tested squared elevation (05), squared radial binning (06), and a cheaper region-radius construction (07). In a comparable set of gem5 preparation-plus-sampling runs at N=100,000, M=128, 05 measured **21.4085 ms**, 06 **21.8126 ms**, and 07 **24.0560 ms**, compared with the experiment's 01 reference of **24.1963 ms**. These are individual variant tests, not an additive claim.
+
+A separate native algorithm study tested AABB bounds (A), adaptive region splitting (B), and a radial short circuit (C). A reduced measured point-distance evaluations from **1,247,077** to **1,023,935**, with identical selected indices in five tested rounds. B's preparation overhead outweighed the sampling reduction. C did not establish a robust sampling-time improvement.
+
+Three **combined** gem5 experiments, all using KITTI frame `datasets/kitti/0000000000.bin`, N=100,000, M=128, had these first explicit `simTicks` intervals:
+
+| Variant | Algorithm components | gem5 preparation + sampling |
+| --- | --- | ---: |
+| F1 | 01 + 05 + 06 | 20.442032 ms |
+| **F2** | **F1 + AABB bounds** | **18.493858 ms** |
+| F3 | F2 + early radial short circuit | 18.610774 ms |
+
+The F2 reset occurs before centroid computation and region preparation; its explicit dump occurs after sampling and before output. Thus the measured interval includes both **preparation and sampling**, not loading or printing. F2 was selected as the scalar candidate rather than continuing to optimize every small variation.
+
+The first subsequent **final-code** local measurements at N=100,000, M=128 were **18.5302 ms scalar** and **13.9127 ms RVV**, corresponding to **1.332×** speedup relative to that scalar run (24.92% less runtime). This is a preliminary, one-run comparison. Exact FPS indices, RVV instruction usage, compiler flags and matched RadiusFPS baselines must be verified before publishing an RVV or cross-algorithm conclusion.
+
+### Intended final source files and result layout
+
+The local project uses these three implementations under `spherical_fps/main_implementation/`:
+
+- `spherical_fps.cpp` — optimized scalar FPS; measure the complete algorithm without internal profiling overhead.
+- `spherical_fps_profile.cpp` — same algorithm, instrumented for major phases and bottleneck diagnosis; do not compare instrumented total time against uninstrumented timing.
+- `spherical_fps_rvv.cpp` — vectorized candidate; validate its selected point indices against scalar and BasicFPS.
+
+The planned local result directories are `results/spherical_fps/`, `results/spherical_fps_profile/`, and `results/spherical_fps_rvv/`. Within each, a baseline such as `N100000_M128/` is kept separate from `N_sweep/` and `M_sweep/`. RadiusFPS RVV sweep results are being saved separately under `benchmark/stats/experiments/fps/RadiusFPS/kitti/RVV_sweeps/`.
+
+### Controlled sweep parameters
+
+- **N sweep:** N = 1,024; 2,048; 4,096; 10,000; 20,000; 50,000; 100,000, with M = 128.
+- **M sweep:** M = 32; 64; 128; 256; 512; 1,024, with N = 100,000.
+- **Dataset:** KITTI frame 0 (`datasets/kitti/0000000000.bin`), using the first N points of the frame.
+- **gem5 configuration:** `benchmark/cpu/riscv_fps_comparison.py`: one 2 GHz O3 RISC-V core, 32 KiB L1 instruction and data caches, shared 512 KiB L2 and DDR4-2400. Verify RVV VLEN and executed vector instructions from individual runs.
+- **Measurement definition:** program-provided m5 reset and dump around **preparation + sampling**, excluding file loading and final index printing. With two `simTicks` sections, confirm that the first is the explicit interval, and the later section is the termination dump; do not sum them blindly.
+
+**RadiusFPS caution:** The existing `radius_fps_vector.cpp` hardcodes N=100,000, M=128 and uses multiple profiling checkpoints. A separate locally generated sweep-oriented copy accepts runtime N and M and uses a single total-algorithm interval. This transformation is not yet a validated correctness-preserving RVV benchmark; its FPS indices must be checked. Earlier documentation also records a RadiusFPS RVV index mismatch at M=32, which remains unresolved. Never describe that result as confirmed exact FPS.
+
+**Avoid redundant simulations.** Reuse a completed run only when its executable, build flags, input frame, simulator configuration, measurement boundary and output validity match the desired comparison. Do not rerun unchanged baselines just to reproduce the same number, but do not silently combine results from different RadiusFPS variants.
 
 ---
 

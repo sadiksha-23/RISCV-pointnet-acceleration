@@ -1,0 +1,5 @@
+variant,n,m,az,el,rad,prep_ms,sampling_ms,total_ms,point_evals,indices_match
+01_reference,100000,128,24,8,6,7.549627,5.865353,13.325811,1247077,True
+S1_packed_regions,100000,128,24,8,6,8.734054,6.940225,15.674279,1247077,True
+S2_local_updates,100000,128,24,8,6,7.004789,6.462465,14.279982,1247077,True
+S3_two_pass,100000,128,24,8,6,7.562175,7.547327,15.693835,1247077,True

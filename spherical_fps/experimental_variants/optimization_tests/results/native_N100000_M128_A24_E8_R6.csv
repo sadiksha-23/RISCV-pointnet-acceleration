@@ -1,0 +1,6 @@
+variant,N,M,AZ,EL,RAD,preparation_ms,sampling_ms,total_ms,matches_baseline
+baseline,100000,128,24,8,6,6.527979,3.495205,10.128188,True
+01_direct_sectors,100000,128,24,8,6,3.832828,3.909684,7.742512,True
+02_radial_first,100000,128,24,8,6,6.399812,3.407831,10.233277,True
+03_coordinate_rejection,100000,128,24,8,6,6.951192,4.516166,12.185275,True
+04_approx_atan2,100000,128,24,8,6,4.083176,3.746876,7.882452,True

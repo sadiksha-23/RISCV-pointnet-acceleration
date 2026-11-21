@@ -1,0 +1,58 @@
+
+=== FPS ALGORITHM COMPARISON ===
+N=100000 M=128 repeats=5
+Origin=centroid
+
+Run 1/5
+BasicFPS: 34.778 ms
+RadiusFPS: 30.099 ms
+LowerBoundFPS: 16.508 ms
+Exact indices: PASS (128/128)
+
+Run 2/5
+BasicFPS: 36.126 ms
+RadiusFPS: 28.264 ms
+LowerBoundFPS: 16.718 ms
+Exact indices: PASS (128/128)
+
+Run 3/5
+BasicFPS: 35.369 ms
+RadiusFPS: 31.068 ms
+LowerBoundFPS: 16.118 ms
+Exact indices: PASS (128/128)
+
+Run 4/5
+BasicFPS: 33.717 ms
+RadiusFPS: 26.826 ms
+LowerBoundFPS: 17.100 ms
+Exact indices: PASS (128/128)
+
+Run 5/5
+BasicFPS: 38.059 ms
+RadiusFPS: 28.098 ms
+LowerBoundFPS: 16.507 ms
+Exact indices: PASS (128/128)
+
+=== MEDIAN RESULTS ===
+BasicFPS total: 35.369 ms
+RadiusFPS preparation: 23.376 ms
+RadiusFPS sampling: 4.820 ms
+RadiusFPS total: 28.264 ms
+LowerBoundFPS preparation: 11.177 ms
+LowerBoundFPS sampling: 5.340 ms
+LowerBoundFPS total: 16.508 ms
+
+=== LOWER BOUND WORK ===
+Occupied spherical regions: 132
+Basic distance evaluations: 12700000
+Lower-bound distance evaluations: 1247077
+Region-skipped point updates: 11452923
+Distance evaluation reduction: 90.180%
+
+=== SPEED RATIOS ===
+Basic / LowerBound: 2.143x
+Radius / LowerBound: 1.712x
+
+CORRECTNESS: PASS (all algorithms, all runs)
+
+NOTE: Native host timings, not gem5 timings.

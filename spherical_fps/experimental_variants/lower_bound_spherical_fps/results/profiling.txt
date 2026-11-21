@@ -1,0 +1,81 @@
+
+=== LOWER-BOUND FPS PROFILER ===
+N=100000 M=128 repeats=5
+Origin=centroid
+Centroid calculation: 0.250 ms
+
+Run 1/5
+  Original total: 17.209 ms
+  Profiled total: 17.053 ms
+  Preparation: 10.019 ms
+  Region bounds: 1.343 ms
+  Point updates: 4.803 ms
+  Winner selection: 0.056 ms
+  Other / profiling overhead: 0.833 ms
+  Correctness: PASS (128/128)
+
+Run 2/5
+  Original total: 15.281 ms
+  Profiled total: 18.727 ms
+  Preparation: 10.955 ms
+  Region bounds: 1.544 ms
+  Point updates: 5.243 ms
+  Winner selection: 0.062 ms
+  Other / profiling overhead: 0.923 ms
+  Correctness: PASS (128/128)
+
+Run 3/5
+  Original total: 15.169 ms
+  Profiled total: 18.149 ms
+  Preparation: 10.190 ms
+  Region bounds: 1.927 ms
+  Point updates: 5.120 ms
+  Winner selection: 0.057 ms
+  Other / profiling overhead: 0.854 ms
+  Correctness: PASS (128/128)
+
+Run 4/5
+  Original total: 15.878 ms
+  Profiled total: 16.405 ms
+  Preparation: 9.357 ms
+  Region bounds: 1.340 ms
+  Point updates: 4.800 ms
+  Winner selection: 0.057 ms
+  Other / profiling overhead: 0.852 ms
+  Correctness: PASS (128/128)
+
+Run 5/5
+  Original total: 16.260 ms
+  Profiled total: 15.481 ms
+  Preparation: 8.499 ms
+  Region bounds: 1.355 ms
+  Point updates: 4.731 ms
+  Winner selection: 0.057 ms
+  Other / profiling overhead: 0.839 ms
+  Correctness: PASS (128/128)
+
+=== TIME BREAKDOWN ===
+Centroid calculation (once): 0.250 ms
+Preparation mean: 9.804 ms
+Sampling mean (profiled): 7.359 ms
+
+Sampling components:
+Region bounds: 1.502 ms (20.408%)
+Point updates: 4.939 ms (67.118%)
+Winner selection: 0.058 ms (0.787%)
+Other / profiling overhead: 0.860 ms (11.687%)
+
+=== REGION WORK ===
+Occupied regions: 132
+Region-bound tests: 16764
+Regions skipped: 15171
+Point updates skipped: 11452923
+Point-distance evaluations: 1247077
+
+=== PROFILER OVERHEAD CHECK ===
+Original median total: 15.878 ms
+Profiled median total: 17.053 ms
+
+All indices matched BasicFPS: PASS
+NOTE: Instrumentation adds overhead to sampling.
+Use original benchmark for final speed claims.

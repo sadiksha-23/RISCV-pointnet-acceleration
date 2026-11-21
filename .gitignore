@@ -34,3 +34,9 @@ Thumbs.db
 
 # Root folder for locally compiled executables
 /bin/*
+
+# Regenerable diagrams and citation boilerplate created by gem5
+**/config.dot
+**/config.dot.svg
+**/config.dot.pdf
+**/citations.bib

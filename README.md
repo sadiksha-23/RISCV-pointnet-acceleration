@@ -60,10 +60,11 @@ bash spherical_fps/selection_patterns/run_kitti_experiment1.sh
 python3 spherical_fps/geometric_bounds/compare_spherical_bounds.py
 
 # Native C++ comparison: RadiusFPS versus independent SphericalFPS
-bash spherical_fps/initial_implementation/run_independent_fps.sh
+g++ -O3 -std=c++17 spherical_fps/initial_implementation/compare_independent_fps.cpp -o bin/compare_independent_fps
+# See source for its supported arguments; earlier experiment commands are not fully portable
 ~~~
 
-The native C++ script builds its executable into the root `bin/` folder and writes text results under `spherical_fps/initial_implementation/results/`. It does **not** run gem5.
+The independent native study's results are preserved under `spherical_fps/initial_implementation/results/`. Its source has historical assumptions and the illustrative compile command above does **not** reproduce its full experiment automatically. It does **not** run gem5.
 
 For the simulated RISC-V experiments, see the [project guide](PROJECT_GUIDE.md#running-risc-v-benchmarks-with-gem5). A gem5 installation and suitable RISC-V binaries are required; compiled binaries are not provided.
 
@@ -77,7 +78,7 @@ The findings below come from saved experiments on KITTI with **N = 100,000 input
 
 Saved RISC-V/gem5 experiments are available under `benchmark/stats/` and `benchmark/performance_review/`. Some results are incomplete or have correctness issues; **check the relevant logs before citing a performance claim**.
 
-### Recent SphericalFPS optimization measurements (local gem5 runs)
+### Recent SphericalFPS optimization measurements (saved gem5 runs)
 
 On KITTI frame `0000000000.bin`, N=100,000, M=128, the following *separate experimental variants* measured preparation + sampling with a single explicit gem5 statistics interval:
 
@@ -87,7 +88,20 @@ On KITTI frame `0000000000.bin`, N=100,000, M=128, the following *separate exper
 | **F2** | **F1 + AABB bounds** | **18.4939 ms** |
 | F3 | F2 + radial early-rejection short circuit | 18.6108 ms |
 
-F2 is the preferred **scalar candidate**. In the first follow-up scalar-versus-RVV baseline, scalar measured 18.5302 ms and RVV 13.9127 ms. These figures are *preliminary research measurements*: correctness across multiple workloads and fairness against the exact RadiusFPS version are still under verification. The local final files and new results are not assumed to be present in the GitHub checkout until committed.
+F2 is the preferred **scalar candidate**. In the first follow-up scalar-versus-RVV baseline, scalar measured 18.5302 ms and RVV 13.9127 ms. These figures are *preliminary research measurements*: correctness across multiple workloads and fairness against the exact RadiusFPS version are still under verification. The final scalar, profiling and RVV C++ sources and completed scalar sweep runs are now committed under `spherical_fps/main_implementation/`; RVV sweeps remain incomplete.
+
+### Completed scalar sweep at N = 100,000 (preparation + sampling)
+
+| M | SphericalFPS scalar | RadiusFPS scalar |
+| ---: | ---: | ---: |
+| 32 | 14.0642 ms | 21.3521 ms |
+| 64 | 15.4014 ms | 22.0910 ms |
+| 128 | 18.5302 ms | 23.5523 ms |
+| 256 | 23.6558 ms | 26.1781 ms |
+| 512 | 32.63 ms (rounded) | 30.7360 ms |
+| 1024 | 47.64 ms (rounded) | 38.6162 ms |
+
+This is a **single-run simulated timing comparison**, not a validated speedup claim across datasets. The spherical approach performs better at lower M but loses its advantage at higher M. See the guide for timing-boundary and correctness caveats.
 
 ## How to interpret timings
 
@@ -108,10 +122,14 @@ The NS-FPS source under [`benchmark/external_research/ns-fps/`](benchmark/extern
 
 The `documentation/` directory contains papers, notes, and figures relating to FPS, RVV, and the broader research.
 
+## Repository maintenance
+
+Repeated, auto-generated gem5 diagrams (`config.dot` and rendered SVG/PDF versions) and boilerplate `citations.bib` copies were removed from archived runs. The benchmark `stats.txt`, program output, and machine configuration (`config.ini`/`config.json`) were retained. The sweep runner and experimental diagnostic scripts remain because the RVV study and profiling work are not finished.
+
 ## Current direction
 
-The original independent SphericalFPS was a starting point, not the final design. A newer scalar optimization candidate, **F2 (direct sectors + squared elevation + squared radial binning + AABB pruning)**, achieved an **18.4939 ms measured preparation-plus-sampling interval** on gem5 for KITTI frame 0, N=100,000 and M=128. The follow-on scalar implementation measured **18.5302 ms**, while a preliminary RVV version measured **13.9127 ms** (1.332× scalar/RVV speedup). These last two timings are from local runs described in the research log; the corresponding final source and new sweep outputs may not yet be pushed to GitHub. These are single-run measurements, not multi-run medians.
+The original independent SphericalFPS was a starting point, not the final design. A newer scalar optimization candidate, **F2 (direct sectors + squared elevation + squared radial binning + AABB pruning)**, achieved an **18.4939 ms measured preparation-plus-sampling interval** on gem5 for KITTI frame 0, N=100,000 and M=128. The follow-on scalar implementation measured **18.5302 ms**, while a preliminary RVV version measured **13.9127 ms** (1.332× scalar/RVV speedup). The optimized sources and saved scalar sweep results are now in this repository; the full RVV sweeps remain unfinished. These are single-run measurements, not multi-run medians.
 
-**Current priority:** finish scalar/RVV N and M sweeps and verify selected indices, executed RVV instructions, and a matched RadiusFPS comparison before making a final algorithm-level performance claim. No further broad scalar-optimization search is planned unless profiling reveals a concrete issue.
+**Current priority:** complete and validate RVV sweeps, verify exact selected indices and executed vector instructions, and analyze SphericalFPS's increasing sampling cost at larger M. The completed scalar sweep is archived in `spherical_fps/main_implementation/results/spherical_fps/`; the full RadiusFPS scalar comparison is `benchmark/stats/experiments/fps/RadiusFPS/kitti/full_radix_sweep/`.
 
 **For folder-by-folder explanations, setup, commands, and a guide to results, continue to [PROJECT_GUIDE.md](PROJECT_GUIDE.md).**

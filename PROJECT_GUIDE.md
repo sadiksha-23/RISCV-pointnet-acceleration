@@ -50,7 +50,7 @@ RISCV-pointnet-acceleration/
 │   ├── selection_patterns/   Where FPS selects points
 │   ├── geometric_bounds/     Safe geometric pruning studies
 │   ├── initial_implementation/
-│   ├── main_implementation/    Optimized scalar, profiling and RVV work (local)
+│   ├── main_implementation/    Optimized scalar, profiling and RVV source and results
 │   └── experimental_variants/
 ├── datasets/                 KITTI LiDAR point clouds
 ├── documentation/            Research PDFs and figures
@@ -144,7 +144,7 @@ You can inspect the results and source code on any computer. Running experiments
 | Run native SphericalFPS C++ comparisons | A C++17 compiler such as `g++`, plus a shell environment such as WSL/Ubuntu |
 | Run simulated RISC-V benchmarks | A RISC-V-enabled gem5 build, a suitable RISC-V cross-compiler, gem5 m5ops support, and a compiled RISC-V program |
 
-**Windows note:** Git Bash is useful for Git commands, but the C++ benchmark scripts are easiest to run in **WSL/Ubuntu**. The old RISC-V build commands were not collected into a single universal build script. You may need to adjust paths and toolchain flags for your own setup.
+**Windows note:** Git Bash is useful for Git commands, but the C++ benchmark scripts are easiest to run in **WSL/Ubuntu**. Most old RISC-V build commands were not collected into a single universal build script. You may need to adjust paths and toolchain flags for your own setup.
 
 From the repository root in a Python environment, install the geometry dependencies:
 
@@ -189,23 +189,18 @@ These scripts produce **geometric evidence**, not reliable execution-time speedu
 Use WSL/Ubuntu or another supported environment with `g++`:
 
 ~~~bash
-bash spherical_fps/initial_implementation/run_independent_fps.sh
+g++ -O3 -std=c++17 spherical_fps/initial_implementation/compare_independent_fps.cpp -o bin/compare_independent_fps
 ~~~
 
-The script:
-
-1. Checks for the KITTI input and compiler.
-2. Compiles `compare_independent_fps.cpp` into root `bin/`.
-3. Runs RadiusFPS and SphericalFPS with centroid and sensor origins.
-4. Saves results under `spherical_fps/initial_implementation/results/`.
+This compiles the historical standalone comparison source, assuming `bin/` exists. Review its actual arguments and paths before running; it does not automatically reproduce the saved historic run.
 
 For the hybrid experiment:
 
 ~~~bash
-bash spherical_fps/experimental_variants/radiusfps_spherical_hybrid/run_radiusfps_spherical_test.sh
+g++ -O3 -std=c++17 spherical_fps/experimental_variants/radiusfps_spherical_hybrid/radiusfps_spherical_test.cpp -o bin/radiusfps_spherical_test
 ~~~
 
-Both are **native host benchmarks**, not RISC-V/gem5 simulations. They can overwrite the saved text result files when rerun; copy results elsewhere first if you need to preserve the original measurements.
+Both are **native host studies**, not RISC-V/gem5 simulations. These compile examples are not comprehensive run commands; review source assumptions first. Preserve existing experiment outputs before rerunning.
 
 ## 4. Running RISC-V benchmarks with gem5
 
@@ -338,7 +333,7 @@ For new readers: **start with `selection_patterns/`, then `geometric_bounds/`, t
 
 ## 8. Current SphericalFPS optimization and RVV study (November 2026)
 
-**Repository-sync note:** The measurements below were reported from local gem5 runs. Updated `main_implementation` sources, temporary sweep helpers, and new result folders may still be uncommitted; do not mistake a documentation update for a push of those files.
+**Repository-sync note:** The F2 and follow-up measurements are archived as part of this research history. The main scalar, profile, and RVV source files and scalar sweeps are committed. RadiusFPS RVV sweep results and remaining SphericalFPS RVV runs are not yet complete.
 
 ### Algorithm decisions and completed timings
 
@@ -360,13 +355,13 @@ The first subsequent **final-code** local measurements at N=100,000, M=128 were 
 
 ### Intended final source files and result layout
 
-The local project uses these three implementations under `spherical_fps/main_implementation/`:
+The repository includes these three implementations under `spherical_fps/main_implementation/`:
 
 - `spherical_fps.cpp` — optimized scalar FPS; measure the complete algorithm without internal profiling overhead.
 - `spherical_fps_profile.cpp` — same algorithm, instrumented for major phases and bottleneck diagnosis; do not compare instrumented total time against uninstrumented timing.
 - `spherical_fps_rvv.cpp` — vectorized candidate; validate its selected point indices against scalar and BasicFPS.
 
-The planned local result directories are `results/spherical_fps/`, `results/spherical_fps_profile/`, and `results/spherical_fps_rvv/`. Within each, a baseline such as `N100000_M128/` is kept separate from `N_sweep/` and `M_sweep/`. RadiusFPS RVV sweep results are being saved separately under `benchmark/stats/experiments/fps/RadiusFPS/kitti/RVV_sweeps/`.
+The saved and planned result directories are `results/spherical_fps/`, `results/spherical_fps_profile/`, and `results/spherical_fps_rvv/`. Within each, a baseline such as `N100000_M128/` is kept separate from `N_sweep/` and `M_sweep/`. RadiusFPS RVV sweep results are being saved separately under `benchmark/stats/experiments/fps/RadiusFPS/kitti/RVV_sweeps/`.
 
 ### Controlled sweep parameters
 
@@ -379,6 +374,24 @@ The planned local result directories are `results/spherical_fps/`, `results/sphe
 **RadiusFPS caution:** The existing `radius_fps_vector.cpp` hardcodes N=100,000, M=128 and uses multiple profiling checkpoints. A separate locally generated sweep-oriented copy accepts runtime N and M and uses a single total-algorithm interval. This transformation is not yet a validated correctness-preserving RVV benchmark; its FPS indices must be checked. Earlier documentation also records a RadiusFPS RVV index mismatch at M=32, which remains unresolved. Never describe that result as confirmed exact FPS.
 
 **Avoid redundant simulations.** Reuse a completed run only when its executable, build flags, input frame, simulator configuration, measurement boundary and output validity match the desired comparison. Do not rerun unchanged baselines just to reproduce the same number, but do not silently combine results from different RadiusFPS variants.
+
+## 9. Cleanup policy and active scripts
+
+The November 2026 cleanup removed redundant gem5-generated diagrams (`config.dot`, `config.dot.svg`, `config.dot.pdf`) and repeated boilerplate `citations.bib` files, plus two thin wrapper shell scripts that simply forwarded to `run_prep_tests.py`. Historical benchmark results remain available in `stats.txt` and the associated program output; `config.ini` and `config.json` were kept for hardware reproducibility.
+
+**Retained intentionally:** `run_all_fps_sweeps.sh` (still useful to resume RVV runs, but review its skip logic before executing), `run_sampling_profile_01.sh` (diagnostic reproducibility), and `selection_patterns/run_kitti_experiment1.sh` (reproducing the selection study). Do not re-run the complete sweep driver without checking existing outputs. The detailed RadiusFPS scalar full-algorithm baseline is under `benchmark/stats/experiments/fps/RadiusFPS/kitti/full_radix_sweep/`; the older `N_sweep` and `M_sweep` files measured a different interval and must not be substituted for full preprocessing-plus-sampling totals.
+
+For optimized spherical scalar/RVV builds, the typical cross-compiler invocation from the repository root is:
+
+~~~bash
+mkdir -p bin
+riscv64-linux-gnu-g++ -O3 -std=c++17 -static -ffp-contract=off \\
+  -DENABLE_GEM5 -I./gem5/include \\
+  spherical_fps/main_implementation/spherical_fps.cpp \\
+  ./gem5/util/m5/build/riscv/out/libm5.a -o bin/spherical_fps.riscv
+~~~
+
+For `spherical_fps_rvv.cpp`, use the same pattern with `-march=rv64gcv -mabi=lp64d` and the corresponding RVV output binary. These commands assume the local gem5 tree, m5ops library and RISC-V cross-compiler exist. Validate actual CPU flags and selected indices before comparing timings.
 
 ---
 

@@ -72,10 +72,22 @@ For the simulated RISC-V experiments, see the [project guide](PROJECT_GUIDE.md#r
 The findings below come from saved experiments on KITTI with **N = 100,000 input points** and **M = 128 selected points**. They are **not all from the same execution environment**, so they should not be combined into a single ranking.
 
 - **Spherical geometric bounds:** the combined XYZ and spherical-cosine method certified **50.93% average point pruning** across 127 selection stages for the tested centroid-origin shell configuration. This is a *geometric pruning rate*, **not** a 50.93% reduction in runtime.
-- **Independent SphericalFPS, native host (centroid origin, five repeats):** RadiusFPS had a median total time of **27.654 ms**, while initial SphericalFPS took **76.849 ms**. Both produced the same 128 indices in the recorded tests. The initial spherical implementation is **slower**, and reducing its sampling overhead remains a research goal.
+- **Independent SphericalFPS, native host (centroid origin, five repeats):** RadiusFPS had a median total time of **27.654 ms**, while initial SphericalFPS took **76.849 ms**. Both produced the same 128 indices in the recorded tests. This early spherical implementation was **slower**; later optimized implementations substantially improved on it. See the current direction below.
 - **RadiusFPS + spherical hybrid:** adding spherical bounds to RadiusFPS also increased runtime in the recorded native host tests despite doing some extra pruning.
 
 Saved RISC-V/gem5 experiments are available under `benchmark/stats/` and `benchmark/performance_review/`. Some results are incomplete or have correctness issues; **check the relevant logs before citing a performance claim**.
+
+### Recent SphericalFPS optimization measurements (local gem5 runs)
+
+On KITTI frame `0000000000.bin`, N=100,000, M=128, the following *separate experimental variants* measured preparation + sampling with a single explicit gem5 statistics interval:
+
+| Variant | Optimizations | Measured interval |
+| --- | --- | ---: |
+| F1 | Direct sectors + squared elevation + squared radial binning | 20.4420 ms |
+| **F2** | **F1 + AABB bounds** | **18.4939 ms** |
+| F3 | F2 + radial early-rejection short circuit | 18.6108 ms |
+
+F2 is the preferred **scalar candidate**. In the first follow-up scalar-versus-RVV baseline, scalar measured 18.5302 ms and RVV 13.9127 ms. These figures are *preliminary research measurements*: correctness across multiple workloads and fairness against the exact RadiusFPS version are still under verification. The local final files and new results are not assumed to be present in the GitHub checkout until committed.
 
 ## How to interpret timings
 
@@ -98,6 +110,8 @@ The `documentation/` directory contains papers, notes, and figures relating to F
 
 ## Current direction
 
-The next major goal is to improve **SphericalFPS**: preserve exact FPS selections while reducing repeated point updates and the cost of managing spherical regions. Any new speedup should be confirmed with **end-to-end measurements and correctness checks**, followed by RISC-V/gem5 testing where appropriate.
+The original independent SphericalFPS was a starting point, not the final design. A newer scalar optimization candidate, **F2 (direct sectors + squared elevation + squared radial binning + AABB pruning)**, achieved an **18.4939 ms measured preparation-plus-sampling interval** on gem5 for KITTI frame 0, N=100,000 and M=128. The follow-on scalar implementation measured **18.5302 ms**, while a preliminary RVV version measured **13.9127 ms** (1.332× scalar/RVV speedup). These last two timings are from local runs described in the research log; the corresponding final source and new sweep outputs may not yet be pushed to GitHub. These are single-run measurements, not multi-run medians.
+
+**Current priority:** finish scalar/RVV N and M sweeps and verify selected indices, executed RVV instructions, and a matched RadiusFPS comparison before making a final algorithm-level performance claim. No further broad scalar-optimization search is planned unless profiling reveals a concrete issue.
 
 **For folder-by-folder explanations, setup, commands, and a guide to results, continue to [PROJECT_GUIDE.md](PROJECT_GUIDE.md).**

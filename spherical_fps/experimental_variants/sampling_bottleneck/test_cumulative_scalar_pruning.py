@@ -17,7 +17,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = next((p for p in (HERE, *HERE.parents)
-             if (p / 'spherical_fps/main_implementation/spherical_fps.cpp').is_file()), None)
+             if (p / 'spherical_fps/ref_implementation/spherical_fps.cpp').is_file()), None)
 if ROOT is None:
     raise SystemExit('Put this script in spherical_fps/experimental_variants/sampling_bottleneck/')
 BASE = HERE / 'results/gem5_three_variants/sources/combined_aabb_first.cpp'

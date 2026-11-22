@@ -1,10 +1,19 @@
-// RVV SphericalFPS: same F2 region geometry and pruning; vectorized point-distance update.
-// RVV builds require -march=rv64gcv -mabi=lp64d and riscv_vector.h.
-// Host builds use the scalar fallback for correctness smoke tests, not RVV performance.
-// Source preserved from the winning combined gem5 benchmark.
-// Performance ROI: centroid + region preparation + sampling; excludes load and output.
-// Runtime: <KITTI_XYZI.bin> <N> <M>. Compile with -O3 -std=c++17 -ffp-contract=off.
+// SphericalFPS — main implementation (RVV).
+// Spherical partitioning, conservative region bounds, AABB-first pruning,
+// packed structure-of-arrays storage and selective microgroups (128 / 512).
+// Cone pruning is intentionally excluded: measured preparation overhead.
+// Usage: spherical_fps_rvv <KITTI_XYZI.bin> <N> <M>
+// Build: -O3 -std=c++17 -ffp-contract=off; RVV target rv64gcv, ABI lp64d.
+// ENABLE_GEM5: separate preparation and sampling statistics; excludes I/O.
+// Deterministic first sample 0; ties resolved by smallest original index.
+// Input: finite KITTI XYZI float32 points, first N points, 1 <= M <= N.
+// Correctness is checked externally by comparing FPS_INDEX output.
+
 #include <algorithm>
+#ifndef __riscv_vector
+#error "Compile this implementation for RVV (e.g. -march=rv64gcv -mabi=lp64d)"
+#endif
+#include <riscv_vector.h>
 #include <chrono>
 #include <cmath>
 #include <cstddef>
@@ -17,12 +26,6 @@
 #include <string>
 #include <utility>
 #include <vector>
-#if defined(__riscv_vector)
-#include <riscv_vector.h>
-#define SPHERICAL_FPS_HAS_RVV 1
-#else
-#define SPHERICAL_FPS_HAS_RVV 0
-#endif
 #ifdef ENABLE_GEM5
 extern "C" {
 #include <gem5/m5ops.h>
@@ -40,46 +43,82 @@ static inline void m5_dump_stats(uint64_t, uint64_t) {}
 #ifndef RAD_BINS
 #define RAD_BINS 6
 #endif
+static_assert(AZ_BINS > 0 && EL_BINS == 8 && RAD_BINS > 0, "Optimized elevation classifier requires eight bins");
 static constexpr double PI=3.1415926535897932384626433832795;
 static constexpr double TWO_PI=6.283185307179586476925286766559;
 struct Ray2 {double x,y;};
 static bool polar_half(const Ray2& r) {return r.y>0.0 || (r.y==0.0 && r.x>=0.0);}
 static bool polar_less(const Ray2& a,const Ray2& b) {const bool ha=polar_half(a),hb=polar_half(b);if(ha!=hb)return ha;return a.x*b.y-a.y*b.x>0.0;}
+
 static int direct_azimuth_bin(double x,double y) {
     if(x==0.0&&y==0.0)return 0;
     static const std::vector<Ray2> boundaries=[] {
         std::vector<Ray2> rays; rays.reserve(AZ_BINS);
-        for(int i=0;i<AZ_BINS;++i) {const double angle=TWO_PI*static_cast<double>(i)/AZ_BINS;
+        for(int i=0;i<AZ_BINS;++i) {
+            const double angle=TWO_PI*static_cast<double>(i)/AZ_BINS;
             double xx=std::cos(angle),yy=std::sin(angle);
-            if(std::abs(xx)<1e-14)xx=0;if(std::abs(yy)<1e-14)yy=0;
-            rays.push_back({xx,yy});}return rays;}();
-    Ray2 q{-x,-y};int lo=0,hi=AZ_BINS;
+            if(std::abs(xx)<1e-14)xx=0;
+            if(std::abs(yy)<1e-14)yy=0;
+            rays.push_back({xx,yy});
+        }
+        return rays;
+    }();
+    Ray2 q{-x,-y};
+    if (AZ_BINS != 24) { // Retain F2 for other build-time bin counts.
+        int lo=0,hi=AZ_BINS;
+        while(lo<hi){int mid=lo+(hi-lo)/2;if(polar_less(q,boundaries[mid]))hi=mid;else lo=mid+1;}
+        return std::clamp(lo-1,0,AZ_BINS-1);
+    }
+    // Exact axes go to the sector that begins on that axis.
+    // Handle signed zero consistently with F2's half-plane predicate.
+    int quadrant;
+    if (q.y > 0.0) quadrant=(q.x > 0.0 ? 0 : 1);
+    else if (q.y < 0.0) quadrant=(q.x < 0.0 ? 2 : 3);
+    else quadrant=(q.x >= 0.0 ? 0 : 2);
+    const int base=6*quadrant;
+
+    // Binary search within just six sector boundaries; same predicates as F2.
+    int lo=base,hi=base+6;
     while(lo<hi){int mid=lo+(hi-lo)/2;if(polar_less(q,boundaries[mid]))hi=mid;else lo=mid+1;}
     return std::clamp(lo-1,0,AZ_BINS-1);
 }
-static int direct_elevation_bin(double x,double y,double z) {
-    const double horizontal_sq = x*x+y*y;
-    if (horizontal_sq==0.0) return z>=0 ? EL_BINS-1 : 0;
+
+static inline bool f2_elevation_above(double horizontal_sq, double z, int mid) {
     static const std::vector<std::pair<double,double>> boundaries=[] {
         std::vector<std::pair<double,double>> edges;
-        for(int k=0;k<=EL_BINS;++k){const double theta=-PI/2.0+(PI*k)/EL_BINS;edges.emplace_back(std::sin(theta),std::cos(theta));}
-        return edges;}();
-    int lo=0,hi=EL_BINS;
-    while(lo+1<hi){int mid=lo+(hi-lo)/2;const auto& edge=boundaries[mid];
-        // cos(theta)>0 for internal boundaries. Preserve signs before squaring.
-        const double lhs = z*edge.second;
-        const double sin_theta = edge.first;
-        bool above;
-        if (sin_theta == 0.0) above = lhs >= 0.0;
-        else if (sin_theta > 0.0) {
-            above = lhs >= 0.0 && lhs*lhs >= horizontal_sq*sin_theta*sin_theta;
-        } else {
-            above = lhs >= 0.0 || lhs*lhs <= horizontal_sq*sin_theta*sin_theta;
+        for(int k=0;k<=EL_BINS;++k) {
+            const double theta=-PI/2.0+(PI*k)/EL_BINS;
+            edges.emplace_back(std::sin(theta),std::cos(theta));
         }
-        if (above) lo=mid;
-        else hi=mid;}
-    return lo;
+        return edges;
+    }();
+    const auto& edge=boundaries[mid];
+    const double lhs=z*edge.second;
+    const double sin_theta=edge.first;
+    bool above;
+    if (sin_theta == 0.0) above=lhs >= 0.0;
+    else if (sin_theta > 0.0) {
+        above=lhs >= 0.0 && lhs*lhs >= horizontal_sq*sin_theta*sin_theta;
+    } else {
+        above=lhs >= 0.0 || lhs*lhs <= horizontal_sq*sin_theta*sin_theta;
+    }
+    return above;
 }
+
+static int direct_elevation_bin(double x,double y,double z) {
+    const double horizontal_sq=x*x+y*y;
+    if(horizontal_sq==0.0) return z>=0 ? EL_BINS-1 : 0;
+    // The middle boundary is exactly 0 degrees: equivalent to z>=0 here.
+    if(z>=0.0) {
+        if(f2_elevation_above(horizontal_sq,z,6))
+            return f2_elevation_above(horizontal_sq,z,7) ? 7 : 6;
+        return f2_elevation_above(horizontal_sq,z,5) ? 5 : 4;
+    }
+    if(f2_elevation_above(horizontal_sq,z,2))
+        return f2_elevation_above(horizontal_sq,z,3) ? 3 : 2;
+    return f2_elevation_above(horizontal_sq,z,1) ? 1 : 0;
+}
+
 struct Region {
     std::vector<int> members;
     double cx=0,cy=0,cz=0,radius=0;
@@ -88,13 +127,10 @@ struct Region {
     double radial_max_sq=0.0;
     double xmin=std::numeric_limits<double>::infinity(), ymin=std::numeric_limits<double>::infinity(), zmin=std::numeric_limits<double>::infinity();
     double xmax=-std::numeric_limits<double>::infinity(), ymax=-std::numeric_limits<double>::infinity(), zmax=-std::numeric_limits<double>::infinity();
-    // Region-contiguous SoA storage makes distance updates vector-loadable.
-    // Ordering matches members exactly; local winner tie-breaking remains scalar.
-    std::vector<float> px,py,pz,near_sq;
     float max_nearest_sq=1e38f;
     int best_index=-1;
 };
-struct Counters {uint64_t checked_regions=0,skipped_regions=0,skipped_points=0,evaluated_distances=0;int occupied_regions=0;};
+struct Counters {uint64_t micro_checks=0,micro_skips=0,micro_skipped_points=0;uint64_t checked_regions=0,skipped_regions=0,skipped_points=0,evaluated_distances=0;int occupied_regions=0;};
 static bool load_kitti_xyz(const char* filename,std::vector<float>& xyz) {
     std::ifstream file(filename,std::ios::binary|std::ios::ate);
     if(!file){std::fprintf(stderr,"ERROR: cannot open KITTI file: %s\n",filename);return false;}
@@ -106,11 +142,22 @@ static bool load_kitti_xyz(const char* filename,std::vector<float>& xyz) {
     for(size_t i=0;i<raw.size()/4;++i)for(size_t d=0;d<3;++d){const float v=raw[4*i+d];if(!std::isfinite(v))return false;xyz[3*i+d]=v;}
     return true;
 }
-static inline float sqdist(const std::vector<float>& xyz,int a,int b){size_t i=static_cast<size_t>(a)*3,j=static_cast<size_t>(b)*3;
-    float dx=xyz[i]-xyz[j],dy=xyz[i+1]-xyz[j+1],dz=xyz[i+2]-xyz[j+2];return dx*dx+dy*dy+dz*dz;}
 static void calculate_centroid(const std::vector<float>& xyz,int n,double out[3]){
-    out[0]=out[1]=out[2]=0;for(int i=0;i<n;++i)for(int d=0;d<3;++d)out[d]+=static_cast<double>(xyz[static_cast<size_t>(i)*3+d]);
-    for(int d=0;d<3;++d)out[d]/=static_cast<double>(n);
+    // Ordered widening reductions preserve the scalar double accumulation order.
+    vfloat64m1_t sx = __riscv_vfmv_v_f_f64m1(0.0, 1);
+    vfloat64m1_t sy = sx, sz = sx;
+    for (size_t i = 0; i < static_cast<size_t>(n);) {
+        const size_t vl = __riscv_vsetvl_e32m1(static_cast<size_t>(n) - i);
+        const float* p = xyz.data() + 3*i;
+        const ptrdiff_t stride = 3*sizeof(float);
+        sx = __riscv_vfwredosum_vs_f32m1_f64m1(__riscv_vlse32_v_f32m1(p, stride, vl), sx, vl);
+        sy = __riscv_vfwredosum_vs_f32m1_f64m1(__riscv_vlse32_v_f32m1(p+1, stride, vl), sy, vl);
+        sz = __riscv_vfwredosum_vs_f32m1_f64m1(__riscv_vlse32_v_f32m1(p+2, stride, vl), sz, vl);
+        i += vl;
+    }
+    out[0] = __riscv_vfmv_f_s_f64m1_f64(sx) / n;
+    out[1] = __riscv_vfmv_f_s_f64m1_f64(sy) / n;
+    out[2] = __riscv_vfmv_f_s_f64m1_f64(sz) / n;
 }
 static std::vector<Region> build_regions(const std::vector<float>& xyz,int n,const double origin[3]){
     const size_t bins=static_cast<size_t>(AZ_BINS)*EL_BINS*RAD_BINS;
@@ -162,15 +209,31 @@ static std::vector<Region> build_regions(const std::vector<float>& xyz,int n,con
         g.radius+=1e-7*(1.0+g.radius);
         g.radial_min=std::max(0.0,g.radial_min-1e-7*(1.0+g.radial_min));
         g.radial_max+=1e-7*(1.0+g.radial_max);
-        g.px.reserve(g.members.size());g.py.reserve(g.members.size());g.pz.reserve(g.members.size());
-        g.near_sq.assign(g.members.size(),1e38f);
-        for (int i:g.members) {const size_t p=static_cast<size_t>(i)*3;
-            g.px.push_back(xyz[p]);g.py.push_back(xyz[p+1]);g.pz.push_back(xyz[p+2]);
-        }
         g.best_index=g.members.front();occupied.push_back(std::move(g));
     }
     return occupied;
 }
+
+// Strictly conservative early-out: matches the original lower_bound()
+// safety reduction and comparison margin, but tests the AABB alone.
+// If it cannot prove a skip, the original three-bound calculation runs.
+static inline bool aabb_can_skip_early(const Region& g,
+                                      const std::vector<float>& xyz,
+                                      int newest, float current_max_sq) {
+    const size_t p=static_cast<size_t>(newest)*3;
+    const double x=static_cast<double>(xyz[p]);
+    const double y=static_cast<double>(xyz[p+1]);
+    const double z=static_cast<double>(xyz[p+2]);
+    const double bx=std::max({g.xmin-x,0.0,x-g.xmax});
+    const double by=std::max({g.ymin-y,0.0,y-g.ymax});
+    const double bz=std::max({g.zmin-z,0.0,z-g.zmax});
+    const double raw_lb=std::sqrt(bx*bx+by*by+bz*bz);
+    const double lb=std::max(0.0,raw_lb-1e-6*(1.0+raw_lb));
+    const double max_sq=static_cast<double>(current_max_sq);
+    const double margin=1e-5*(1.0+std::abs(max_sq));
+    return lb*lb > max_sq+margin;
+}
+
 static double lower_bound(const Region& g,const std::vector<float>& xyz,int newest,double selected_radius){
     const size_t p=static_cast<size_t>(newest)*3;
     const double x=static_cast<double>(xyz[p]),y=static_cast<double>(xyz[p+1]),z=static_cast<double>(xyz[p+2]);
@@ -186,62 +249,187 @@ static double lower_bound(const Region& g,const std::vector<float>& xyz,int newe
     const double combined=std::max({xyz_lb,radial_lb,aabb_lb});
     return std::max(0.0,combined-1e-6*(1.0+combined));
 }
-static std::vector<int> spherical_fps(const std::vector<float>& xyz,int n,int m,const double origin[3],std::vector<Region>& regions,Counters& c){
+// Selective microgroups: only split sufficiently large spherical regions.
+static constexpr int FPS_MICRO_SIZE = 128;
+static constexpr int FPS_MICRO_THRESHOLD = 512;
+
+struct MicroRegion {
+    int begin=0,end=0;
+    double xmin=std::numeric_limits<double>::infinity();
+    double ymin=std::numeric_limits<double>::infinity();
+    double zmin=std::numeric_limits<double>::infinity();
+    double xmax=-std::numeric_limits<double>::infinity();
+    double ymax=-std::numeric_limits<double>::infinity();
+    double zmax=-std::numeric_limits<double>::infinity();
+    float max_nearest_sq=1e38f;
+    int best_index=-1;
+};
+static std::vector<std::vector<MicroRegion>> make_microregions(
+    const std::vector<float>& xyz,const std::vector<Region>& regions,int block_size,int threshold) {
+    std::vector<std::vector<MicroRegion>> result;
+    result.reserve(regions.size());
+    for(const Region& g:regions) {
+        std::vector<MicroRegion> parts;
+        const int count=static_cast<int>(g.members.size());
+        if(count<threshold || block_size==0) { result.push_back(std::move(parts)); continue; }
+        parts.reserve(static_cast<size_t>((count+block_size-1)/block_size));
+        for(int begin=0;begin<count;begin+=block_size) {
+            MicroRegion c;
+            c.begin=begin;
+            c.end=std::min(count,begin+block_size);
+            c.best_index=g.members[begin];
+            for(int k=c.begin;k<c.end;++k) {
+                const size_t p=static_cast<size_t>(g.members[k])*3;
+                const double x=xyz[p],y=xyz[p+1],z=xyz[p+2];
+                c.xmin=std::min(c.xmin,x);c.xmax=std::max(c.xmax,x);
+                c.ymin=std::min(c.ymin,y);c.ymax=std::max(c.ymax,y);
+                c.zmin=std::min(c.zmin,z);c.zmax=std::max(c.zmax,z);
+            }
+            parts.push_back(c);
+        }
+        result.push_back(std::move(parts));
+    }
+    return result;
+}
+static bool skip_microregion(const MicroRegion& g,const std::vector<float>& xyz,
+                             int newest,float current_max_sq) {
+    const size_t p=static_cast<size_t>(newest)*3;
+    const double x=xyz[p],y=xyz[p+1],z=xyz[p+2];
+    const double bx=std::max({g.xmin-x,0.0,x-g.xmax});
+    const double by=std::max({g.ymin-y,0.0,y-g.ymax});
+    const double bz=std::max({g.zmin-z,0.0,z-g.zmax});
+    const double raw_lb=std::sqrt(bx*bx+by*by+bz*bz);
+    const double lb=std::max(0.0,raw_lb-1e-6*(1.0+raw_lb));
+    const double max_sq=static_cast<double>(current_max_sq);
+    const double margin=1e-5*(1.0+std::abs(max_sq));
+    return lb*lb > max_sq+margin;
+}
+
+struct PackedPoints {
+    std::vector<float> x,y,z;
+    std::vector<size_t> offsets;
+};
+static PackedPoints pack_regions(const std::vector<float>& xyz,const std::vector<Region>& regions,int n) {
+    PackedPoints out;
+    out.x.reserve(n);out.y.reserve(n);out.z.reserve(n);
+    for(const Region& g:regions) {
+        out.offsets.push_back(out.x.size());
+        for(int i:g.members) {
+            size_t p=static_cast<size_t>(i)*3;
+            out.x.push_back(xyz[p]);out.y.push_back(xyz[p+1]);out.z.push_back(xyz[p+2]);
+        }
+    }
+    return out;
+}
+ 
+// Update one contiguous range and return its exact maximum and winning offset.
+// Region members were inserted in ascending original index order. Consequently
+// the first occurrence of a maximum also has the smallest original index.
+// Vector-length agnostic: no fixed VLEN assumption, no gather or temporary arrays.
+// LMUL=1 processes up to 8 float32 values on a 256-bit vector implementation.
+struct RangeWinner { float distance; size_t offset; };
+static inline RangeWinner update_range(const float* x, const float* y, const float* z, float* nearest,
+                                       size_t count, float sx, float sy, float sz) {
+    float best = -1.0f;
+    size_t winner = 0;
+    size_t offset = 0;
+    const vfloat32m1_t seed = __riscv_vfmv_v_f_f32m1(-1.0f, 1);
+    while (offset < count) {
+        const size_t vl = __riscv_vsetvl_e32m1(count - offset);
+        vfloat32m1_t dx = __riscv_vfsub_vf_f32m1(__riscv_vle32_v_f32m1(x + offset, vl), sx, vl);
+        vfloat32m1_t dy = __riscv_vfsub_vf_f32m1(__riscv_vle32_v_f32m1(y + offset, vl), sy, vl);
+        vfloat32m1_t dz = __riscv_vfsub_vf_f32m1(__riscv_vle32_v_f32m1(z + offset, vl), sz, vl);
+        dx = __riscv_vfmul_vv_f32m1(dx, dx, vl);
+        dy = __riscv_vfmul_vv_f32m1(dy, dy, vl);
+        dz = __riscv_vfmul_vv_f32m1(dz, dz, vl);
+        // Preserve scalar rounding and addition order; deliberately no FMA.
+        vfloat32m1_t d = __riscv_vfadd_vv_f32m1(dx, dy, vl);
+        d = __riscv_vfadd_vv_f32m1(d, dz, vl);
+        const vfloat32m1_t old = __riscv_vle32_v_f32m1(nearest + offset, vl);
+        const vfloat32m1_t updated = __riscv_vfmin_vv_f32m1(old, d, vl);
+        __riscv_vse32_v_f32m1(nearest + offset, updated, vl);
+        const float chunk_max = __riscv_vfmv_f_s_f32m1_f32(__riscv_vfredmax_vs_f32m1_f32m1(updated, seed, vl));
+        // Later chunks cannot win a tie; only find a lane on strict improvement.
+        if (chunk_max > best) {
+            const vbool32_t matches = __riscv_vmfeq_vf_f32m1_b32(updated, chunk_max, vl);
+            winner = offset + static_cast<size_t>(__riscv_vfirst_m_b32(matches, vl));
+            best = chunk_max;
+        }
+        offset += vl;
+    }
+    return {best, winner};
+}
+
+static std::vector<int> spherical_fps(const std::vector<float>& xyz,int n,int m,
+    const double origin[3],std::vector<Region>& regions,
+    std::vector<std::vector<MicroRegion>>& microregions,const PackedPoints& packed,Counters& c) {
+    std::vector<float> nearest(static_cast<size_t>(n),1e38f);
     std::vector<int> selected(static_cast<size_t>(m));selected[0]=0;
     c.occupied_regions=static_cast<int>(regions.size());
-    for(int step=1;step<m;++step){const int newest=selected[step-1];const size_t p=static_cast<size_t>(newest)*3;
-        const double ox=static_cast<double>(xyz[p])-origin[0],oy=static_cast<double>(xyz[p+1])-origin[1],oz=static_cast<double>(xyz[p+2])-origin[2];
+    for(int step=1;step<m;++step) {
+        const int newest=selected[step-1];
+        const size_t p=static_cast<size_t>(newest)*3;
+        const double ox=static_cast<double>(xyz[p])-origin[0];
+        const double oy=static_cast<double>(xyz[p+1])-origin[1];
+        const double oz=static_cast<double>(xyz[p+2])-origin[2];
         const double selected_radius=std::sqrt(ox*ox+oy*oy+oz*oz);
-        for(Region& g:regions){++c.checked_regions;
+        for(size_t r=0;r<regions.size();++r) {
+            Region& g=regions[r];++c.checked_regions;
+            if(aabb_can_skip_early(g,xyz,newest,g.max_nearest_sq)) {
+                ++c.skipped_regions;c.skipped_points+=g.members.size();continue;
+            }
             const double lb=lower_bound(g,xyz,newest,selected_radius);
             const double max_sq=static_cast<double>(g.max_nearest_sq);
             const double margin=1e-5*(1.0+std::abs(max_sq));
-            if (lb*lb > max_sq+margin) {
+            if(lb*lb>max_sq+margin) {
                 ++c.skipped_regions;c.skipped_points+=g.members.size();continue;
             }
-            const float sx=xyz[p],sy=xyz[p+1],sz=xyz[p+2];
-            const size_t count=g.members.size();
-#if SPHERICAL_FPS_HAS_RVV
-            size_t offset=0;
-            while(offset<count){
-                const size_t vl=__riscv_vsetvl_e32m1(count-offset);
-                const vfloat32m1_t x=__riscv_vle32_v_f32m1(g.px.data()+offset,vl);
-                const vfloat32m1_t y=__riscv_vle32_v_f32m1(g.py.data()+offset,vl);
-                const vfloat32m1_t z=__riscv_vle32_v_f32m1(g.pz.data()+offset,vl);
-                const vfloat32m1_t dx=__riscv_vfsub_vf_f32m1(x,sx,vl);
-                const vfloat32m1_t dy=__riscv_vfsub_vf_f32m1(y,sy,vl);
-                const vfloat32m1_t dz=__riscv_vfsub_vf_f32m1(z,sz,vl);
-                const vfloat32m1_t xx=__riscv_vfmul_vv_f32m1(dx,dx,vl);
-                const vfloat32m1_t yy=__riscv_vfmul_vv_f32m1(dy,dy,vl);
-                const vfloat32m1_t zz=__riscv_vfmul_vv_f32m1(dz,dz,vl);
-                const vfloat32m1_t xy=__riscv_vfadd_vv_f32m1(xx,yy,vl);
-                const vfloat32m1_t d=__riscv_vfadd_vv_f32m1(xy,zz,vl);
-                const vfloat32m1_t previous=__riscv_vle32_v_f32m1(g.near_sq.data()+offset,vl);
-                const vfloat32m1_t updated=__riscv_vfmin_vv_f32m1(previous,d,vl);
-                __riscv_vse32_v_f32m1(g.near_sq.data()+offset,updated,vl);
-                offset+=vl;
+            float best=-1.0f;int best_i=-1;
+            if(microregions[r].empty()) {
+                const size_t base = packed.offsets[r];
+                const size_t count = g.members.size();
+                const auto result = update_range(packed.x.data()+base, packed.y.data()+base, packed.z.data()+base,
+                                                 nearest.data()+base, count, xyz[p], xyz[p+1], xyz[p+2]);
+                c.evaluated_distances += count;
+                best = result.distance;
+                best_i = g.members[result.offset];
             }
-#else
-            for(size_t k=0;k<count;++k){
-                const float dx=g.px[k]-sx,dy=g.py[k]-sy,dz=g.pz[k]-sz;
-                const float d=dx*dx+dy*dy+dz*dz;
-                if(d<g.near_sq[k])g.near_sq[k]=d;
-            }
-#endif
-            c.evaluated_distances+=static_cast<uint64_t>(count);
-            float best=-1;int best_i=-1;
-            for(size_t k=0;k<count;++k){
-                const float d=g.near_sq[k]; const int i=g.members[k];
-                if(d>best||(d==best&&(best_i<0||i<best_i))){best=d;best_i=i;}
+            for(MicroRegion& part:microregions[r]) {
+                ++c.micro_checks;
+                if(skip_microregion(part,xyz,newest,part.max_nearest_sq)) {
+                    ++c.micro_skips;
+                    c.micro_skipped_points+=static_cast<uint64_t>(part.end-part.begin);
+                } else {
+                    const size_t base = packed.offsets[r] + part.begin;
+                    const size_t count = static_cast<size_t>(part.end-part.begin);
+                    const auto result = update_range(packed.x.data()+base, packed.y.data()+base, packed.z.data()+base,
+                                                     nearest.data()+base, count, xyz[p], xyz[p+1], xyz[p+2]);
+                    c.evaluated_distances += count;
+                    part.max_nearest_sq = result.distance;
+                    part.best_index = g.members[part.begin + result.offset];
+                }
+                // Cached block maximum remains valid when skipped:
+                // adding a selected point did not decrease ANY point's distance.
+                if(part.max_nearest_sq>best ||
+                  (part.max_nearest_sq==best && (best_i<0 || part.best_index<best_i))) {
+                    best=part.max_nearest_sq;best_i=part.best_index;
+                }
             }
             g.max_nearest_sq=best;g.best_index=best_i;
         }
-        float global_best=-1;int global_i=-1;
-        for(const Region& g:regions)if(g.max_nearest_sq>global_best||(g.max_nearest_sq==global_best&&(global_i<0||g.best_index<global_i))){global_best=g.max_nearest_sq;global_i=g.best_index;}
-        if(global_i<0)throw std::runtime_error("No FPS winner");selected[step]=global_i;
+        float global_best=-1.0f;int global_i=-1;
+        for(const Region& g:regions) {
+            if(g.max_nearest_sq>global_best ||
+              (g.max_nearest_sq==global_best && (global_i<0 || g.best_index<global_i))) {
+                global_best=g.max_nearest_sq;global_i=g.best_index;
+            }
+        }
+        if(global_i<0)throw std::runtime_error("No FPS winner");
+        selected[step]=global_i;
     }
     return selected;
 }
+
 int main(int argc,char** argv){
     if(argc!=4){std::fprintf(stderr,"Usage: %s <KITTI_XYZI.bin> <N> <M>\n",argv[0]);return 2;}
     try{const int n=std::stoi(argv[2]),m=std::stoi(argv[3]);
@@ -253,21 +441,27 @@ int main(int argc,char** argv){
         const auto start_prep=std::chrono::steady_clock::now();
         double origin[3];calculate_centroid(xyz,n,origin);
         std::vector<Region> regions=build_regions(xyz,n,origin);
+        auto microregions=make_microregions(xyz,regions,FPS_MICRO_SIZE,FPS_MICRO_THRESHOLD);
+        auto packed=pack_regions(xyz,regions,n);
         const auto end_prep=std::chrono::steady_clock::now();
+        m5_dump_stats(0,0);
+        m5_reset_stats(0,0);
         Counters counters;
-        const std::vector<int> selected=spherical_fps(xyz,n,m,origin,regions,counters);
+        const std::vector<int> selected=spherical_fps(xyz,n,m,origin,regions,microregions,packed,counters);
         const auto end_sample=std::chrono::steady_clock::now();m5_dump_stats(0,0);
         const double prep_ms=std::chrono::duration<double,std::milli>(end_prep-start_prep).count();
         const double sample_ms=std::chrono::duration<double,std::milli>(end_sample-end_prep).count();
         std::printf("PREPARATION_MS=%.6f\nSAMPLING_MS=%.6f\nTOTAL_MS=%.6f\n",prep_ms,sample_ms,prep_ms+sample_ms);
         const uint64_t all_evals=static_cast<uint64_t>(n)*(m-1);
         const double skip_pct=all_evals?100.0*(1.0-static_cast<double>(counters.evaluated_distances)/all_evals):0;
-        std::printf("ALGORITHM=LowerBoundSphericalFPS_RVV\nRVV_ACTIVE=%d\nDATASET=%s\nN=%d\nM=%d\n",SPHERICAL_FPS_HAS_RVV,argv[1],n,m);
+        std::printf("ALGORITHM=SphericalFPS_RVV\nDATASET=%s\nN=%d\nM=%d\n",argv[1],n,m);
         std::printf("AZ_BINS=%d\nEL_BINS=%d\nRAD_BINS=%d\n",AZ_BINS,EL_BINS,RAD_BINS);
         std::printf("OCCUPIED_REGIONS=%d\nREGION_TESTS=%llu\nREGIONS_SKIPPED=%llu\n",counters.occupied_regions,(unsigned long long)counters.checked_regions,(unsigned long long)counters.skipped_regions);
-        std::printf("POINT_DISTANCE_EVALS=%llu\nSKIPPED_POINT_EVALS=%llu\n",(unsigned long long)counters.evaluated_distances,(unsigned long long)counters.skipped_points);
+        std::printf("POINT_DISTANCE_EVALS=%llu\nSKIPPED_POINT_EVALS=%llu\n",(unsigned long long)counters.evaluated_distances,(unsigned long long)(counters.skipped_points+counters.micro_skipped_points));
         std::printf("DISTANCE_EVAL_REDUCTION_PCT=%.5f\n",skip_pct);
         for(int i=0;i<m;++i)std::printf("FPS_INDEX[%d]=%d\n",i,selected[i]);
+        std::printf("MICRO_CHECKS=%llu\nMICRO_SKIPS=%llu\nMICRO_SKIPPED_POINTS=%llu\n",(unsigned long long)counters.micro_checks,(unsigned long long)counters.micro_skips,(unsigned long long)counters.micro_skipped_points);
+        std::printf("CONE_TESTS=0\nCONE_SKIPS=0\nCONE_POINTS=0\n");
         std::printf("CORRECTNESS=NOT_CHECKED (performance-only run)\n");return 0;
     }catch(const std::exception& e){std::fprintf(stderr,"ERROR: %s\n",e.what());return 2;}
 }

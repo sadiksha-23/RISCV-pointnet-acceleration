@@ -18,11 +18,11 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-ROOT = next((p for p in [HERE, *HERE.parents] if (p / "spherical_fps/main_implementation/spherical_fps.cpp").exists()), None)
+ROOT = next((p for p in [HERE, *HERE.parents] if (p / "spherical_fps/ref_implementation/spherical_fps.cpp").exists()), None)
 if ROOT is None:
     raise SystemExit("Cannot find repository root. Put script under spherical_fps/experimental_variants/sampling_bottleneck/.")
 OUT = HERE / "results" / "combined_vs_cartesian_radius"
-F2 = ROOT / "spherical_fps/main_implementation/spherical_fps.cpp"
+F2 = ROOT / "spherical_fps/ref_implementation/spherical_fps.cpp"
 RAD = ROOT / "benchmark/src/fps/RadiusFPS/kitti/radius_fps_radix_full.cpp"
 DATA = ROOT / "datasets/kitti/0000000000.bin"
 

@@ -1,0 +1,21 @@
+{
+  "n": [
+    50000,
+    100000
+  ],
+  "m": [
+    128,
+    512,
+    1024
+  ],
+  "repeats": 1,
+  "variants": [
+    "f2",
+    "combined",
+    "aabb_first",
+    "combined_aabb_first"
+  ],
+  "dataset": "/mnt/c/Users/lsadi/Documents/GitHub/RISCV-pointnet-acceleration/datasets/kitti/0000000000.bin",
+  "timing": "two explicit non-overlapping gem5 ROI intervals; total is sum; not numerically identical to historical single-ROI runs",
+  "correctness": "variants compared to original F2; BasicFPS not independently checked"
+}

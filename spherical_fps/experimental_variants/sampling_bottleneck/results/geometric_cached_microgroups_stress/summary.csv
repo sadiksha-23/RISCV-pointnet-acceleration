@@ -1,0 +1,9 @@
+N,M,variant,dataset,trials,median_prep_ms,median_sampling_ms,median_total_ms,sampling_improvement_pct,point_visits,micro_checks,micro_skips,micro_skipped_points
+100000,1024,current_combined_aabb,C:\Users\lsadi\Documents\GitHub\RISCV-pointnet-acceleration\datasets\kitti\0000000000.bin,5,6.0166,16.4478,23.5799,0.0,3975283,0,0,0
+100000,1024,micro_64,C:\Users\lsadi\Documents\GitHub\RISCV-pointnet-acceleration\datasets\kitti\0000000000.bin,5,6.6466,13.9371,20.5927,15.26465545544086,1719841,64375,36675,2255442
+100000,1024,micro_128,C:\Users\lsadi\Documents\GitHub\RISCV-pointnet-acceleration\datasets\kitti\0000000000.bin,5,6.4412,13.9737,20.4149,15.042133294422364,1929519,33081,17055,2045764
+100000,1024,micro_256,C:\Users\lsadi\Documents\GitHub\RISCV-pointnet-acceleration\datasets\kitti\0000000000.bin,5,6.8943,13.1882,20.6264,19.81784797966902,2171387,17504,7842,1803896
+16000,2048,current_combined_aabb,C:\Users\lsadi\Documents\GitHub\RISCV-pointnet-acceleration\datasets\kitti\0000000000.bin,5,1.3604,6.6377,8.0096,0.0,824127,0,0,0
+16000,2048,micro_64,C:\Users\lsadi\Documents\GitHub\RISCV-pointnet-acceleration\datasets\kitti\0000000000.bin,5,1.5849,7.3678,9.2938,-10.999291923407208,644689,15520,4135,179438
+16000,2048,micro_128,C:\Users\lsadi\Documents\GitHub\RISCV-pointnet-acceleration\datasets\kitti\0000000000.bin,5,1.3694,7.2012,8.5541,-8.48938638383778,734791,8929,1390,89336
+16000,2048,micro_256,C:\Users\lsadi\Documents\GitHub\RISCV-pointnet-acceleration\datasets\kitti\0000000000.bin,5,1.4483,6.9451,8.2852,-4.631122226072289,793432,5663,336,30695

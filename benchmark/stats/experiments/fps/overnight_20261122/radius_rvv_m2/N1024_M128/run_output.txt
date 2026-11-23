@@ -1,0 +1,167 @@
+warn: Base 10 memory/cache size 8GB will be cast to base 2 size 8GiB.
+warn: The `CustomResource` class is deprecated. Please use an `AbstractResource` subclass instead.
+warn: Base 10 memory/cache size 32kB will be cast to base 2 size 32KiB.
+warn: Base 10 memory/cache size 32kB will be cast to base 2 size 32KiB.
+warn: Base 10 memory/cache size 512kB will be cast to base 2 size 512KiB.
+Global frequency set at 1000000000000 ticks per second
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (16384 Mbytes) does not match the address range assigned (8192 Mbytes)
+src/arch/riscv/isa.cc:321: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+board.remote_gdb: Listening for connections on port 7000
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Jul  6 2026 16:59:53
+gem5 started Nov 22 2026 02:23:09
+gem5 executing on Sadiksha, pid 902
+command line: /mnt/c/Users/lsadi/Documents/GitHub/RISCV-pointnet-acceleration/gem5/build/RISCV/gem5.opt --outdir=/mnt/c/Users/lsadi/Documents/GitHub/RISCV-pointnet-acceleration/benchmark/stats/experiments/fps/overnight_20261122/radius_rvv_m2/N1024_M128 /mnt/c/Users/lsadi/Documents/GitHub/RISCV-pointnet-acceleration/benchmark/cpu/riscv_fps_comparison.py bin/radius_fps_rvv_m2 datasets/kitti/0000000000.bin 1024 128
+
+Starting RISC-V simulation: bin/radius_fps_rvv_m2
+KITTI frame: datasets/kitti/0000000000.bin
+Point count N: 1024
+Sample count M: 128
+src/sim/syscall_emul.cc:97: warn: ignoring syscall set_robust_list(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/mnt/c/Users/lsadi/Documents/GitHub/RISCV-pointnet-acceleration/bin/radius_fps_rvv_m2'
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+POINT_COUNT=1024
+M=128
+VOXEL_SIZE=2.00
+VOXEL_COUNT=87
+FPS_INDEX[0]=0
+FPS_INDEX[1]=9
+FPS_INDEX[2]=979
+FPS_INDEX[3]=970
+FPS_INDEX[4]=705
+FPS_INDEX[5]=853
+FPS_INDEX[6]=96
+FPS_INDEX[7]=861
+FPS_INDEX[8]=1021
+FPS_INDEX[9]=392
+FPS_INDEX[10]=840
+FPS_INDEX[11]=856
+FPS_INDEX[12]=304
+FPS_INDEX[13]=38
+FPS_INDEX[14]=963
+FPS_INDEX[15]=981
+FPS_INDEX[16]=989
+FPS_INDEX[17]=243
+FPS_INDEX[18]=983
+FPS_INDEX[19]=977
+FPS_INDEX[20]=780
+FPS_INDEX[21]=918
+FPS_INDEX[22]=501
+FPS_INDEX[23]=156
+FPS_INDEX[24]=363
+FPS_INDEX[25]=41
+FPS_INDEX[26]=1017
+FPS_INDEX[27]=958
+FPS_INDEX[28]=28
+FPS_INDEX[29]=807
+FPS_INDEX[30]=965
+FPS_INDEX[31]=239
+FPS_INDEX[32]=4
+FPS_INDEX[33]=410
+FPS_INDEX[34]=814
+FPS_INDEX[35]=889
+FPS_INDEX[36]=976
+FPS_INDEX[37]=606
+FPS_INDEX[38]=300
+FPS_INDEX[39]=29
+FPS_INDEX[40]=978
+FPS_INDEX[41]=379
+FPS_INDEX[42]=178
+FPS_INDEX[43]=68
+FPS_INDEX[44]=340
+FPS_INDEX[45]=124
+FPS_INDEX[46]=203
+FPS_INDEX[47]=960
+FPS_INDEX[48]=750
+FPS_INDEX[49]=1003
+FPS_INDEX[50]=938
+FPS_INDEX[51]=476
+FPS_INDEX[52]=858
+FPS_INDEX[53]=249
+FPS_INDEX[54]=17
+FPS_INDEX[55]=658
+FPS_INDEX[56]=851
+FPS_INDEX[57]=211
+FPS_INDEX[58]=875
+FPS_INDEX[59]=828
+FPS_INDEX[60]=563
+FPS_INDEX[61]=1
+FPS_INDEX[62]=134
+FPS_INDEX[63]=971
+FPS_INDEX[64]=903
+FPS_INDEX[65]=6
+FPS_INDEX[66]=740
+FPS_INDEX[67]=1022
+FPS_INDEX[68]=371
+FPS_INDEX[69]=324
+FPS_INDEX[70]=386
+FPS_INDEX[71]=85
+FPS_INDEX[72]=51
+FPS_INDEX[73]=352
+FPS_INDEX[74]=33
+FPS_INDEX[75]=1010
+FPS_INDEX[76]=108
+FPS_INDEX[77]=968
+FPS_INDEX[78]=179
+FPS_INDEX[79]=779
+FPS_INDEX[80]=15
+FPS_INDEX[81]=159
+FPS_INDEX[82]=996
+FPS_INDEX[83]=286
+FPS_INDEX[84]=948
+FPS_INDEX[85]=443
+FPS_INDEX[86]=639
+FPS_INDEX[87]=19
+FPS_INDEX[88]=928
+FPS_INDEX[89]=860
+FPS_INDEX[90]=962
+FPS_INDEX[91]=1009
+FPS_INDEX[92]=961
+FPS_INDEX[93]=241
+FPS_INDEX[94]=959
+FPS_INDEX[95]=578
+FPS_INDEX[96]=984
+FPS_INDEX[97]=973
+FPS_INDEX[98]=1016
+FPS_INDEX[99]=683
+FPS_INDEX[100]=868
+FPS_INDEX[101]=225
+FPS_INDEX[102]=821
+FPS_INDEX[103]=882
+FPS_INDEX[104]=846
+FPS_INDEX[105]=532
+FPS_INDEX[106]=834
+FPS_INDEX[107]=144
+FPS_INDEX[108]=911
+FPS_INDEX[109]=911
+FPS_INDEX[110]=2
+FPS_INDEX[111]=5
+FPS_INDEX[112]=967
+FPS_INDEX[113]=375
+FPS_INDEX[114]=724
+FPS_INDEX[115]=314
+FPS_INDEX[116]=77
+FPS_INDEX[117]=206
+FPS_INDEX[118]=383
+FPS_INDEX[119]=762
+FPS_INDEX[120]=332
+FPS_INDEX[121]=366
+FPS_INDEX[122]=35
+FPS_INDEX[123]=389
+FPS_INDEX[124]=90
+FPS_INDEX[125]=358
+FPS_INDEX[126]=58
+FPS_INDEX[127]=102
+free(): invalid size
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rt_sigprocmask(...)
+      (further warnings will be suppressed)
+RISC-V simulation finished successfully.

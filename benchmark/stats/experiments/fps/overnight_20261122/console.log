@@ -1,0 +1,363 @@
+[2026-11-22 02:16:47] START; 26 controlled configurations; 10 LMUL configurations; resume enabled
+[2026-11-22 02:16:47] RUN ref_scalar N=1024 M=128
+[2026-11-22 02:17:26] PASS ref_scalar N=1024 M=128 sim=0.427ms
+[2026-11-22 02:17:26] RUN main_scalar N=1024 M=128
+[2026-11-22 02:18:20] PASS main_scalar N=1024 M=128 sim=0.391ms
+[2026-11-22 02:18:20] EXACT MATCH main_scalar vs ref_scalar N=1024 M=128
+[2026-11-22 02:18:20] RUN main_rvv_m1 N=1024 M=128
+[2026-11-22 02:19:05] PASS main_rvv_m1 N=1024 M=128 sim=0.261ms
+[2026-11-22 02:19:05] EXACT MATCH main_rvv_m1 vs ref_scalar N=1024 M=128
+[2026-11-22 02:19:05] RUN ref_rvv_m1 N=1024 M=128
+[2026-11-22 02:20:28] PASS ref_rvv_m1 N=1024 M=128 sim=0.417ms
+[2026-11-22 02:20:28] EXACT MATCH ref_rvv_m1 vs ref_scalar N=1024 M=128
+[2026-11-22 02:20:28] RUN main_rvv_m2 N=1024 M=128
+[2026-11-22 02:21:12] PASS main_rvv_m2 N=1024 M=128 sim=0.257ms
+[2026-11-22 02:21:12] EXACT MATCH main_rvv_m2 vs ref_scalar N=1024 M=128
+[2026-11-22 02:21:12] RUN main_rvv_m4 N=1024 M=128
+[2026-11-22 02:21:50] PASS main_rvv_m4 N=1024 M=128 sim=0.254ms
+[2026-11-22 02:21:50] EXACT MATCH main_rvv_m4 vs ref_scalar N=1024 M=128
+[2026-11-22 02:21:50] RUN main_rvv_m8 N=1024 M=128
+[2026-11-22 02:22:31] PASS main_rvv_m8 N=1024 M=128 sim=0.388ms
+[2026-11-22 02:22:31] EXACT MATCH main_rvv_m8 vs ref_scalar N=1024 M=128
+[2026-11-22 02:22:31] RUN radius_scalar N=1024 M=128
+[2026-11-22 02:22:50] PASS radius_scalar N=1024 M=128 sim=0.287ms
+[2026-11-22 02:22:50] RUN radius_rvv_m1 N=1024 M=128
+[2026-11-22 02:23:09] PASS radius_rvv_m1 N=1024 M=128 sim=0.154ms
+[2026-11-22 02:23:09] EXACT MATCH radius_rvv_m1 vs radius_scalar N=1024 M=128
+[2026-11-22 02:23:09] RUN radius_rvv_m2 N=1024 M=128
+[2026-11-22 02:23:32] STOPPED: CORRECTNESS MISMATCH radius_rvv_m2 vs radius_scalar N=1024 M=128 step=1
+Traceback (most recent call last):
+  File "/mnt/c/Users/lsadi/Documents/GitHub/RISCV-pointnet-acceleration/benchmark/overnight_fps.py", line 197, in <module>
+    main()
+  File "/mnt/c/Users/lsadi/Documents/GitHub/RISCV-pointnet-acceleration/benchmark/overnight_fps.py", line 182, in main
+    verify_group(1024,128,['radius_rvv_m1','radius_rvv_m2','radius_rvv_m4','radius_rvv_m8'], 'radius_scalar')
+  File "/mnt/c/Users/lsadi/Documents/GitHub/RISCV-pointnet-acceleration/benchmark/overnight_fps.py", line 164, in verify_group
+    indices = run(name, n, m, force=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/lsadi/Documents/GitHub/RISCV-pointnet-acceleration/benchmark/overnight_fps.py", line 154, in run
+    raise RuntimeError(f'CORRECTNESS MISMATCH {name} vs {peer} N={n} M={m} step={first}')
+RuntimeError: CORRECTNESS MISMATCH radius_rvv_m2 vs radius_scalar N=1024 M=128 step=1
+[2026-11-22 10:18:06] START; 26 controlled configurations; 10 LMUL configurations; resume enabled
+[2026-11-22 10:18:06] SKIP DONE ref_scalar N=1024 M=128
+[2026-11-22 10:18:06] SKIP DONE main_scalar N=1024 M=128
+[2026-11-22 10:18:06] EXACT MATCH main_scalar vs ref_scalar N=1024 M=128
+[2026-11-22 10:18:06] SKIP DONE main_rvv_m1 N=1024 M=128
+[2026-11-22 10:18:06] EXACT MATCH main_rvv_m1 vs ref_scalar N=1024 M=128
+[2026-11-22 10:18:06] SKIP DONE ref_rvv_m1 N=1024 M=128
+[2026-11-22 10:18:06] EXACT MATCH ref_rvv_m1 vs ref_scalar N=1024 M=128
+[2026-11-22 10:18:06] SKIP DONE main_rvv_m2 N=1024 M=128
+[2026-11-22 10:18:06] EXACT MATCH main_rvv_m2 vs ref_scalar N=1024 M=128
+[2026-11-22 10:18:06] SKIP DONE main_rvv_m4 N=1024 M=128
+[2026-11-22 10:18:06] EXACT MATCH main_rvv_m4 vs ref_scalar N=1024 M=128
+[2026-11-22 10:18:06] SKIP DONE main_rvv_m8 N=1024 M=128
+[2026-11-22 10:18:06] EXACT MATCH main_rvv_m8 vs ref_scalar N=1024 M=128
+[2026-11-22 10:18:06] SKIP DONE radius_scalar N=1024 M=128
+[2026-11-22 10:18:06] SKIP DONE radius_rvv_m1 N=1024 M=128
+[2026-11-22 10:18:06] EXACT MATCH radius_rvv_m1 vs radius_scalar N=1024 M=128
+[2026-11-22 10:18:06] PREFLIGHT CORRECTNESS PASSED; RadiusFPS LMUL 2/4/8 excluded (incorrect M2 output)
+[2026-11-22 10:18:06] SKIP DONE main_scalar N=1024 M=128
+[2026-11-22 10:18:06] RUN main_scalar N=2048 M=128
+[2026-11-22 10:18:38] PASS main_scalar N=2048 M=128 sim=0.563ms
+[2026-11-22 10:18:38] RUN main_scalar N=4096 M=128
+[2026-11-22 10:19:15] PASS main_scalar N=4096 M=128 sim=0.900ms
+[2026-11-22 10:19:15] RUN main_scalar N=10000 M=128
+[2026-11-22 10:20:01] PASS main_scalar N=10000 M=128 sim=1.896ms
+[2026-11-22 10:20:01] RUN main_scalar N=16384 M=128
+[2026-11-22 10:20:55] PASS main_scalar N=16384 M=128 sim=3.002ms
+[2026-11-22 10:20:55] RUN main_scalar N=20000 M=128
+[2026-11-22 10:21:59] PASS main_scalar N=20000 M=128 sim=3.559ms
+[2026-11-22 10:21:59] RUN main_scalar N=50000 M=128
+[2026-11-22 10:24:07] PASS main_scalar N=50000 M=128 sim=8.908ms
+[2026-11-22 10:24:07] RUN main_scalar N=100000 M=128
+[2026-11-22 10:27:13] PASS main_scalar N=100000 M=128 sim=16.683ms
+[2026-11-22 10:27:13] RUN main_scalar N=100000 M=32
+[2026-11-22 10:29:59] PASS main_scalar N=100000 M=32 sim=14.450ms
+[2026-11-22 10:29:59] RUN main_scalar N=100000 M=64
+[2026-11-22 10:32:31] PASS main_scalar N=100000 M=64 sim=15.189ms
+[2026-11-22 10:32:31] RUN main_scalar N=100000 M=256
+[2026-11-22 10:35:36] PASS main_scalar N=100000 M=256 sim=19.059ms
+[2026-11-22 10:35:36] RUN main_scalar N=100000 M=512
+[2026-11-22 10:39:17] PASS main_scalar N=100000 M=512 sim=22.845ms
+[2026-11-22 10:39:17] RUN main_scalar N=100000 M=1024
+[2026-11-22 10:43:53] PASS main_scalar N=100000 M=1024 sim=28.773ms
+[2026-11-22 10:43:54] RUN main_scalar N=100000 M=2048
+[2026-11-22 10:49:59] PASS main_scalar N=100000 M=2048 sim=38.570ms
+[2026-11-22 10:49:59] RUN main_scalar N=100000 M=4096
+[2026-11-22 10:59:42] PASS main_scalar N=100000 M=4096 sim=55.742ms
+[2026-11-22 10:59:42] RUN main_scalar N=50000 M=32
+[2026-11-22 11:01:11] PASS main_scalar N=50000 M=32 sim=7.293ms
+[2026-11-22 11:01:11] RUN main_scalar N=50000 M=64
+[2026-11-22 11:02:44] PASS main_scalar N=50000 M=64 sim=7.911ms
+[2026-11-22 11:02:44] RUN main_scalar N=50000 M=256
+[2026-11-22 11:04:50] PASS main_scalar N=50000 M=256 sim=10.201ms
+[2026-11-22 11:04:50] RUN main_scalar N=50000 M=512
+[2026-11-22 11:07:29] PASS main_scalar N=50000 M=512 sim=12.814ms
+[2026-11-22 11:07:29] RUN main_scalar N=50000 M=1024
+[2026-11-22 11:15:13] PASS main_scalar N=50000 M=1024 sim=17.109ms
+[2026-11-22 11:15:13] RUN main_scalar N=50000 M=2048
+[2026-11-22 11:27:16] PASS main_scalar N=50000 M=2048 sim=24.645ms
+[2026-11-22 11:27:16] RUN main_scalar N=50000 M=4096
+[2026-11-22 11:45:56] PASS main_scalar N=50000 M=4096 sim=38.295ms
+[2026-11-22 11:45:56] RUN main_scalar N=16384 M=512
+[2026-11-22 11:49:21] PASS main_scalar N=16384 M=512 sim=4.990ms
+[2026-11-22 11:49:22] RUN main_scalar N=16384 M=1024
+[2026-11-22 11:54:00] PASS main_scalar N=16384 M=1024 sim=7.488ms
+[2026-11-22 11:54:00] RUN main_scalar N=16384 M=2048
+[2026-11-22 12:00:55] PASS main_scalar N=16384 M=2048 sim=12.226ms
+[2026-11-22 12:00:55] RUN main_scalar N=16384 M=4096
+[2026-11-22 12:12:23] PASS main_scalar N=16384 M=4096 sim=21.734ms
+[2026-11-22 12:12:24] SKIP DONE main_rvv_m1 N=1024 M=128
+[2026-11-22 12:12:24] RUN main_rvv_m1 N=2048 M=128
+[2026-11-22 12:13:59] PASS main_rvv_m1 N=2048 M=128 sim=0.435ms
+[2026-11-22 12:13:59] RUN main_rvv_m1 N=4096 M=128
+[2026-11-22 12:15:35] PASS main_rvv_m1 N=4096 M=128 sim=0.637ms
+[2026-11-22 12:15:35] RUN main_rvv_m1 N=10000 M=128
+[2026-11-22 12:17:26] PASS main_rvv_m1 N=10000 M=128 sim=1.212ms
+[2026-11-22 12:17:26] RUN main_rvv_m1 N=16384 M=128
+[2026-11-22 12:19:38] PASS main_rvv_m1 N=16384 M=128 sim=2.079ms
+[2026-11-22 12:19:38] RUN main_rvv_m1 N=20000 M=128
+[2026-11-22 12:22:07] PASS main_rvv_m1 N=20000 M=128 sim=2.579ms
+[2026-11-22 12:22:07] RUN main_rvv_m1 N=50000 M=128
+[2026-11-22 12:25:53] PASS main_rvv_m1 N=50000 M=128 sim=6.453ms
+[2026-11-22 12:25:53] RUN main_rvv_m1 N=100000 M=128
+[2026-11-22 12:32:18] PASS main_rvv_m1 N=100000 M=128 sim=12.290ms
+[2026-11-22 12:32:18] RUN main_rvv_m1 N=100000 M=32
+[2026-11-22 12:38:27] PASS main_rvv_m1 N=100000 M=32 sim=11.464ms
+[2026-11-22 12:38:27] RUN main_rvv_m1 N=100000 M=64
+[2026-11-22 12:44:32] PASS main_rvv_m1 N=100000 M=64 sim=11.732ms
+[2026-11-22 12:44:32] RUN main_rvv_m1 N=100000 M=256
+[2026-11-22 12:50:25] PASS main_rvv_m1 N=100000 M=256 sim=13.185ms
+[2026-11-22 12:50:25] RUN main_rvv_m1 N=100000 M=512
+[2026-11-22 12:54:42] PASS main_rvv_m1 N=100000 M=512 sim=14.795ms
+[2026-11-22 12:54:42] RUN main_rvv_m1 N=100000 M=1024
+[2026-11-22 12:59:21] PASS main_rvv_m1 N=100000 M=1024 sim=17.495ms
+[2026-11-22 12:59:21] RUN main_rvv_m1 N=100000 M=2048
+[2026-11-22 13:07:29] PASS main_rvv_m1 N=100000 M=2048 sim=22.411ms
+[2026-11-22 13:07:29] RUN main_rvv_m1 N=100000 M=4096
+[2026-11-22 13:18:02] PASS main_rvv_m1 N=100000 M=4096 sim=31.615ms
+[2026-11-22 13:18:02] RUN main_rvv_m1 N=50000 M=32
+[2026-11-22 13:20:41] PASS main_rvv_m1 N=50000 M=32 sim=5.850ms
+[2026-11-22 13:20:41] RUN main_rvv_m1 N=50000 M=64
+[2026-11-22 13:23:26] PASS main_rvv_m1 N=50000 M=64 sim=6.069ms
+[2026-11-22 13:23:26] RUN main_rvv_m1 N=50000 M=256
+[2026-11-22 13:26:25] PASS main_rvv_m1 N=50000 M=256 sim=7.024ms
+[2026-11-22 13:26:25] RUN main_rvv_m1 N=50000 M=512
+[2026-11-22 13:29:45] PASS main_rvv_m1 N=50000 M=512 sim=8.170ms
+[2026-11-22 13:29:45] RUN main_rvv_m1 N=50000 M=1024
+[2026-11-22 13:34:25] PASS main_rvv_m1 N=50000 M=1024 sim=10.234ms
+[2026-11-22 13:34:25] RUN main_rvv_m1 N=50000 M=2048
+[2026-11-22 13:40:09] PASS main_rvv_m1 N=50000 M=2048 sim=14.059ms
+[2026-11-22 13:40:09] RUN main_rvv_m1 N=50000 M=4096
+[2026-11-22 13:47:56] PASS main_rvv_m1 N=50000 M=4096 sim=21.367ms
+[2026-11-22 13:47:56] RUN main_rvv_m1 N=16384 M=512
+[2026-11-22 13:50:01] PASS main_rvv_m1 N=16384 M=512 sim=2.939ms
+[2026-11-22 13:50:01] RUN main_rvv_m1 N=16384 M=1024
+[2026-11-22 13:52:43] PASS main_rvv_m1 N=16384 M=1024 sim=4.052ms
+[2026-11-22 13:52:43] RUN main_rvv_m1 N=16384 M=2048
+[2026-11-22 13:56:11] PASS main_rvv_m1 N=16384 M=2048 sim=6.246ms
+[2026-11-22 13:56:11] RUN main_rvv_m1 N=16384 M=4096
+[2026-11-22 14:01:37] PASS main_rvv_m1 N=16384 M=4096 sim=10.629ms
+[2026-11-22 14:01:37] SKIP DONE ref_rvv_m1 N=1024 M=128
+[2026-11-22 14:01:37] RUN ref_rvv_m1 N=2048 M=128
+[2026-11-22 14:02:57] PASS ref_rvv_m1 N=2048 M=128 sim=0.590ms
+[2026-11-22 14:02:57] RUN ref_rvv_m1 N=4096 M=128
+[2026-11-22 14:04:14] PASS ref_rvv_m1 N=4096 M=128 sim=0.858ms
+[2026-11-22 14:04:14] RUN ref_rvv_m1 N=10000 M=128
+[2026-11-22 14:05:53] PASS ref_rvv_m1 N=10000 M=128 sim=1.727ms
+[2026-11-22 14:05:53] RUN ref_rvv_m1 N=16384 M=128
+[2026-11-22 14:07:53] PASS ref_rvv_m1 N=16384 M=128 sim=2.632ms
+[2026-11-22 14:07:53] RUN ref_rvv_m1 N=20000 M=128
+[2026-11-22 14:09:51] PASS ref_rvv_m1 N=20000 M=128 sim=3.096ms
+[2026-11-22 14:09:51] RUN ref_rvv_m1 N=50000 M=128
+[2026-11-22 14:13:10] PASS ref_rvv_m1 N=50000 M=128 sim=7.186ms
+[2026-11-22 14:13:10] RUN ref_rvv_m1 N=100000 M=128
+[2026-11-22 14:17:42] PASS ref_rvv_m1 N=100000 M=128 sim=13.905ms
+[2026-11-22 14:17:42] RUN ref_rvv_m1 N=100000 M=32
+[2026-11-22 14:22:25] PASS ref_rvv_m1 N=100000 M=32 sim=11.866ms
+[2026-11-22 14:22:25] RUN ref_rvv_m1 N=100000 M=64
+[2026-11-22 14:27:08] PASS ref_rvv_m1 N=100000 M=64 sim=12.471ms
+[2026-11-22 14:27:08] RUN ref_rvv_m1 N=100000 M=256
+[2026-11-22 14:33:25] PASS ref_rvv_m1 N=100000 M=256 sim=16.320ms
+[2026-11-22 14:33:25] RUN ref_rvv_m1 N=100000 M=512
+[2026-11-22 14:39:08] PASS ref_rvv_m1 N=100000 M=512 sim=20.585ms
+[2026-11-22 14:39:08] RUN ref_rvv_m1 N=100000 M=1024
+[2026-11-22 14:45:59] PASS ref_rvv_m1 N=100000 M=1024 sim=27.898ms
+[2026-11-22 14:45:59] RUN ref_rvv_m1 N=100000 M=2048
+[2026-11-22 14:56:24] PASS ref_rvv_m1 N=100000 M=2048 sim=41.244ms
+[2026-11-22 14:56:24] RUN ref_rvv_m1 N=100000 M=4096
+[2026-11-22 15:12:22] PASS ref_rvv_m1 N=100000 M=4096 sim=66.544ms
+[2026-11-22 15:12:22] RUN ref_rvv_m1 N=50000 M=32
+[2026-11-22 15:14:36] PASS ref_rvv_m1 N=50000 M=32 sim=6.053ms
+[2026-11-22 15:14:36] RUN ref_rvv_m1 N=50000 M=64
+[2026-11-22 15:16:57] PASS ref_rvv_m1 N=50000 M=64 sim=6.467ms
+[2026-11-22 15:16:57] RUN ref_rvv_m1 N=50000 M=256
+[2026-11-22 15:19:32] PASS ref_rvv_m1 N=50000 M=256 sim=8.215ms
+[2026-11-22 15:19:32] RUN ref_rvv_m1 N=50000 M=512
+[2026-11-22 15:22:04] PASS ref_rvv_m1 N=50000 M=512 sim=10.371ms
+[2026-11-22 15:22:04] RUN ref_rvv_m1 N=50000 M=1024
+[2026-11-22 15:26:56] PASS ref_rvv_m1 N=50000 M=1024 sim=14.200ms
+[2026-11-22 15:26:56] RUN ref_rvv_m1 N=50000 M=2048
+[2026-11-22 15:31:07] PASS ref_rvv_m1 N=50000 M=2048 sim=21.315ms
+[2026-11-22 15:31:07] RUN ref_rvv_m1 N=50000 M=4096
+[2026-11-22 15:37:16] PASS ref_rvv_m1 N=50000 M=4096 sim=35.132ms
+[2026-11-22 15:37:16] RUN ref_rvv_m1 N=16384 M=512
+[2026-11-22 15:38:26] PASS ref_rvv_m1 N=16384 M=512 sim=4.379ms
+[2026-11-22 15:38:26] RUN ref_rvv_m1 N=16384 M=1024
+[2026-11-22 15:40:06] PASS ref_rvv_m1 N=16384 M=1024 sim=6.650ms
+[2026-11-22 15:40:06] RUN ref_rvv_m1 N=16384 M=2048
+[2026-11-22 15:42:25] PASS ref_rvv_m1 N=16384 M=2048 sim=11.064ms
+[2026-11-22 15:42:25] RUN ref_rvv_m1 N=16384 M=4096
+[2026-11-22 15:46:22] PASS ref_rvv_m1 N=16384 M=4096 sim=19.939ms
+[2026-11-22 15:46:22] SKIP DONE radius_rvv_m1 N=1024 M=128
+[2026-11-22 15:46:22] RUN radius_rvv_m1 N=2048 M=128
+[2026-11-22 15:46:39] PASS radius_rvv_m1 N=2048 M=128 sim=0.290ms
+[2026-11-22 15:46:39] RUN radius_rvv_m1 N=4096 M=128
+[2026-11-22 15:46:59] PASS radius_rvv_m1 N=4096 M=128 sim=0.473ms
+[2026-11-22 15:46:59] RUN radius_rvv_m1 N=10000 M=128
+[2026-11-22 15:47:28] PASS radius_rvv_m1 N=10000 M=128 sim=1.777ms
+[2026-11-22 15:47:28] RUN radius_rvv_m1 N=16384 M=128
+[2026-11-22 15:47:56] PASS radius_rvv_m1 N=16384 M=128 sim=1.928ms
+[2026-11-22 15:47:56] RUN radius_rvv_m1 N=20000 M=128
+[2026-11-22 15:48:28] PASS radius_rvv_m1 N=20000 M=128 sim=2.485ms
+[2026-11-22 15:48:29] RUN radius_rvv_m1 N=50000 M=128
+[2026-11-22 15:49:29] PASS radius_rvv_m1 N=50000 M=128 sim=6.291ms
+[2026-11-22 15:49:29] RUN radius_rvv_m1 N=100000 M=128
+[2026-11-22 15:51:10] PASS radius_rvv_m1 N=100000 M=128 sim=12.242ms
+[2026-11-22 15:51:10] RUN radius_rvv_m1 N=100000 M=32
+[2026-11-22 15:52:40] PASS radius_rvv_m1 N=100000 M=32 sim=10.731ms
+[2026-11-22 15:52:40] RUN radius_rvv_m1 N=100000 M=64
+[2026-11-22 15:54:16] PASS radius_rvv_m1 N=100000 M=64 sim=11.220ms
+[2026-11-22 15:54:16] RUN radius_rvv_m1 N=100000 M=256
+[2026-11-22 15:56:11] PASS radius_rvv_m1 N=100000 M=256 sim=14.140ms
+[2026-11-22 15:56:11] RUN radius_rvv_m1 N=100000 M=512
+[2026-11-22 15:58:21] PASS radius_rvv_m1 N=100000 M=512 sim=17.367ms
+[2026-11-22 15:58:21] RUN radius_rvv_m1 N=100000 M=1024
+[2026-11-22 16:01:25] PASS radius_rvv_m1 N=100000 M=1024 sim=22.758ms
+[2026-11-22 16:01:25] RUN radius_rvv_m1 N=100000 M=2048
+[2026-11-22 16:05:48] PASS radius_rvv_m1 N=100000 M=2048 sim=32.388ms
+[2026-11-22 16:05:48] RUN radius_rvv_m1 N=100000 M=4096
+[2026-11-22 16:12:41] PASS radius_rvv_m1 N=100000 M=4096 sim=51.240ms
+[2026-11-22 16:12:41] RUN radius_rvv_m1 N=50000 M=32
+[2026-11-22 16:13:31] PASS radius_rvv_m1 N=50000 M=32 sim=5.314ms
+[2026-11-22 16:13:31] RUN radius_rvv_m1 N=50000 M=64
+[2026-11-22 16:14:26] PASS radius_rvv_m1 N=50000 M=64 sim=5.686ms
+[2026-11-22 16:14:26] RUN radius_rvv_m1 N=50000 M=256
+[2026-11-22 16:15:32] PASS radius_rvv_m1 N=50000 M=256 sim=7.116ms
+[2026-11-22 16:15:32] RUN radius_rvv_m1 N=50000 M=512
+[2026-11-22 16:16:54] PASS radius_rvv_m1 N=50000 M=512 sim=8.806ms
+[2026-11-22 16:16:54] RUN radius_rvv_m1 N=50000 M=1024
+[2026-11-22 16:18:41] PASS radius_rvv_m1 N=50000 M=1024 sim=11.792ms
+[2026-11-22 16:18:41] RUN radius_rvv_m1 N=50000 M=2048
+[2026-11-22 16:21:23] PASS radius_rvv_m1 N=50000 M=2048 sim=17.356ms
+[2026-11-22 16:21:23] RUN radius_rvv_m1 N=50000 M=4096
+[2026-11-22 16:25:53] PASS radius_rvv_m1 N=50000 M=4096 sim=28.644ms
+[2026-11-22 16:25:53] RUN radius_rvv_m1 N=16384 M=512
+[2026-11-22 16:26:31] PASS radius_rvv_m1 N=16384 M=512 sim=2.753ms
+[2026-11-22 16:26:31] RUN radius_rvv_m1 N=16384 M=1024
+[2026-11-22 16:27:24] PASS radius_rvv_m1 N=16384 M=1024 sim=3.791ms
+[2026-11-22 16:27:24] RUN radius_rvv_m1 N=16384 M=2048
+[2026-11-22 16:28:42] PASS radius_rvv_m1 N=16384 M=2048 sim=5.843ms
+[2026-11-22 16:28:42] RUN radius_rvv_m1 N=16384 M=4096
+[2026-11-22 16:30:53] PASS radius_rvv_m1 N=16384 M=4096 sim=10.111ms
+[2026-11-22 16:30:53] SKIP DONE ref_scalar N=1024 M=128
+[2026-11-22 16:30:53] REUSE HISTORY ref_scalar N=2048 M=128
+[2026-11-22 16:30:53] REUSE HISTORY ref_scalar N=4096 M=128
+[2026-11-22 16:30:53] REUSE HISTORY ref_scalar N=10000 M=128
+[2026-11-22 16:30:53] RUN ref_scalar N=16384 M=128
+[2026-11-22 16:31:48] PASS ref_scalar N=16384 M=128 sim=2.910ms
+[2026-11-22 16:31:48] REUSE HISTORY ref_scalar N=20000 M=128
+[2026-11-22 16:31:48] REUSE HISTORY ref_scalar N=50000 M=128
+[2026-11-22 16:31:48] REUSE HISTORY ref_scalar N=100000 M=128
+[2026-11-22 16:31:48] REUSE HISTORY ref_scalar N=100000 M=32
+[2026-11-22 16:31:48] REUSE HISTORY ref_scalar N=100000 M=64
+[2026-11-22 16:31:48] REUSE HISTORY ref_scalar N=100000 M=256
+[2026-11-22 16:31:48] REUSE HISTORY ref_scalar N=100000 M=512
+[2026-11-22 16:31:48] REUSE HISTORY ref_scalar N=100000 M=1024
+[2026-11-22 16:31:49] RUN ref_scalar N=100000 M=2048
+[2026-11-22 16:42:09] PASS ref_scalar N=100000 M=2048 sim=74.545ms
+[2026-11-22 16:42:09] RUN ref_scalar N=100000 M=4096
+[2026-11-22 16:59:33] PASS ref_scalar N=100000 M=4096 sim=124.899ms
+[2026-11-22 16:59:33] RUN ref_scalar N=50000 M=32
+[2026-11-22 17:01:06] PASS ref_scalar N=50000 M=32 sim=6.968ms
+[2026-11-22 17:01:06] RUN ref_scalar N=50000 M=64
+[2026-11-22 17:03:10] PASS ref_scalar N=50000 M=64 sim=7.797ms
+[2026-11-22 17:03:10] RUN ref_scalar N=50000 M=256
+[2026-11-22 17:05:12] PASS ref_scalar N=50000 M=256 sim=11.041ms
+[2026-11-22 17:05:12] RUN ref_scalar N=50000 M=512
+[2026-11-22 17:08:42] PASS ref_scalar N=50000 M=512 sim=14.890ms
+[2026-11-22 17:08:42] RUN ref_scalar N=50000 M=1024
+[2026-11-22 17:12:33] PASS ref_scalar N=50000 M=1024 sim=21.367ms
+[2026-11-22 17:12:33] RUN ref_scalar N=50000 M=2048
+[2026-11-22 17:18:45] PASS ref_scalar N=50000 M=2048 sim=32.989ms
+[2026-11-22 17:18:45] RUN ref_scalar N=50000 M=4096
+[2026-11-22 17:30:14] PASS ref_scalar N=50000 M=4096 sim=55.208ms
+[2026-11-22 17:30:14] RUN ref_scalar N=16384 M=512
+[2026-11-22 17:31:53] PASS ref_scalar N=16384 M=512 sim=5.188ms
+[2026-11-22 17:31:53] RUN ref_scalar N=16384 M=1024
+[2026-11-22 17:34:13] PASS ref_scalar N=16384 M=1024 sim=8.088ms
+[2026-11-22 17:34:13] RUN ref_scalar N=16384 M=2048
+[2026-11-22 17:37:51] PASS ref_scalar N=16384 M=2048 sim=13.629ms
+[2026-11-22 17:37:51] RUN ref_scalar N=16384 M=4096
+[2026-11-22 17:44:04] PASS ref_scalar N=16384 M=4096 sim=24.759ms
+[2026-11-22 17:44:04] SKIP DONE radius_scalar N=1024 M=128
+[2026-11-22 17:44:04] REUSE HISTORY radius_scalar N=2048 M=128
+[2026-11-22 17:44:04] REUSE HISTORY radius_scalar N=4096 M=128
+[2026-11-22 17:44:04] REUSE HISTORY radius_scalar N=10000 M=128
+[2026-11-22 17:44:05] RUN radius_scalar N=16384 M=128
+[2026-11-22 17:44:47] PASS radius_scalar N=16384 M=128 sim=4.017ms
+[2026-11-22 17:44:47] REUSE HISTORY radius_scalar N=20000 M=128
+[2026-11-22 17:44:48] REUSE HISTORY radius_scalar N=50000 M=128
+[2026-11-22 17:44:48] REUSE HISTORY radius_scalar N=100000 M=128
+[2026-11-22 17:44:48] REUSE HISTORY radius_scalar N=100000 M=32
+[2026-11-22 17:44:48] REUSE HISTORY radius_scalar N=100000 M=64
+[2026-11-22 17:44:49] REUSE HISTORY radius_scalar N=100000 M=256
+[2026-11-22 17:44:49] REUSE HISTORY radius_scalar N=100000 M=512
+[2026-11-22 17:44:49] REUSE HISTORY radius_scalar N=100000 M=1024
+[2026-11-22 17:44:49] RUN radius_scalar N=100000 M=2048
+[2026-11-22 17:53:52] PASS radius_scalar N=100000 M=2048 sim=53.331ms
+[2026-11-22 17:53:52] RUN radius_scalar N=100000 M=4096
+[2026-11-22 18:07:30] PASS radius_scalar N=100000 M=4096 sim=81.903ms
+[2026-11-22 18:07:30] RUN radius_scalar N=50000 M=32
+[2026-11-22 18:09:15] PASS radius_scalar N=50000 M=32 sim=10.694ms
+[2026-11-22 18:09:15] RUN radius_scalar N=50000 M=64
+[2026-11-22 18:10:53] PASS radius_scalar N=50000 M=64 sim=11.286ms
+[2026-11-22 18:10:53] RUN radius_scalar N=50000 M=256
+[2026-11-22 18:13:09] PASS radius_scalar N=50000 M=256 sim=13.745ms
+[2026-11-22 18:13:10] RUN radius_scalar N=50000 M=512
+[2026-11-22 18:15:52] PASS radius_scalar N=50000 M=512 sim=16.737ms
+[2026-11-22 18:15:52] RUN radius_scalar N=50000 M=1024
+[2026-11-22 18:19:24] PASS radius_scalar N=50000 M=1024 sim=22.256ms
+[2026-11-22 18:19:24] RUN radius_scalar N=50000 M=2048
+[2026-11-22 18:24:49] PASS radius_scalar N=50000 M=2048 sim=32.843ms
+[2026-11-22 18:24:49] RUN radius_scalar N=50000 M=4096
+[2026-11-22 18:34:04] PASS radius_scalar N=50000 M=4096 sim=53.957ms
+[2026-11-22 18:34:04] RUN radius_scalar N=16384 M=512
+[2026-11-22 18:35:06] PASS radius_scalar N=16384 M=512 sim=5.791ms
+[2026-11-22 18:35:07] RUN radius_scalar N=16384 M=1024
+[2026-11-22 18:36:43] PASS radius_scalar N=16384 M=1024 sim=8.061ms
+[2026-11-22 18:36:43] RUN radius_scalar N=16384 M=2048
+[2026-11-22 18:39:11] PASS radius_scalar N=16384 M=2048 sim=12.545ms
+[2026-11-22 18:39:11] RUN radius_scalar N=16384 M=4096
+[2026-11-22 18:42:48] PASS radius_scalar N=16384 M=4096 sim=21.662ms
+[2026-11-22 18:42:48] RUN main_rvv_m2 N=16384 M=128
+[2026-11-22 18:43:42] PASS main_rvv_m2 N=16384 M=128 sim=2.040ms
+[2026-11-22 18:43:42] RUN main_rvv_m2 N=16384 M=512
+[2026-11-22 18:44:36] PASS main_rvv_m2 N=16384 M=512 sim=2.857ms
+[2026-11-22 18:44:36] RUN main_rvv_m2 N=16384 M=1024
+[2026-11-22 18:45:45] PASS main_rvv_m2 N=16384 M=1024 sim=3.919ms
+[2026-11-22 18:45:45] RUN main_rvv_m2 N=16384 M=2048
+[2026-11-22 18:47:28] PASS main_rvv_m2 N=16384 M=2048 sim=6.014ms
+[2026-11-22 18:47:28] RUN main_rvv_m2 N=16384 M=4096
+[2026-11-22 18:49:53] PASS main_rvv_m2 N=16384 M=4096 sim=10.212ms
+[2026-11-22 18:49:53] RUN main_rvv_m2 N=100000 M=128
+[2026-11-22 18:51:56] PASS main_rvv_m2 N=100000 M=128 sim=12.144ms
+[2026-11-22 18:51:56] RUN main_rvv_m2 N=100000 M=512
+[2026-11-22 18:54:22] STOPPED: CORRECTNESS MISMATCH main_rvv_m2 vs main_scalar N=100000 M=512 step=350
+Traceback (most recent call last):
+  File "/mnt/c/Users/lsadi/Documents/GitHub/RISCV-pointnet-acceleration/benchmark/overnight_fps.py", line 208, in <module>
+    main()
+  File "/mnt/c/Users/lsadi/Documents/GitHub/RISCV-pointnet-acceleration/benchmark/overnight_fps.py", line 202, in main
+    run(name,n,m)
+  File "/mnt/c/Users/lsadi/Documents/GitHub/RISCV-pointnet-acceleration/benchmark/overnight_fps.py", line 165, in run
+    raise RuntimeError(f'CORRECTNESS MISMATCH {name} vs {peer} N={n} M={m} step={first}')
+RuntimeError: CORRECTNESS MISMATCH main_rvv_m2 vs main_scalar N=100000 M=512 step=350

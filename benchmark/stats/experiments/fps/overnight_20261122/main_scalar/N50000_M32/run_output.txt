@@ -1,0 +1,87 @@
+warn: Base 10 memory/cache size 8GB will be cast to base 2 size 8GiB.
+warn: The `CustomResource` class is deprecated. Please use an `AbstractResource` subclass instead.
+warn: Base 10 memory/cache size 32kB will be cast to base 2 size 32KiB.
+warn: Base 10 memory/cache size 32kB will be cast to base 2 size 32KiB.
+warn: Base 10 memory/cache size 512kB will be cast to base 2 size 512KiB.
+Global frequency set at 1000000000000 ticks per second
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (16384 Mbytes) does not match the address range assigned (8192 Mbytes)
+src/arch/riscv/isa.cc:321: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+board.remote_gdb: Listening for connections on port 7000
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Jul  6 2026 16:59:53
+gem5 started Nov 22 2026 10:59:43
+gem5 executing on Sadiksha, pid 2012
+command line: /mnt/c/Users/lsadi/Documents/GitHub/RISCV-pointnet-acceleration/gem5/build/RISCV/gem5.opt --outdir=/mnt/c/Users/lsadi/Documents/GitHub/RISCV-pointnet-acceleration/benchmark/stats/experiments/fps/overnight_20261122/main_scalar/N50000_M32 /mnt/c/Users/lsadi/Documents/GitHub/RISCV-pointnet-acceleration/benchmark/cpu/riscv_fps_comparison.py bin/spherical_fps_main_scalar datasets/kitti/0000000000.bin 50000 32
+
+Starting RISC-V simulation: bin/spherical_fps_main_scalar
+KITTI frame: datasets/kitti/0000000000.bin
+Point count N: 50000
+Sample count M: 32
+src/sim/syscall_emul.cc:97: warn: ignoring syscall set_robust_list(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/mnt/c/Users/lsadi/Documents/GitHub/RISCV-pointnet-acceleration/bin/spherical_fps_main_scalar'
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+PREPARATION_MS=5.267392
+SAMPLING_MS=2.025233
+TOTAL_MS=7.292625
+ALGORITHM=SphericalFPS_Scalar
+DATASET=datasets/kitti/0000000000.bin
+N=50000
+M=32
+AZ_BINS=24
+EL_BINS=8
+RAD_BINS=6
+OCCUPIED_REGIONS=128
+REGION_TESTS=3968
+REGIONS_SKIPPED=3321
+POINT_DISTANCE_EVALS=244187
+SKIPPED_POINT_EVALS=1305813
+DISTANCE_EVAL_REDUCTION_PCT=84.24600
+FPS_INDEX[0]=0
+FPS_INDEX[1]=3052
+FPS_INDEX[2]=20530
+FPS_INDEX[3]=853
+FPS_INDEX[4]=29561
+FPS_INDEX[5]=30686
+FPS_INDEX[6]=7897
+FPS_INDEX[7]=14320
+FPS_INDEX[8]=30792
+FPS_INDEX[9]=6898
+FPS_INDEX[10]=2230
+FPS_INDEX[11]=5199
+FPS_INDEX[12]=17736
+FPS_INDEX[13]=16862
+FPS_INDEX[14]=11873
+FPS_INDEX[15]=861
+FPS_INDEX[16]=2026
+FPS_INDEX[17]=15775
+FPS_INDEX[18]=8771
+FPS_INDEX[19]=2499
+FPS_INDEX[20]=38754
+FPS_INDEX[21]=1022
+FPS_INDEX[22]=20679
+FPS_INDEX[23]=24725
+FPS_INDEX[24]=49823
+FPS_INDEX[25]=33885
+FPS_INDEX[26]=962
+FPS_INDEX[27]=1932
+FPS_INDEX[28]=27726
+FPS_INDEX[29]=1548
+FPS_INDEX[30]=35799
+FPS_INDEX[31]=4800
+MICRO_CHECKS=1590
+MICRO_SKIPS=118
+MICRO_SKIPPED_POINTS=12762
+CONE_TESTS=0
+CONE_SKIPS=0
+CONE_POINTS=0
+CORRECTNESS=NOT_CHECKED (performance-only run)
+RISC-V simulation finished successfully.

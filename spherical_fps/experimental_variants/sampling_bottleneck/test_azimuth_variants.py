@@ -16,10 +16,10 @@ import subprocess
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-ROOT = next((p for p in (HERE, *HERE.parents) if (p / "spherical_fps/main_implementation/spherical_fps.cpp").is_file()), None)
+ROOT = next((p for p in (HERE, *HERE.parents) if (p / "spherical_fps/ref_implementation/spherical_fps.cpp").is_file()), None)
 if ROOT is None:
-    raise SystemExit("ERROR: Could not locate repository root containing spherical_fps/main_implementation/spherical_fps.cpp")
-SOURCE = ROOT / "spherical_fps/main_implementation/spherical_fps.cpp"
+    raise SystemExit("ERROR: Could not locate repository root containing spherical_fps/ref_implementation/spherical_fps.cpp")
+SOURCE = ROOT / "spherical_fps/ref_implementation/spherical_fps.cpp"
 DATA = ROOT / "datasets/kitti/0000000000.bin"
 OUT = HERE / "results/azimuth_variants"
 N = 100000

@@ -82,10 +82,10 @@ static std::vector<int> spherical_fps(const std::vector<float>& xyz,int n,int m,
 '''
 
 def main():
-    root=next((p for p in (HERE,*HERE.parents) if (p/'spherical_fps/main_implementation/spherical_fps.cpp').exists()),None)
+    root=next((p for p in (HERE,*HERE.parents) if (p/'spherical_fps/ref_implementation/spherical_fps.cpp').exists()),None)
     ap=argparse.ArgumentParser();ap.add_argument('--source',type=Path);ap.add_argument('--dataset',type=Path);ap.add_argument('--compiler',default='g++');ap.add_argument('--case',action='append',help='N,M (repeatable)');args=ap.parse_args()
     if root is None and (args.source is None or args.dataset is None): raise SystemExit('Place in sampling_bottleneck or supply --source and --dataset.')
-    source=args.source or root/'spherical_fps/main_implementation/spherical_fps.cpp'
+    source=args.source or root/'spherical_fps/ref_implementation/spherical_fps.cpp'
     data=args.dataset or root/'datasets/kitti/0000000000.bin'
     out=HERE/'results/spherical_angular_bounds';out.mkdir(parents=True,exist_ok=True)
     original=source.read_text(encoding='utf-8');start=original.index('static std::vector<int> spherical_fps(');end=original.index('int main(',start)

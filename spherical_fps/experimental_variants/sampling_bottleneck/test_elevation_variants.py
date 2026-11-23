@@ -19,13 +19,13 @@ from pathlib import Path
 
 def find_root(script: Path) -> Path:
     for parent in [script.parent, *script.parents]:
-        if (parent / 'spherical_fps/main_implementation/spherical_fps.cpp').is_file():
+        if (parent / 'spherical_fps/ref_implementation/spherical_fps.cpp').is_file():
             return parent
     raise SystemExit('ERROR: Could not find repository root containing F2 source.')
 
 
 ROOT = find_root(Path(__file__).resolve())
-SOURCE = ROOT / 'spherical_fps/main_implementation/spherical_fps.cpp'
+SOURCE = ROOT / 'spherical_fps/ref_implementation/spherical_fps.cpp'
 DATA = ROOT / 'datasets/kitti/0000000000.bin'
 OUT = Path(__file__).resolve().parent / 'results/elevation_variants'
 OUT.mkdir(parents=True, exist_ok=True)

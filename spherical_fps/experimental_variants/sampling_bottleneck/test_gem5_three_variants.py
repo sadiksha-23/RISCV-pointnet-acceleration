@@ -5,7 +5,7 @@ Put this file in:
   spherical_fps/experimental_variants/sampling_bottleneck/test_gem5_three_variants.py
 
 Sources:
-  - Original F2 from main_implementation/spherical_fps.cpp (never modified)
+  - Original F2 from ref_implementation/spherical_fps.cpp (never modified)
   - Combined F2 from prior test_combined_vs_cartesian_radius.py output
   - AABB-first derived conservatively from original F2
   - Combined + AABB-first derived conservatively from combined F2
@@ -29,11 +29,11 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = next((p for p in (HERE, *HERE.parents)
-             if (p / "spherical_fps/main_implementation/spherical_fps.cpp").is_file()), None)
+             if (p / "spherical_fps/ref_implementation/spherical_fps.cpp").is_file()), None)
 if ROOT is None:
     raise SystemExit("Place this script inside the RISCV-pointnet-acceleration repository.")
 
-F2 = ROOT / "spherical_fps/main_implementation/spherical_fps.cpp"
+F2 = ROOT / "spherical_fps/ref_implementation/spherical_fps.cpp"
 COMBINED = HERE / "results/combined_vs_cartesian_radius/f2_combined_quadrant_sign_first.cpp"
 RESULTS = HERE / "results/gem5_three_variants"
 DATASET = ROOT / "datasets/kitti/0000000000.bin"
@@ -193,7 +193,7 @@ def main() -> None:
     for p in (src_out, bin_out, native_out):
         p.mkdir(parents=True, exist_ok=True)
 
-    # Build from the two EXISTING implementations—never edit main_implementation.
+    # Build from the two EXISTING implementations—never edit ref_implementation.
     original = F2.read_text(encoding="utf-8")
     combined = COMBINED.read_text(encoding="utf-8")
     if "f2_elevation_above(" not in combined:

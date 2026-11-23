@@ -15,7 +15,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[3]
-SOURCE = ROOT / "spherical_fps/main_implementation/spherical_fps.cpp"
+SOURCE = ROOT / "spherical_fps/ref_implementation/spherical_fps.cpp"
 DEFAULT_DATA = ROOT / "datasets/kitti/0000000000.bin"
 OUTDIR = Path(__file__).resolve().parent / "results" / "bound_contributions"
 

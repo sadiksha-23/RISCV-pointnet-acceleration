@@ -1,0 +1,12 @@
+name,N,M,status,prep_ms,sample_ms,total_ms,sim_ms,sim_insts,index_count,source,timestamp,note
+main_rvv_m2,1024,128,PASS,0.157509,0.099319,0.256828,0.257288,828132,128,benchmark/stats/experiments/fps/overnight_20261122/main_rvv_m2/N1024_M128/run_output.txt,2026-11-22T02:21:12,
+main_rvv_m4,1024,128,PASS,0.157509,0.096036,0.253545,0.254011,816608,128,benchmark/stats/experiments/fps/overnight_20261122/main_rvv_m4/N1024_M128/run_output.txt,2026-11-22T02:21:50,
+main_rvv_m8,1024,128,PASS,0.271945,0.115568,0.387513,0.387923,896010,128,benchmark/stats/experiments/fps/overnight_20261122/main_rvv_m8/N1024_M128/run_output.txt,2026-11-22T02:22:31,
+radius_rvv_m2,1024,128,CORRECTNESS_MISMATCH,,,,,,128,,2026-11-22T02:23:32,vs radius_scalar; first mismatch step=1
+main_rvv_m2,16384,128,PASS,1.620916,0.418795,2.039711,2.040227,7270207,128,benchmark/stats/experiments/fps/overnight_20261122/main_rvv_m2/N16384_M128/run_output.txt,2026-11-22T18:43:42,
+main_rvv_m2,16384,512,PASS,1.620916,1.235826,2.856742,2.857288,10145968,512,benchmark/stats/experiments/fps/overnight_20261122/main_rvv_m2/N16384_M512/run_output.txt,2026-11-22T18:44:36,
+main_rvv_m2,16384,1024,PASS,1.620916,2.297094,3.918010,3.918887,13949125,1024,benchmark/stats/experiments/fps/overnight_20261122/main_rvv_m2/N16384_M1024/run_output.txt,2026-11-22T18:45:45,
+main_rvv_m2,16384,2048,PASS,1.620916,4.392322,6.013238,6.013801,21495927,2048,benchmark/stats/experiments/fps/overnight_20261122/main_rvv_m2/N16384_M2048/run_output.txt,2026-11-22T18:47:28,
+main_rvv_m2,16384,4096,PASS,1.620916,8.590183,10.211099,10.211787,36599201,4096,benchmark/stats/experiments/fps/overnight_20261122/main_rvv_m2/N16384_M4096/run_output.txt,2026-11-22T18:49:53,
+main_rvv_m2,100000,128,PASS,10.198230,1.945083,12.143313,12.144016,39621975,128,benchmark/stats/experiments/fps/overnight_20261122/main_rvv_m2/N100000_M128/run_output.txt,2026-11-22T18:51:56,
+main_rvv_m2,100000,512,CORRECTNESS_MISMATCH,,,,,,512,,2026-11-22T18:54:22,vs main_scalar; first mismatch step=350
